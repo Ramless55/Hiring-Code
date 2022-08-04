@@ -1,12 +1,11 @@
-const bcrypt = require('bcrypt')
 const httpStatus = require('../helpers/httpStatus')
 
-const userController = (User) => {
-    const getAllUser = async (req, res, next) => {
+const publicationController = (Publication) => {
+    const getAllPublication = async (req, res, next) => {
         try {
             const { query } = req
 
-            const response = await User.find(query)
+            const response = await Publication.find(query)
 
             return res.status(httpStatus.OK).json(response)
         } catch (err) {
@@ -14,32 +13,25 @@ const userController = (User) => {
         }
     }
 
-    const postUser = async (req, res, next) => {
+    const postPublication = async (req, res, next) => {
         try {
             const { body } = req
 
-            const encryptedPassword = await bcrypt.hash(body.password, 10)
+            const publication = await new Publication(body)
 
-            const encryptedData = {
-                ...body,
-                password: encryptedPassword
-            }
+            await publication.save()
 
-            const user = await new User(encryptedData)
-
-            await user.save()
-
-            return res.status(httpStatus.CREATED).json(user)
+            return res.status(httpStatus.CREATED).json(publication)
         } catch (err) {
             next(err)
         }
     }
 
-    const putUserById = async (req, res, next) => {
+    const putPublicationById = async (req, res, next) => {
         try {
             const { body, params } = req
 
-            const checkData = await User.find({
+            const checkData = await Publication.find({
                 _id: params.id
             })
 
@@ -47,24 +39,20 @@ const userController = (User) => {
                 return res.status(httpStatus.FORBIDDEN).send('No data found with the provided ID.')
             }
 
-            const encryptedPassword = await bcrypt.hash(body.password, 10)
-
-            await User.updateOne(
+            await Publication.updateOne(
                 {
                     _id: params.id
                 },
                 {
                     $set: {
-                        name: body.name,
-                        lastName: body.lastName,
-                        username: body.username,
-                        phone: body.phone,
-                        country: body.country,
-                        date: body.date,
-                        password: encryptedPassword,
-                        email: body.email,
-                        address: body.address,
-                        image: body.image,
+                        ceated_by: body.ceated_by,
+                        title: body.title,
+                        description: body.description,
+                        files: body.files,
+                        created_date: body.created_date,
+                        price: body.price,
+                        labels: body.labels,
+                        rating: body.rating,
                     }
                 }
             )
@@ -75,11 +63,11 @@ const userController = (User) => {
         }
     }
 
-    const getUserById = async (req, res, next) => {
+    const getPublicationById = async (req, res, next) => {
         try {
             const { params } = req
 
-            const checkData = await User.find({
+            const checkData = await Publication.find({
                 _id: params.id
             })
 
@@ -87,7 +75,7 @@ const userController = (User) => {
                 return res.status(httpStatus.FORBIDDEN).send('No data found with the provided ID.')
             }
 
-            const response = await User.findById(params.id)
+            const response = await Publication.findById(params.id)
 
             return res.status(httpStatus.OK).json(response)
         } catch (err) {
@@ -95,11 +83,11 @@ const userController = (User) => {
         }
     }
 
-    const deleteUserById = async (req, res, next) => {
+    const deletePublicationById = async (req, res, next) => {
         try {
             const { params } = req
 
-            const checkData = await User.find({
+            const checkData = await Publication.find({
                 _id: params.id
             })
 
@@ -107,7 +95,7 @@ const userController = (User) => {
                 return res.status(httpStatus.FORBIDDEN).send('No data found with the provided ID.')
             }
 
-            await User.findByIdAndDelete(params.id)
+            await Publication.findByIdAndDelete(params.id)
 
             return res.status(httpStatus.OK).send('Data successful deleted')
         } catch (err) {
@@ -116,12 +104,12 @@ const userController = (User) => {
     }
 
     return {
-        getAllUser,
-        getUserById,
-        postUser,
-        putUserById,
-        deleteUserById
+        getAllPublication,
+        getPublicationById,
+        postPublication,
+        putPublicationById,
+        deletePublicationById
     }
 }
 
-module.exports = userController
+module.exports = publicationController

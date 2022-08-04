@@ -1,5 +1,7 @@
 const Joi = require('joi');
 
+//rating no puede tener .trim por ser un numer
+
 const bodyValidator = Joi.object({
   name: Joi.string().alphanum().min(3).max(60).trim().required(),
   lastName: Joi.string().alphanum().min(3).max(60).trim().required(),
@@ -11,7 +13,7 @@ const bodyValidator = Joi.object({
   email: Joi.string().email().required().min(5).max(50).trim(),
   address: Joi.string().required().min(5).max(50).trim(),
   image: Joi.string().required(),
-  rating: Joi.number().required().min(1).max(5).trim(),
+  rating: Joi.number().required().min(1).max(5),
   role: Joi.string().required().min(3).max(30).trim()
 });
 

@@ -1,10 +1,13 @@
 const express = require('express')
 
 const User = require('./models/userModel')
+const Publication = require('./models/publicationModel')
+const Opinion = require('./models/opinionModel')
 
 const userRouter = require('./routes/userRouter')(User)
 const authRouter = require('./routes/authRouter')(User)
-
+const publicationRouter = require('./routes/publicationRouter')(Publication)
+const opinionRouter = require('./routes/opinionRouter')(Opinion)
 
 const errorHandler = require('./middleware/errorHandler')
 const httpStatus = require('./helpers/httpStatus')
@@ -20,7 +23,7 @@ app.use(express.json());
 
 app.all('/*',
     expressjwt({ secret: process.env.SECRET, algorithms: ['HS256'] }).unless({
-            path: ['/auth/login', '/auth/register', '/api/user']
+            path: ['/auth/login', '/auth/register', '/api/user', '/api/opinion', '/api/publication']
         })
 )
 
@@ -35,7 +38,7 @@ app.use((err, _, res, next) => {
     }
 })
 
-app.use('/api', userRouter)
+app.use('/api', userRouter, publicationRouter, opinionRouter)
 app.use('/', authRouter)
 
 
