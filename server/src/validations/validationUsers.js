@@ -1,33 +1,30 @@
 const Joi = require('joi');
 
 const bodyValidator = Joi.object({
-  name: Joi.string().alphanum().min(3).max(30).trim().required(),
-  lastName: Joi.string().alphanum().min(3).max(30).trim().required(),
-  userName: Joi.string().min(6).max(16).required(),
-  password: Joi.string().required(),
-  phone: Joi.string().min(9).max(13).required(),
-  country: Joi.string().required(),
-  date: Joi.string().required(),
-  email: Joi.string().email().required(),
-  address: Joi.string().required(),
+  name: Joi.string().alphanum().min(3).max(60).trim().required(),
+  lastName: Joi.string().alphanum().min(3).max(60).trim().required(),
+  userName: Joi.string().min(6).max(50).required().trim(),
+  password: Joi.string().required().trim().min(8).max(60),
+  phone: Joi.string().min(11).max(14).required().trim(),
+  country: Joi.string().required().min(3).max(58).trim(),
+  date: Joi.string().required().length(10).trim(),
+  email: Joi.string().email().required().min(5).max(50).trim(),
+  address: Joi.string().required().min(5).max(50).trim(),
   image: Joi.string().required(),
+  rating: Joi.number().required().min(1).max(5).trim(),
+  role: Joi.string().required().min(3).max(30).trim()
 });
 
 const queryValidator = Joi.object({
-  name: Joi.string().min(3).max(30).trim(),
-  lastName: Joi.string().min(3).max(30).trim(),
-  userName: Joi.string().min(3).max(100).trim(),
-  country: Joi.string(),
-  address: Joi.string(),
+  name: Joi.string().min(3).max(60).trim(),
+  lastName: Joi.string().min(3).max(60).trim(),
+  userName: Joi.string().min(6).max(50).trim(),
+  country: Joi.string().min(3).max(58).trim(),
+  address: Joi.string().min(5).max(50).trim()
 })
 
 const paramsValidator = Joi.object({
   id: Joi.string().alphanum().length(24).required()
 })
 
-const bodyAuthValidator = Joi.object({
-  userName: Joi.string().min(3).max(100).required(),
-  password: Joi.string().required()
-})
-
-module.exports = { bodyValidator, queryValidator, paramsValidator, bodyAuthValidator }
+module.exports = { bodyValidator, queryValidator, paramsValidator}

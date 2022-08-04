@@ -3,6 +3,8 @@ const authController = require('../controllers/authController.js')
 const validator = require('express-joi-validation').createValidator({})
 const {bodyValidator, bodyAuthValidator} = require('../validations/validationUsers')
 
+//borrar authBodyValidator
+
 const router = (User) => {
     const authRouter = express.Router()
 
