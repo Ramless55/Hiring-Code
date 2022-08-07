@@ -1,8 +1,14 @@
 import React from 'react'
+import Header from '../../components/Header/Header'
+import PostCard from '../../components/PostCard/PostCard'
 
 const HomePage = () => {
     return (
-        <h1>Menu</h1>
+        <div>
+            <Header />
+            <h1>Estamos en el home</h1>
+            <PostCard />
+        </div>
     )
 }
 
