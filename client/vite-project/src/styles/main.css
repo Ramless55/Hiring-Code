@@ -1,0 +1,28 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body, #root {
+    height: 100%;
+    width: 100%;
+    background-color: orange;
+}
+
+.app {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(251,201,208);
+}
+
+.main {
+    height: 95%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

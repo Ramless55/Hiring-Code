@@ -5,7 +5,6 @@ import PostCard from '../../components/PostCard/PostCard'
 const HomePage = () => {
     return (
         <div>
-            <Header />
             <h1>Estamos en el home</h1>
             <PostCard />
         </div>
