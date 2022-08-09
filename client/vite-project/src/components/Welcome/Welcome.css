@@ -1,0 +1,15 @@
+.welcome__content {
+    margin: 20px 50px;
+    border: 5px solid #4a4e69;
+    padding: 30px 30px;
+    display: flex
+}
+
+.welcome__content .content__left,
+.welcome__content .content__right,
+.welcome__content p {
+    width: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

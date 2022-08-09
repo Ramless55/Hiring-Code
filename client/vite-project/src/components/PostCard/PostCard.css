@@ -1,9 +1,9 @@
 .post__content {
-    margin: 20px 0;
+    margin: 20px 50px;
     display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: rgb(22, 182, 22);
+    background-color: #9a8c98;
+    color: #f2e9e4;
     border-radius: 0 10px 0px 10px;
     padding: 20px 50px 0 50px;
     font-family: monospace;
@@ -14,8 +14,9 @@
     padding: 0 20px;
     text-align: justify;
     font-size: 15px;
-    background: rgba(245, 245, 245, 0.1);
+    background: #778da965;
     border-radius: 10px 10px 10px 10px;
+    border: 5px solid #22223b
 }
 
 .post__content .post__infoUser {
@@ -46,7 +47,7 @@
 .post__content .skill_container .skill_container-post {
     --skill-height: 25px;
     --skill-color: whitesmoke;
-    --skill-bg: green;
+    --skill-bg: #3d405b;
     display: inline-flex;
     align-items: center;
     height: var(--skill-height);

@@ -1,13 +1,15 @@
 import React from 'react'
-import PostCard from '../../components/PostCard/PostCard'
 import Header from '../../components/Header/NavBarHome/NavbarHome'
+import HomeBody from '../../components/HomeBody/HomeBody'
+import Welcome from '../../components/Welcome/Welcome'
+import './HomePage.css'
 
 const HomePage = () => {
     return (
-        <div>
+        <div className="homePage">
             <Header />
-            <h1>Estamos en el home</h1>
-            <PostCard />
+            <Welcome />
+            <HomeBody />
         </div>
     )
 }
