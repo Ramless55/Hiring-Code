@@ -1,6 +1,6 @@
 import React from 'react'
+import Header from '../../components/Header/Header'
 import PostCard from '../../components/PostCard/PostCard'
-import Header from '../../components/Header/NavBarHome/NavbarHome'
 
 const HomePage = () => {
     return (
