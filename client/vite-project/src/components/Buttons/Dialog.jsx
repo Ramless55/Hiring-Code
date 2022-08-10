@@ -111,7 +111,9 @@ const DialogLogin = () => {
                     justifyContent: "center",
                     alignItems: "center",
                 }}>
-                    <Button onClick={handleClose} >Login</Button>
+                    <Button fullWidth variant="contained" onClick={handleClose} sx={{
+                        margin:"2vw"
+                    }}>Login</Button>
                 </DialogActions>
                 <DialogContentText sx={{
                     display: "flex",
@@ -120,7 +122,10 @@ const DialogLogin = () => {
                 }}>
                     <p>
                         No tienes una cuenta?
-                        <a href='/register'> Registrarme</a>
+                        <a href='/register' style={{
+                            textDecoration:"none",
+                            color:"blue"
+                        }}> Registrarme</a>
                     </p>
                 </DialogContentText>
             </Dialog>
