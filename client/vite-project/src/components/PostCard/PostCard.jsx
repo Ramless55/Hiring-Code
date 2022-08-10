@@ -4,7 +4,7 @@ import profile from '../../assets/img/profile.png'
 
 const PostCard = () => {
     return (
-        <div className='post__content'>
+        <div className='post__content' title="Ingresar">
             <div className="post__infoUser">
                 <img src={profile} className='post__profile'/>
                 <div className="infoUser__data">

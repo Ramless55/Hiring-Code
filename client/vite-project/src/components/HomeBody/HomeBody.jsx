@@ -1,5 +1,6 @@
 import React from 'react'
 import PostCard from '../../components/PostCard/PostCard'
+import Pagination from '../../components/Pagination/Pagination'
 import './HomeBody.css'
 
 const HomeBody = () => {
@@ -11,6 +12,7 @@ const HomeBody = () => {
                 <PostCard />
                 <PostCard />
             </div>
+            <Pagination />
         </div>
     )
 }

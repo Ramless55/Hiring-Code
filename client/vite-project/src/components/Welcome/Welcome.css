@@ -2,7 +2,16 @@
     margin: 20px 50px;
     border: 5px solid #4a4e69;
     padding: 30px 30px;
-    display: flex
+    display: flex;
+    border: 5px dashed #DF6C4F;
+}
+
+.welcome__content .content__right{
+    flex-direction: column;
+}
+
+.welcome__content .content__right .right__info {
+    margin: 10px;
 }
 
 .welcome__content .content__left,
@@ -12,4 +21,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.welcome__content .content__left .left__image {
+    width: 70vh;
+}
+
+.welcome__content .content__right .right__box {
+    display: flex;
 }
