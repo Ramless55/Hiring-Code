@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Logo from '@mui/icons-material/LogoDevOutlined';
 import styled from "styled-components";
-import BurguerButton from "./BurguerButton";
-import { Button } from '@mui/material'
-import IconButton from '@mui/material/IconButton';
+import BurguerButton from "../../Buttons/BurguerButton";
+import Dialog from '../../Buttons/Dialog'
 
 function Navbar() {
   const [clicked, setClicked] = useState(false);
@@ -14,16 +13,16 @@ function Navbar() {
     <>
       <div>
         <NavContainer>
-            <div>
-              <a href="/"
-              >
-                <Logo className="Logo"
-                  sx={{
-                    fontSize: 50,
-                  }}
-                />
-              </a>
-            </div>
+          <div>
+            <a href="/"
+            >
+              <Logo className="Logo"
+                sx={{
+                  fontSize: 50,
+                }}
+              />
+            </a>
+          </div>
           <div className={`links ${clicked ? "active" : ""}`}
           >
             <a onClick={handleClick} href="/home" >
@@ -32,22 +31,9 @@ function Navbar() {
             <a onClick={handleClick} href="/adondetemetistepelado">
               Error
             </a>
-            <a onClick={handleClick} href="/login" className="a__login">
-              Sing Up
-            </a>
           </div>
           <div>
-            <Button className="button__login" variant="outlined" href="/login" sx={{
-              bgcolor: "black",
-              color: "white",
-              borderColor: "#333",
-              borderRadius: "6px",
-              '&:hover': {
-                bgcolor: "inherit",
-                color: 'white',
-                borderColor: "inherit"
-              }
-            }}>Sign Up</Button>
+            <Dialog />
           </div>
           <div className="burguer">
             <BurguerButton clicked={clicked} handleClick={handleClick} />
@@ -65,10 +51,6 @@ const NavContainer = styled.nav`
 *{
   z-index:4;
 }
-  .button__login {
-    @media (max-width: 768px) {
-      display: none;
-    }
   }
   padding: 0.4rem;
   // background-color: #333;
