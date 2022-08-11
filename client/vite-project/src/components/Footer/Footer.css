@@ -1,0 +1,21 @@
+.container__footer {
+    margin: 2vh 0 0 0;
+    padding: 15px 0;
+    display: flex;
+    background: #d9dcd6;
+    color: #1b273d;
+}
+
+.container__footer .footer__section .footer__section-header {
+    margin-bottom: 10px
+}
+
+.container__footer .footer__section li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container__footer .footer__section li {
+    list-style: none;
+    margin-bottom: 5px
+}

@@ -6,6 +6,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 // import CssBaseline from '@mui/material/CssBaseline'
+import Footer from './components/Footer/Footer'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path='register' element={<RegisterPage />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
+        <Footer />
     </div>
   )
 }

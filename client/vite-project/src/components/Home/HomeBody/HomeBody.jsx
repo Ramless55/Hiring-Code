@@ -1,6 +1,6 @@
 import React from 'react'
-import PostCard from '../PostCard/PostCard'
-import Pagination from '../../components/Pagination/Pagination'
+import PostCard from '../../PostCard/PostCard'
+import Pagination from '../../../components/Home/Pagination/Pagination'
 import './HomeBody.css'
 
 const HomeBody = () => {
