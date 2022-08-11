@@ -66,14 +66,13 @@ export default function CustomizedDialogs() {
 
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickOpen} sx={{margin: 1}}>
+            <Button variant="outlined" onClick={handleClickOpen} sx={{margin: 1, backgroundColor: 'palette.success.dark ', color: 'primary.info'}}>
                 Button One
             </Button>
             <BootstrapDialog
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"
                 open={open}
-                dissableScrollLock
             >
                 <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
                     Como publicar

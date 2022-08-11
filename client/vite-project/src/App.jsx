@@ -5,13 +5,13 @@ import HomePage from "./pages/HomePage/HomePage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import RegisterPage from './pages/RegisterPage/RegisterPage';
-import CssBaseline from '@mui/material/CssBaseline'
+// import CssBaseline from '@mui/material/CssBaseline'
 
 function App() {
 
   return (
     <div className="App">
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='home' element={<HomePage />} />

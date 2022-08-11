@@ -8,6 +8,7 @@
 
 .welcome__content .content__right{
     flex-direction: column;
+    background: #e56b6f
 }
 
 .welcome__content .content__right .right__info {

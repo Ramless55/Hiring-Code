@@ -1,5 +1,5 @@
 import React from 'react'
-import PostCard from '../../components/PostCard/PostCard'
+import PostCard from '../PostCard/PostCard'
 import Pagination from '../../components/Pagination/Pagination'
 import './HomeBody.css'
 

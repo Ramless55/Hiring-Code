@@ -6,11 +6,12 @@
     margin: 20px 50px;
     display: flex;
     flex-direction: column;
-    background-color: #9a8c98;
+    background-color: #3a7ca5;
     color: #f2e9e4;
     border-radius: 0 10px 0px 10px;
     padding: 20px 50px 0 50px;
     font-family: monospace;
+    box-shadow: 20px 10px 3px 3px #16262e;
 }
 
 .post__content:hover{
@@ -18,7 +19,7 @@
     box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
     top: -4px;
     border: 1px solid #cccccc;
-    background-color: #22223b;
+    background-color: #16425b;
     transform: scale(1.10);
     cursor: pointer;
     box-shadow: inset 0 0 0 2.5px rgba(255, 255, 255, 0.726);

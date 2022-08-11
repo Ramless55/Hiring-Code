@@ -1,8 +1,8 @@
-.visible-scrollbar, .invisible-scrollbar {
+/* .visible-scrollbar, .invisible-scrollbar {
     display: block;
     width: 10em;
     overflow: auto;
   }
   .invisible-scrollbar::-webkit-scrollbar {
     display: none;
-  }
+  } */
