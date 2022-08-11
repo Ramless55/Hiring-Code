@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Logo from '@mui/icons-material/LogoDevOutlined';
 import styled from "styled-components";
-import BurguerButton from "../../Buttons/BurguerButton";
-import Dialog from '../../Buttons/Dialog'
+import BurguerButton from "../../Button/HeaderButton/BurguerButton";
+import Dialog from '../../Button/HeaderButton/Dialog'
 
 function Navbar() {
   const [clicked, setClicked] = useState(false);
