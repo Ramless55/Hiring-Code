@@ -1,17 +1,16 @@
-* {
-    transition: all 0.3s ease-out;
-}
-
 .post__content {
+    height: 35vh;
     margin: 20px 50px;
     display: flex;
     flex-direction: column;
-    background-color: #3a7ca5;
-    color: #f2e9e4;
+    background-color: #d9dcd6;
+    color: #11151c;
     border-radius: 0 10px 0px 10px;
     padding: 20px 50px 0 50px;
     font-family: monospace;
-    box-shadow: 20px 10px 3px 3px #16262e;
+    box-shadow: inset 0 0 0 2.5px rgba(255, 255, 255, 0.726);
+    transition: all 0.3s ease-out;
+    box-shadow: 8px 5px 3px 3px #16262e;  
 }
 
 .post__content:hover{
@@ -19,52 +18,71 @@
     box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
     top: -4px;
     border: 1px solid #cccccc;
-    background-color: #16425b;
-    transform: scale(1.10);
+    transform: scale(1.05);
     cursor: pointer;
-    box-shadow: inset 0 0 0 2.5px rgba(255, 255, 255, 0.726);
-    filter: drop-shadow(1px 1px 10px #888);
-}
-
-.post__content .post__description {
-    margin: 10px 0;
-    padding: 0 20px;
-    text-align: justify;
-    font-size: 15px;
-    background: #778da965;
-    border-radius: 10px 10px 10px 10px;
-    border: 5px solid #22223b
+    box-shadow: 15px 5px 3px 3px #16262e;  
 }
 
 .post__content .post__infoUser {
     display: flex;
 }
 
-.post__content .post__infoUser p {
+.post__content .post__infoUser .post__description {
+    margin: 10px 0;
+    padding: 0 20px;
+    text-align: justify;
+    font-size: 15px;
+    background: #40916c65;
+    border-radius: 10px 10px 10px 10px;
+    /* border: 5px solid #22223b; */
+}
+
+.post__content .post__infoUser .post__description p {
+    margin: 10px 0
+}
+
+
+.post__content .post__infoUser .post__right p {
     margin: 0;
 }
 
-.post__content .post__infoUser .infoUser__data {
-    margin: 10px 0 0 20px;
+.post__content .post__infoUser .post__right {
+    margin-left: 25px;
 }
 
-.post__content .post__profile {
-    width: 100px;
+.post__content .post__infoUser .post__right .infoUser__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.post__content .post__infoUser .post__right .infoUser__container .container__bottom {
+    margin: 10px 0 0 20px;
+    display: flex;
+}
+
+.post__content .post__infoUser .post__right .infoUser__container .container__bottom p {
+    margin: 0 5px;
+    font-size: 15px;
+}
+
+.post__content .post__infoUser .post__profile {
+    width: 35%;
+    height: 50%;
     border-radius: 50%;
     border: 2px solid white;
 }
 
 .post__content .skill_container {
     display: flex;
-    overflow-x: auto;
     scroll-behavior: smooth;
     padding: 5px 0 15px;
+    margin-top: -85px
 }
 
 .post__content .skill_container .skill_container-post {
     --skill-height: 25px;
     --skill-color: whitesmoke;
-    --skill-bg: #3d405b;
+    --skill-bg: #1b4332;
     display: inline-flex;
     align-items: center;
     height: var(--skill-height);
@@ -77,4 +95,9 @@
     line-height: 1;
     cursor: default;
     cursor: pointer
+}
+
+.post__content .post__infoUser .post__right .infoUser__container .container__top {
+    position: relative;
+    left: 40vh
 }

@@ -1,6 +1,7 @@
 .row{
     margin: auto;
-    background: rgba(245, 245, 245, 0.788);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: none;
     border-radius: 10px
-
 }
