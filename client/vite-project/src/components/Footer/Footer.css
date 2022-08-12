@@ -1,6 +1,8 @@
 .container__footer {
-    padding: 50px 0;
-    background: #7bf1a8;
+    margin: 2vh 0 0 0;
+    padding: 15px 0;
+    display: flex;
+    background: #d9dcd6;
     color: #1b273d;
 }
 
