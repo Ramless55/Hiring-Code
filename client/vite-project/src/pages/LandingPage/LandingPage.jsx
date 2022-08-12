@@ -1,10 +1,8 @@
 import React from 'react'
-import Header from '../../components/Header/NavBarLanding/NavBarLanding'
 
 const LandingPage = () => {
     return (
         <div>
-            <Header />
             <h1 style={{
                 paddingTop:"4vw"
             }}
