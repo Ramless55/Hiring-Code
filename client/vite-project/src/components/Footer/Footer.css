@@ -1,5 +1,6 @@
 .container__footer {
-    margin: 2vh 0 0 0;
+    width: 100vw;
+    margin-top: 5px;
     padding: 15px 0;
     display: flex;
     background: #d9dcd6;
