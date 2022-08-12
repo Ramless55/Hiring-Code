@@ -1,6 +1,7 @@
 import './App.css'
 import * as React from 'react';
 import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header/Navbar"
 import HomePage from "./pages/HomePage/HomePage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
@@ -13,6 +14,7 @@ function App() {
   return (
     <div className="App">
         {/* <CssBaseline /> */}
+        <Header />
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='home' element={<HomePage />} />

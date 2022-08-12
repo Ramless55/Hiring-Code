@@ -13,6 +13,8 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -58,10 +60,17 @@ const DialogLogin = () => {
                 borderRadius: "6px",
                 '&:hover': {
                     bgcolor: "inherit",
-                    color: 'white',
-                    borderColor: "inherit"
+                    color: 'black',
+                    borderColor: "#808080"
                 }
-            }}>Sign In</Button>
+            }}>
+
+                <AccountCircleIcon sx={{
+                    position: "relative",
+                    left: "-4px"
+                }} />
+
+                Sign In</Button>
             <Dialog
                 open={open}
                 TransitionComponent={Transition}
@@ -112,7 +121,7 @@ const DialogLogin = () => {
                     alignItems: "center",
                 }}>
                     <Button fullWidth variant="contained" onClick={handleClose} sx={{
-                        margin:"2vw"
+                        margin: "2vw"
                     }}>Login</Button>
                 </DialogActions>
                 <DialogContentText sx={{
@@ -123,8 +132,8 @@ const DialogLogin = () => {
                     <p>
                         No tienes una cuenta?
                         <a href='/register' style={{
-                            textDecoration:"none",
-                            color:"blue"
+                            textDecoration: "none",
+                            color: "blue"
                         }}> Registrarme</a>
                     </p>
                 </DialogContentText>
