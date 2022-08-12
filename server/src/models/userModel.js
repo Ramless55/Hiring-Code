@@ -13,7 +13,7 @@ const userModel = new Schema(
         date: { type: String, required: true, length: 10},
         address: { type: String, required: true, minLength: 5, maxLength: 50 },
         email: { type: String, required: true, unique: true, minLength: 5, maxLength: 50},
-        image: { type: String, required: true, unique: true},
+        image: { type: String, required: true},
         rating: { type: Number, required: true, minLength: 0, maxLength: 5},
         role: { type: String, required: true, minLength: 3, maxLength: 30 }
     }

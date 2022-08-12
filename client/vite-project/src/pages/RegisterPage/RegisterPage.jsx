@@ -1,13 +1,22 @@
-import {useState} from 'react'
+import { useEffect, useState } from 'react'
+import styles from '../../styles/modules/register.module.css'
+import _ from 'lodash';
 
 //material ui
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
 import { MuiTelInput, isValidPhoneNumber } from 'mui-tel-input'
 import TextField from '@mui/material/TextField';
-import { borderColor } from '@mui/system';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Stack from '@mui/material/Stack';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 //dependencies
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -16,144 +25,355 @@ const RegisterPage = () => {
 
     const [value, setValue] = useState('+54')
     const [isValid, setIsValid] = useState(false)
-    const [inputValue, setInputValue] = useState('')
     const [errorRegister, setErrorRegister] = useState(false)
+    const [disabled, setDisabled] = useState(true)
+    const [showPassword, setShowPassword] = useState(false);
+    const [showPasswordRepeat, setShowPasswordRepeat] = useState(false);
+    const [dateValue, setDateValue] = useState(new Date('2001-01-01T21:11:54'));
+    const [dateActually, setDateActually] = useState('')
+    const [error, setError] = useState({
+        name: false,
+        lastName: false,
+        userName: false,
+        password: false,
+        phone: false,
+        country: false,
+        date: false,
+        address: false,
+        email: false
+    })
     const [user, setUser] = useState({
         name: "",
         lastName: "",
         userName: "",
         password: "",
+        passwordRepeat: "",
         phone: "",
         country: "",
         date: "",
         address: "",
         email: "",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToQQRbd29G-mpA196Hhf3uluK6RadWDSQfLg&usqp=CAU",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPfCfynXv42fOnrTQAs-99j09O8uz7mDilOQ&usqp=CAU",
         rating: 0,
         role: "user",
     })
 
     const navigate = useNavigate()
 
+    const handleDateChange = (newValue) => {
+        setDateValue(newValue);
+    };
+
+    const handleClickShowPassword = () => {
+        setShowPassword(!showPassword)
+    };
+
+    const handleClickShowPasswordRepeat = () => {
+        setShowPasswordRepeat(!showPasswordRepeat)
+    };
+
+    const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    };
+
     const handleChangePhone = (newValue) => {
         setIsValid(isValidPhoneNumber(newValue))
+
         setValue(newValue)
-        setUser(prev => ({...prev, phone: newValue}))
+        setUser(prev => ({ ...prev, phone: newValue }))
     }
 
-    const handleInputChange = (event) => {
-        setInputValue({
-            ...inputValue,
-            [event.target.name] : event.target.value
-        })
-        switch (event.target.id) {
+    const handleButtonDisable = () => {
+        let result = true
+
+        result = result && !Object.values(error).some(error => error)
+
+        result = result && Object.values(user).every(text => text !== '')
+
+        return !result
+    }
+
+    const checkData = (key, data) => {
+        let result = false;
+
+        switch (key) {
             case 'name':
-                setUser(prev => ({...prev, name: event.target.value}))
-            break;
+                const regExp = new RegExp('^[a-zA-Z\\s]*$', 'gi')
+                result = !regExp.test(data) || (data.length < 3)
+                break;
+
             case 'lastName':
-                setUser(prev => ({...prev, lastName: event.target.value}))
-            break;
+                const lastNameRegExp = new RegExp('^[a-zA-Z\\s]*$', 'gi')
+                result = !lastNameRegExp.test(data) || (data.length < 3)
+                break;
 
             case 'userName':
-                setUser(prev => ({...prev, userName: event.target.value}))
-            break;
+                const userNameRegExp = new RegExp('^[a-zA-Z1-9]*$', 'gi')
+                result = !userNameRegExp.test(data) || (data.length < 3)
+                break;
 
             case 'email':
-                setUser(prev => ({...prev, email: event.target.value}))
-            break;
+                const emailRegExp = new RegExp('^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$', 'gi')
+                result = !emailRegExp.test(data) || (data.length < 3)
+                break;
 
             case 'password':
-                setUser(prev => ({...prev, password: event.target.value}))
-            break;
+                const passRegExp = new RegExp(/(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}/, 'gi')
+                data === user.passwordRepeat
+                    ? setError(prev => ({ ...prev, passwordRepeat: false }))
+                    : setError(prev => ({ ...prev, passwordRepeat: true }))
+                result = !passRegExp.test(data) || (data.length < 3)
+                break;
+
+            case 'passwordRepeat':
+                result = user.password === data ? false : true
+                break;
 
             case 'country':
-                setUser(prev => ({...prev, country: event.target.value}))
-            break;
-
-            case 'date':
-                setUser(prev => ({...prev, date: event.target.value}))
-            break;
+                const regExpCountry = new RegExp('^[a-zA-Z\\s]*$', 'gi')
+                result = !regExpCountry.test(data) || (data.length < 3)
+                break;
 
             case 'address':
-                setUser(prev => ({...prev, address: event.target.value}))
-            break;
+                const regExpAddress = new RegExp('^[a-zA-Z\\s]*$', 'gi')
+                result = !regExpAddress.test(data) || (data.length < 3)
+                break;
 
             default:
                 break;
         }
+        return result
     }
 
-console.log(user)
+    const handleInputChange = (key) => (event) => {
+        setUser((prev) => {
+            return {
+                ...prev,
+                [key]: event.target.value
+            }
+        })
+        setError((prev) => {
+            return {
+                ...prev,
+                [key]: checkData(key, event.target.value)
+            }
+        })
+    }
 
     const handleClick = async (event) => {
         event.preventDefault();
-        if(isValid){
-            await axios.post(`http://localhost:8080/auth/register`, user)
-                .then(res => {
-                    if(res.data.status === 'registered'){
-                        navigate('/home')
-                        setErrorRegister(false)
-                    }
-                    console.log(res)
-                })
-                .catch(err => {
-                    console.log(err)
-                    setErrorRegister(true)
-                })
-        }else{
-            setErrorRegister(true)
-        }
+        await axios.post(`http://localhost:8080/auth/register`, { ..._.omit(user, "passwordRepeat") })
+            .then(res => {
+                if (res.data.status === 'registered') {
+                    navigate('/home')
+                    setErrorRegister(false)
+                }
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+                setErrorRegister(true)
+            })
     }
 
+    useEffect(() => {
+        setDisabled(() => { return handleButtonDisable() })
+    }, [error])
+
+
+    useEffect(() => {
+        setError(prev => ({ ...prev, phone: !isValid }))
+        console.log(user)
+    }, [user])
+
+    useEffect(() => {
+        if (dateValue !== null) {
+            let day = dateValue.getDate()
+            let month = dateValue.getMonth() + 1
+            let year = dateValue.getFullYear()
+
+            day < 10 ? day = `0${day}` : ''
+            month < 10 ? month = `0${month}` : ''
+
+            console.log(dateValue)
+            const date = `${day}/${month}/${year}`
+            setUser(prev => ({ ...prev, date: date }))
+        }
+    }, [dateValue])
+
+    useEffect(() => {
+        let auxDate = new Date().getFullYear() - 17
+        setDateActually(auxDate.toString())
+    })
+
+
     return (
-        //poner image rating y role de forma automatica
-        <div>
-            <h1>Registrate</h1>
-            <p>Se parte de nuestra comunidad ahora!</p>
-            {errorRegister ? <p style={{color: 'red'}}>*Datos incorrectos, porfavor ingrese bien los datos.</p> : ''}
+        <main className={styles.container}>
+            <div className={styles.formContainer}>
+                <div>
+                    <h1 style={{ marginBottom: '1rem' }}>Registrate</h1>
+                    <p>Se parte de nuestra comunidad ahora!</p>
+                    {errorRegister ? <p style={{ color: 'red' }}>*El Usuario, Email o Numero ya estan asociados a un usuario.</p> : ''}
+                </div>
+                <div className={styles.containerInputs}>
+                    <div className={styles.firstFive}>
+                        <TextField
+                            error={error.name}
+                            helperText={error.name ? 'No se permiten numeros o simbolos' : ''}
+                            sx={{ marginTop: '1rem' }}
+                            id="name"
+                            label="*Nombre"
+                            variant="outlined"
+                            onChange={handleInputChange('name')}
+                        />
 
-            <Box>
-                <TextField id="name" label="*Nombre" variant="outlined" onChange={handleInputChange}/>
-            </Box>
-            <TextField id="lastName" label="*Apellido" variant="outlined" onChange={handleInputChange}/>
-            <Box>
-                <TextField id="userName" label="*Usuario" variant="outlined" onChange={handleInputChange}/>
-            </Box>
-            <Box>
-                <TextField id="email" label="*Email" variant="outlined" onChange={handleInputChange}/>
-            </Box>
-            <Box>
-                <TextField
-                    id="password"
-                    label="*Contraseña"
-                    type="password"
-                    onChange={handleInputChange}
-                />
-            </Box>
-            <Box>
-                <TextField
-                    id="password-repeat"
-                    label="*Repetir Contraseña"
-                    type="password"
-                    onChange={handleInputChange}
-                />
-            </Box>
-            <Box>
-                <MuiTelInput value={value} onChange={handleChangePhone} label="Numero Telefonico" id='phone'/>
-            </Box>
-            <Box>
-                <TextField id="country" label="*Pais" variant="outlined" onChange={handleInputChange}/>
-            </Box>
-            <Box>
-                <TextField id="date" label="*Fecha de Nacimiento" variant="outlined" onChange={handleInputChange}/>
-            </Box>
-            <Box>
-                <TextField id="address" label="*Direccion" variant="outlined" onChange={handleInputChange}/>
-            </Box>
+                        <TextField
+                            error={error.lastName}
+                            helperText={error.lastName ? 'No se permiten numeros o simbolos' : ''}
+                            sx={{ marginTop: '1rem' }}
+                            id="lastName"
+                            label="*Apellido"
+                            variant="outlined"
+                            onChange={handleInputChange('lastName')}
+                        />
 
-            <Button variant="contained" onClick={handleClick}>Enviar!</Button>
+                        <TextField
+                            error={error.userName}
+                            helperText={error.userName ? 'No se permiten simbolos' : ''}
+                            sx={{ marginTop: '1rem' }}
+                            id="userName"
+                            label="*Usuario"
+                            variant="outlined"
+                            onChange={handleInputChange('userName')}
+                        />
 
-        </div>
+                        <TextField
+                            error={error.email}
+                            helperText={error.email ? 'Utilice un formato valido' : ''}
+                            sx={{ marginTop: '1rem' }}
+                            id="email"
+                            label="*Email"
+                            variant="outlined"
+                            onChange={handleInputChange('email')} />
+
+
+                        <MuiTelInput
+                            error={error.phone}
+                            helperText={error.phone ? 'Utilice un formato valido' : ''}
+                            sx={{ marginTop: '1rem' }}
+                            value={value}
+                            onChange={handleChangePhone}
+                            label="Numero Telefonico"
+                            id='phone'
+                        />
+                    </div>
+
+                    <div className={styles.secondFive}>
+                        <FormControl variant="outlined" sx={{ marginTop: '1rem' }}>
+                            <InputLabel
+                                htmlFor="outlined-adornment-password"
+                                error={error.password}
+                            >*Contraseña</InputLabel>
+                            <OutlinedInput
+                                error={error.password}
+                                id="password"
+                                type={showPassword ? 'text' : 'password'}
+                                onChange={handleInputChange('password')}
+                                label="Contraseña"
+                                endAdornment={
+                                    <InputAdornment position="end" >
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={handleClickShowPassword}
+                                            onMouseDown={handleMouseDownPassword}
+                                            edge="end"
+                                        >
+                                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+                            />
+                        </FormControl>
+
+                        {error.password ? <p className={styles.error}>La contraseña debe contener 1 Minuscula 1 Mayuscula 1 Numero 1 Caracter Especial y 8 Caracteres de longitud</p> : ''}
+
+                        <FormControl variant="outlined" sx={{ marginTop: '1rem' }}>
+                            <InputLabel htmlFor="outlined-adornment-password" error={error.passwordRepeat}>*Repetir Contraseña</InputLabel>
+                            <OutlinedInput
+                                id="passwordRepeat"
+                                type={showPasswordRepeat ? 'text' : 'password'}
+                                onChange={handleInputChange('passwordRepeat')}
+                                label="Repetir Contraseña"
+                                error={error.passwordRepeat}
+                                endAdornment={
+                                    <InputAdornment position="end" >
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={handleClickShowPasswordRepeat}
+                                            onMouseDown={handleMouseDownPassword}
+                                            edge="end"
+                                        >
+                                            {showPasswordRepeat ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+                            />
+                        </FormControl>
+
+                        {error.passwordRepeat ? <p className={styles.error}>Las contraseñas deben ser iguales.</p> : ''}
+
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <Stack spacing={3} sx={{ marginTop: '1rem' }}>
+                                <DesktopDatePicker
+                                    value={dateValue}
+                                    label="Fecha de Nacimiento"
+                                    inputFormat="dd/MM/yyyy"
+                                    onChange={handleDateChange}
+                                    renderInput={(params) => <TextField {...params} />}
+                                    maxDate={new Date(dateActually)}
+                                    onError={(reason, value) => {
+                                        reason === null ?
+                                            setError(prev => ({ ...prev, date: false }))
+                                            : setError(prev => ({ ...prev, date: true }))
+                                    }}
+                                />
+                            </Stack>
+                        </LocalizationProvider>
+
+                        {error.date ? <p style={{ color: 'red' }}>Formato y/o fecha invalido.</p> : ''}
+
+                        <TextField
+                            sx={{ marginTop: '1rem' }}
+                            id="country"
+                            label="*Pais"
+                            variant="outlined"
+                            onChange={handleInputChange('country')}
+                        />
+
+                        <TextField
+                            sx={{ marginTop: '1rem' }}
+                            id="address"
+                            label="*Direccion"
+                            variant="outlined"
+                            onChange={handleInputChange('address')}
+                        />
+
+                    </div>
+                </div>
+
+
+            <div>
+                <Button
+                    sx={{ marginTop: '1rem', width: '15vw', height: '7vh'}}
+                    variant="contained"
+                    onClick={handleClick}
+                    disabled={disabled}>
+                    Enviar!</Button>
+
+            </div>
+
+            </div>
+        </main>
     )
 }
 
