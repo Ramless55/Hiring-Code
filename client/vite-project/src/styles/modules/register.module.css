@@ -1,0 +1,56 @@
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(230, 230, 230);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.formContainer{
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    flex-direction: column;
+    background-color: rgb(237, 237, 237);
+    width: 80vw;
+    height: 80vh;
+    padding: 1rem;
+    border: .5px solid grey;
+    border-radius: .5%;
+}
+
+.containerInputs{
+    /* background-color: grey; */
+    padding: 10px;
+    display: flex;
+    justify-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.firstFive{
+    /* background-color: blue; */
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.secondFive{
+    /* background-color: orange; */
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.error{
+    color: #da432f;
+    font-size: .8rem;
+    text-align: left;
+}

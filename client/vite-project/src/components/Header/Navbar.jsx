@@ -11,35 +11,35 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
 
+import { useLocation } from 'react-router-dom';
+
 import { NavLink } from "react-router-dom";
 
 import Dialog from "../Button/HeaderButton/Dialog";
 import SearchBar from "../SearchBar/SearchBar";
-
-const isActive = () => {
-    console.log(pages)
-}
 
 const pages = [
     {
         name: "Landing",
         to: "/",
     },
-{
-    name: "home",
+    {
+        name: "home",
         to: "/home",
     },
-{
-    name: "Error",
+    {
+        name: "Error",
         to: "/cualquiercosa",
     },
-{
-    name: "About",
+    {
+        name: "About",
         to: "/about",
     },
-];
+]
+
 
 const ResponsiveAppBar = () => {
+    let location = useLocation()
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -121,26 +121,25 @@ const ResponsiveAppBar = () => {
                                 display: { xs: "block", md: "none" },
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem
-                                    key={page.name}
-                                    onClick={handleCloseNavMenu}
-                                    component={NavLink}
-                                    to={page.to}
-                                    style={isActive => ({
-                                        color: isActive ? "green" : "blue"
-                                    })}
-                                >
-                                    <Typography
-                                        textAlign="center"
-                                        sx={{
-                                            color: "black",
-                                        }}
+                            {pages.map((page) => {
+                                return page.to !== location.pathname ? (
+                                    <MenuItem
+                                        key={page.name}
+                                        onClick={handleCloseNavMenu}
+                                        component={NavLink}
+                                        to={page.to}
                                     >
-                                        {page.name}
-                                    </Typography>
-                                </MenuItem>
-                            ))}
+                                        <Typography
+                                            textAlign="center"
+                                            sx={{
+                                                color: "black",
+                                            }}
+                                        >
+                                            {page.name}
+                                        </Typography>
+                                    </MenuItem>
+                                ) : (null)
+                            })}
                         </Menu>
                     </Box>
 
@@ -168,17 +167,18 @@ const ResponsiveAppBar = () => {
                         Young Enterprising
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page.name}
-                                onClick={handleCloseNavMenu}
-                                component={NavLink}
-                                to={page.to}
-                                sx={{ my: 2, color: "black", display: "block" }}
-                            >
-                                {page.name}
-                            </Button>
-                        ))}
+                        {pages.map((page) => {
+                            return page.to !== location.pathname ?
+                                (<Button
+                                    key={page.name}
+                                    onClick={handleCloseNavMenu}
+                                    component={NavLink}
+                                    to={page.to}
+                                    sx={{ my: 2, color: "black", display: "block" }}
+                                >
+                                    {page.name}
+                                </Button>) : (null)
+                        })}
                     </Box>
 
                     <Dialog />
