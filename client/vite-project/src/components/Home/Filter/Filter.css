@@ -1,0 +1,28 @@
+* {
+    color: #1b273d
+}
+
+.filter__container {
+    background: #7bf1a8;
+    padding: 20px;
+    margin: 0 0 10px 0;
+    border-radius: 5px;
+}
+
+.filter__container .filter__section .footer__section-header {
+    font-weight: bolder;
+    padding: 5px 0 15px 0;
+}
+
+.filter__container .filter__section {
+    padding: 20px 30px;
+}
+
+.filter__container .filter__section li {
+    list-style: none;
+    padding: 5px 0;
+}
+
+.filter__container .filter__section li a {
+    text-decoration: none;
+}
