@@ -1,0 +1,34 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* revisar esto mas declarativo para no afectar codigo */
+@font-face {
+    font-family: Roboto;
+    src: url(./fonts/Roboto/Roboto-Regular.ttf);
+}
+
+body, #root {
+    height: 100%;
+    width: 100%;
+    background-color: orange;
+    font-family: Roboto;
+}
+
+.app {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(251,201,208);
+}
+
+.main {
+    height: 95%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

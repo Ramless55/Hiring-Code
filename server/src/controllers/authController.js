@@ -19,7 +19,12 @@ const authController = (User) => {
 
             return res.status(httpStatus.OK).json({
                 status: 'logged in',
-                token
+                token,
+                user: {
+                    id: user._id,
+                    username: user.userName,
+                    img: user.image
+                }
             })
         } catch (err) {
             next(err)
@@ -41,7 +46,7 @@ const authController = (User) => {
 
             await user.save()
 
-            return res.status(httpStatus.CREATED).json(user)
+            return res.status(httpStatus.CREATED).json({status: 'registered'})
         } catch (err) {
             next(err)
         }
