@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import cardImage from '../../assets/img/card_image.jpg'
 import './LandingPage.css'
 
 const LandingPage = () => {
+  useEffect(() => {
+    window.scrollTo(0,0)
+},[])
   return (
     <div className='container__landing-page'>
       <div className='landing__content-1'>

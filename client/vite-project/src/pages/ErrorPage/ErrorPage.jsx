@@ -4,6 +4,7 @@ import './ErrorPage.css'
 
 const ErrorPage = () => {
     useEffect(() => {
+        window.scrollTo(0, 0)
         const cursor = document.querySelector('.cursorShadow')
         const mouseFunction = (value) => {
             let x = value.clientX
@@ -24,8 +25,8 @@ const ErrorPage = () => {
                     <div className='contentFlex'>
                         <div className='cursorShadow' style={{
                             position: "absolute",
-                            width:"0.01px",
-                            height:"0.01px",
+                            width: "0.01px",
+                            height: "0.01px",
                             border: "none",
                             background: "rgba(255,255,255,.1)",
                             borderRadius: "50%",
