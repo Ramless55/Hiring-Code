@@ -5,7 +5,7 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+/* revisar esto mas declarativo para no afectar codigo */
 @font-face {
     font-family: Roboto;
     src: url(./fonts/Roboto/Roboto-Regular.ttf);

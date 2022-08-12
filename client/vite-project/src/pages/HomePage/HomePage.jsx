@@ -1,12 +1,17 @@
-import React from 'react'
-import Header from '../../components/Header/Header'
-import PostCard from '../../components/PostCard/PostCard'
+import React, { useEffect } from 'react'
+import HomeBody from '../../components/Home/HomeBody/HomeBody'
+import Welcome from '../../components/Home/Welcome/Welcome'
+import './HomePage.css'
+
 
 const HomePage = () => {
+    useEffect(() => {
+        window.scrollTo(0,0)
+    },[])
     return (
-        <div>
-            <h1>Estamos en el home</h1>
-            <PostCard />
+        <div className="homePage">
+            <Welcome />
+            <HomeBody />
         </div>
     )
 }

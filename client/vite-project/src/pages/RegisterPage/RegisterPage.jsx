@@ -95,7 +95,7 @@ const RegisterPage = () => {
 
     const checkData = (key, data) => {
         let result = false;
-
+        
         switch (key) {
             case 'name':
                 const regExp = new RegExp('^[a-zA-Z\\s]*$', 'gi')
@@ -175,6 +175,10 @@ const RegisterPage = () => {
                 setErrorRegister(true)
             })
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     useEffect(() => {
         setDisabled(() => { return handleButtonDisable() })
@@ -362,19 +366,17 @@ const RegisterPage = () => {
                 </div>
 
 
-            <div>
-                <Button
-                    sx={{ marginTop: '1rem', width: '15vw', height: '7vh'}}
-                    variant="contained"
-                    onClick={handleClick}
-                    disabled={disabled}>
-                    Enviar!</Button>
+                <div>
+                    <Button
+                        sx={{ marginTop: '1rem', width: '15vw', height: '7vh' }}
+                        variant="contained"
+                        onClick={handleClick}
+                        disabled={disabled}>
+                        Enviar!</Button>
 
-            </div>
+                </div>
 
             </div>
         </main>
-    )
-}
-
+    )}
 export default RegisterPage
