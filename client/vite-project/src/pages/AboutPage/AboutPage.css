@@ -1,0 +1,36 @@
+#root{
+    --font-dark: #3d464d;
+    --color-bg-light:#f9f9f9;
+    --color-button:rgb(155, 196, 93);;
+}
+
+
+.aboutPage__container{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--font-dark);
+    padding-top: 7rem ;
+}
+
+.aboutPage__title{
+    width: 100%;
+}
+
+.aboutPage__container-cards{
+    padding: 2rem;
+}
+
+.aboutPage__container-cards-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.aboutPage__container-cards-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}

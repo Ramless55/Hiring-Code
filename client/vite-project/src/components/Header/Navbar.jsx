@@ -35,6 +35,10 @@ const pages = [
         name: "Register",
         to: "/register",
     },
+    {
+        name: "About-us",
+        to: "/about",
+    },
 ]
 
 

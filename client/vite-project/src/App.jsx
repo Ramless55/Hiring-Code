@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import RegisterPage from './pages/RegisterPage/RegisterPage';
+import AboutPage from './pages/AboutPage/AboutPage';
 // import CssBaseline from '@mui/material/CssBaseline'
 import Footer from './components/Footer/Footer'
 
@@ -20,6 +21,7 @@ function App() {
           <Route path='/' element={<LandingPage />} />
           <Route path='home' element={<HomePage />} />
           <Route path='register' element={<RegisterPage />} />
+          <Route path='about' element={<AboutPage />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
         <Footer />
