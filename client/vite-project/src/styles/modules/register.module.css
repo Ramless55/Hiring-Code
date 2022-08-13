@@ -1,8 +1,9 @@
 
 .container{
+    margin-top: 68.5px;
     width: 100vw;
     height: 100vh;
-    background-color: rgb(230, 230, 230);
+    background-color: var(--background);
     display: flex;
     justify-content: center;
     align-items: center;
