@@ -4,20 +4,10 @@
     --color-button:rgb(155, 196, 93);;
 }
 
-*{
-    margin: 0;
-    padding: 0;
+.container__landing-page
+a{
+    text-decoration: none;
 }
-/* aca cambiar los a por un class name declarativo */
-/* a {
-    font-weight: bold;
-    color: #646cff;
-    text-decoration: inherit;
-  }
-
-a:hover{
-    color: #535bf2;
-  } */
 
 .title-span{
     color: rgb(155, 196, 93);
@@ -35,6 +25,9 @@ a:hover{
     align-items: center;
     flex-direction: column;
     text-align: justify;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .landing__content-1{
@@ -74,7 +67,7 @@ a:hover{
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    
+    padding-top: 68.5px ;
     
 }
 
@@ -182,6 +175,7 @@ a:hover:after{
     display: flex;
     justify-content:space-evenly;
     align-items: center;
+    
 }
 
 .container__cards-card{
@@ -282,6 +276,7 @@ div{
 div{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
     width: 80%;
 }

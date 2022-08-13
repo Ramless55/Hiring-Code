@@ -98,6 +98,13 @@
 }
 
 .post__content .post__infoUser .post__right .infoUser__container .container__top {
-    position: relative;
-    left: 40vh
+    /* position: relative 
+       left:40vh;
+       ^^^^^^^^^
+       Esto hacia que el div del componente rating se saliera del width de la HomePage
+    */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
 }
