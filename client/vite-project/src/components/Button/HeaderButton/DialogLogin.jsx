@@ -12,21 +12,42 @@ import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import FormControl from '@mui/material/FormControl';
+
+import _ from 'lodash';
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { TextField } from '@mui/material';
+
+import { userLogin } from '../../../services/axiosServices'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
 const DialogLogin = () => {
+    const [open, setOpen] = React.useState(false);
+
     const [values, setValues] = React.useState({
-        username: '',
+        userName: '',
         password: '',
         showPassword: false,
     });
 
-    const [open, setOpen] = React.useState(false);
+    const handleLogin = async (event) => {
+        event.preventDefault();
+
+        const response = await userLogin({
+            ..._.omit(values, 'showPassword')
+        })
+        if (response.status === 'logged in') {
+            console.log(`Bienvenido ${values.userName}`);
+            localStorage.setItem('Token', JSON.stringify(response.token))
+            localStorage.setItem('User', JSON.stringify(response.user))
+        } else {
+            console.log(response)
+        }
+    }
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -36,9 +57,13 @@ const DialogLogin = () => {
         setOpen(false);
     };
 
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
+    const handleChangeUserName = (event) => {
+        setValues(prev => ({ ...prev, userName: event.target.value }))
+    }
+
+    const handleChangePassword = (event) => {
+        setValues(prev => ({ ...prev, password: event.target.value }))
+    }
 
     const handleClickShowPassword = () => {
         setValues({
@@ -70,7 +95,7 @@ const DialogLogin = () => {
                     left: "-4px"
                 }} />
 
-                Sign In</Button>
+                Sign up</Button>
             <Dialog
                 open={open}
                 TransitionComponent={Transition}
@@ -82,46 +107,58 @@ const DialogLogin = () => {
                     display: "flex",
                     justifyContent: "center"
                 }}>Iniciar Sesion</DialogTitle>
-                <DialogContent>
-                    <InputLabel>Username</InputLabel>
-                    <OutlinedInput
-                        autoFocus
-                        margin="dense"
-                        id="userName"
+                <hr />
+                <DialogContent
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center"
+                    }}
+                >
+                    <TextField
+                        fullWidth
+                        id="lastName"
                         type="text"
-                        fullWidth
-                        label="Username"
-                    />
-                    <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-                    <OutlinedInput
+                        onChange={handleChangeUserName}
+                        label="Usuario"
+                        variant="outlined"
                         autoFocus
-                        label="Password"
                         margin="dense"
-                        id="outlined-adornment-password"
-                        type={values.showPassword ? 'text' : 'password'}
-                        fullWidth
-                        onChange={handleChange('password')}
-                        endAdornment={
-                            <InputAdornment position="end">
-                                <IconButton
-                                    aria-label="toggle password visibility"
-                                    onClick={handleClickShowPassword}
-                                    onMouseDown={handleMouseDownPassword}
-                                    edge="end"
-                                >
-                                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                </IconButton>
-                            </InputAdornment>
-                        }
                     />
+                    <FormControl variant="outlined" sx={{ marginTop:"1rem"}}>
+                        <InputLabel
+                            htmlFor="outlined-adornment-password"
+                        >Contraseña</InputLabel>
+                        <OutlinedInput
+                            id="password"
+                            type={values.showPassword ? 'text' : 'password'}
+                            onChange={handleChangePassword}
+                            label="Contraseña"
+                            endAdornment={
+                                <InputAdornment position="end" >
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickShowPassword}
+                                        onMouseDown={handleMouseDownPassword}
+                                        edge="end"
+                                    >
+                                        {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton>
+                                </InputAdornment>
+                            }
+                        />
+                    </FormControl>
+
                 </DialogContent>
                 <DialogActions sx={{
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                 }}>
-                    <Button fullWidth variant="contained" onClick={handleClose} sx={{
-                        margin: "2vw"
+                    <Button fullWidth variant="contained" type={'submit'} onClick={handleLogin} sx={{
+                        marginRight: "15px",
+                        marginLeft: "15px",
+                        bgcolor: '#7bf1a8'
                     }}>Login</Button>
                 </DialogActions>
                 <DialogContentText sx={{
@@ -129,7 +166,9 @@ const DialogLogin = () => {
                     justifyContent: "center",
                     alignItems: "center",
                 }}>
-                    <p>
+                    <p style={{
+                        padding: "20px"
+                    }}>
                         No tienes una cuenta?
                         <a href='/register' style={{
                             textDecoration: "none",

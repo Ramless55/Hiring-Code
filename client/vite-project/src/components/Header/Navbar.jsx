@@ -15,7 +15,7 @@ import { useLocation } from 'react-router-dom';
 
 import { NavLink } from "react-router-dom";
 
-import Dialog from "../Button/HeaderButton/Dialog";
+import Dialog from "../Button/HeaderButton/DialogLogin";
 import SearchBar from "../SearchBar/SearchBar";
 
 const pages = [
@@ -32,8 +32,8 @@ const pages = [
         to: "/cualquiercosa",
     },
     {
-        name: "About",
-        to: "/about",
+        name: "Register",
+        to: "/register",
     },
 ]
 
@@ -85,7 +85,7 @@ const ResponsiveAppBar = () => {
                             display: { xs: "none", md: "flex" },
                             fontFamily: "monospace",
                             fontWeight: 700,
-                            color: "green",
+                            color: "#7bf1a8",
                             textDecoration: "none",
                         }}
                     >
@@ -160,7 +160,7 @@ const ResponsiveAppBar = () => {
                             fontFamily: "monospace",
                             fontWeight: 700,
                             letterSpacing: ".1rem",
-                            color: "green",
+                            color: "#7bf1a8",
                             textDecoration: "none",
                         }}
                     >
