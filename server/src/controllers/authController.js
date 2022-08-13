@@ -4,7 +4,7 @@ const httpStatus = require('../helpers/httpStatus')
 
 const authController = (User) => {
     const logIn = async (req, res, next) => {
-            try {
+        try {
             const { body } = req
             const user = await User.findOne({
                 username: body.username
@@ -46,7 +46,9 @@ const authController = (User) => {
 
             await user.save()
 
-            return res.status(httpStatus.CREATED).json({status: 'registered'})
+            return res.status(httpStatus.CREATED).json({
+                status: 'registered'
+            })
         } catch (err) {
             next(err)
         }
