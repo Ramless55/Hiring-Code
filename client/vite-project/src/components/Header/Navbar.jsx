@@ -35,6 +35,10 @@ const pages = [
         name: "Register",
         to: "/register",
     },
+    {
+        name: "Profile",
+        to: "/my-profile",
+    },
 ]
 
 
@@ -152,7 +156,7 @@ const ResponsiveAppBar = () => {
                         variant="h5"
                         noWrap
                         component="a"
-                        href=""
+                        href="/"
                         sx={{
                             mr: 2,
                             display: { xs: "flex", md: "none" },

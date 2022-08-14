@@ -26,7 +26,7 @@ app.use(cors())
 
 app.all('/*',
     expressjwt({ secret: process.env.SECRET, algorithms: ['HS256'] }).unless({
-            path: ['/auth/login', '/auth/register', '/api/opinion', '/api/publication']
+            path: ['/auth/login', '/auth/register','/api/user', '/api/opinion', '/api/publication']
         })
 )
 
