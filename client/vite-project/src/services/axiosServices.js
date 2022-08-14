@@ -17,17 +17,17 @@ export const userRegister = async (data) => {
     return response
 };
 
-export const getAllUser = async ({ data, setUser, userPro }) => {
+export const getAllUser = async ({ setUser, userPro }) => {
     const response = axios
-        .get(`http://localhost:8080/api/user?userName=${userPro}`, data)
+        .get(`http://localhost:8080/api/user?userName=${userPro}`)
         .then((res) => setUser(res.data))
         .catch((err) => err.response.data);
     return response
 };
 
-export const getMyProfile = async ({data, setUser, userId}) => {
+export const getMyProfile = async ({ setUser, userId }) => {
     const response = axios
-        .get(`http://localhost:8080/api/user/${userId}`, data,{
+        .get(`http://localhost:8080/api/user/${userId}`,{
             headers: {
                 'Authorization': `Bearer ${JSON.parse(localStorage.getItem("Token"))}`,
                 'Content-Type': 'application/json'
