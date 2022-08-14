@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './ProfileBody.css'
 import PostCard from '../../PostCard/PostCard'
-// import profile from '../../../assets/img/profile.png'
+import profile from '../../../assets/img/profile.png'
 
 import axios from 'axios'
 
@@ -27,7 +27,6 @@ const ProfileBody = () => {
         .catch((err) => console.log(err));
     },[]);
 
-    console.log(user.address)
     return (
         <div>
             <div className='container__profile'>
