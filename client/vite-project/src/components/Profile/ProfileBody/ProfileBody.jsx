@@ -1,9 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './ProfileBody.css'
 import PostCard from '../../PostCard/PostCard'
 import profile from '../../../assets/img/profile.png'
 
+import axios from 'axios'
+
+// import { getUserById } from '../../../services/axiosServices'
+
 const ProfileBody = () => {
+    const [localData, setLocalData] = useState({
+        localData: JSON.parse(localStorage.getItem("User")),
+    })
+    const userId = localData.localData.id
+
+    const [user, setUser] = useState([])
+
+    useEffect(() => {
+        axios
+        .get(`http://localhost:8080/api/user/${userId}`,{
+            headers: {
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem('Token'))}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        .then((res) => setUser(res.data))
+        .catch((err) => console.log(err));
+    },[]);
+
+    console.log(user.address)
     return (
         <div>
             <div className='container__profile'>
@@ -16,7 +40,7 @@ const ProfileBody = () => {
 
                             <div className="left__profile">
 
-                                <img src={profile} />
+                                <img src={user.image} />
 
                             </div>
 
@@ -26,14 +50,14 @@ const ProfileBody = () => {
 
                             <div className='right__infoUser'>
 
-                                <p>Nombre(s): Ezequiel</p>
-                                <p>Apellido(s): Morales</p>
-                                <p>Usuario: elsmrls</p>
-                                <p>Correo eletrónico: ezemoralesmdp@gmail.com</p>
-                                <p>Número telefónico: +54 223 343 5325</p>
-                                <p>Fecha de nacimiento: 14/10/1994</p>
-                                <p>País: Argentina</p>
-                                <p>Dirección: San Lorenzo 3237 PB 2</p>
+                                <p>Nombre: {(user.name)}</p>
+                                <p>Apellido: {(user.lastName)}</p>
+                                <p>Usuario: {(user.userName)}</p>
+                                <p>Telefono: {(user.phone)}</p>
+                                <p>Pais: {(user.country)}</p>
+                                <p>Fecha de Nacimiento: {(user.date)}</p>
+                                <p>Direccion: {(user.address)}</p>
+                                <p>correo: {(user.email)}</p>
 
                             </div>
 
