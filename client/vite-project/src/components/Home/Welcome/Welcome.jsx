@@ -2,7 +2,7 @@ import React from 'react'
 import './Welcome.css'
 import HomeIcon from '@mui/icons-material/Home';
 import image from '../../../assets/svg/welcome.svg';
-import ButtonDialogOne from '../../Button/HomeButton/ButtonDialogOne/ButtonDialogOne.jsx'
+// import ButtonDialogOne from '../../Button/HomeButton/ButtonDialogOne/ButtonDialogOne.jsx'
 import ButtonDialogTwo from '../../Button/HomeButton/ButtonDialogTwo/ButtonDialogTwo'
 import ButtonDialogThree from '../../Button/HomeButton/ButtonDialogThree/ButtonDialogThree.jsx'
 import ButtonDialogFour from '../../Button/HomeButton/ButtonDialogFour/ButtonDialogFour'
@@ -23,7 +23,7 @@ const Welcome = () => {
 
                     <div className="middle__box">
                         <div className="box__top">
-                            <ButtonDialogOne />
+                            {/* <ButtonDialogOne /> */}
                             <ButtonDialogTwo />
                         </div>
                     </div>
