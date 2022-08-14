@@ -26,159 +26,159 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 const DialogLogin = () => {
-    const [open, setOpen] = React.useState(false);
+const [open, setOpen] = React.useState(false);
 
-    const [values, setValues] = React.useState({
-        userName: '',
-        password: '',
-        showPassword: false,
-    });
+const [values, setValues] = React.useState({
+    userName: '',
+    password: '',
+    showPassword: false,
+});
 
-    const handleLogin = async (event) => {
-        event.preventDefault();
+const handleLogin = async (event) => {
+    event.preventDefault();
 
-        const response = await userLogin({
-            ..._.omit(values, 'showPassword')
-        })
-        if (response.status === 'logged in') {
-            console.log(`Bienvenido ${values.userName}`);
-            localStorage.setItem('Token', JSON.stringify(response.token))
-            localStorage.setItem('User', JSON.stringify(response.user))
-        } else {
-            console.log(response)
-        }
+    const response = await userLogin({
+        ..._.omit(values, 'showPassword')
+    })
+    if (response.status === 'logged in') {
+        console.log(`Bienvenido ${values.userName}`);
+        localStorage.setItem('Token', JSON.stringify(response.token))
+        localStorage.setItem('User', JSON.stringify(response.user))
+    } else {
+        console.log(response)
     }
+}
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+const handleClickOpen = () => {
+    setOpen(true);
+};
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+const handleClose = () => {
+    setOpen(false);
+};
 
-    const handleChangeUserName = (event) => {
-        setValues(prev => ({ ...prev, userName: event.target.value }))
-    }
+const handleChangeUserName = (event) => {
+    setValues(prev => ({ ...prev, userName: event.target.value }))
+}
 
-    const handleChangePassword = (event) => {
-        setValues(prev => ({ ...prev, password: event.target.value }))
-    }
+const handleChangePassword = (event) => {
+    setValues(prev => ({ ...prev, password: event.target.value }))
+}
 
-    const handleClickShowPassword = () => {
-        setValues({
-            ...values,
-            showPassword: !values.showPassword,
-        })
-    }
+const handleClickShowPassword = () => {
+    setValues({
+        ...values,
+        showPassword: !values.showPassword,
+    })
+}
 
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
+const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+};
 
-    return (
-        <div>
-            <Button className="button__login" variant="outlined" onClick={handleClickOpen} sx={{
-                bgcolor: "black",
-                color: "white",
-                borderColor: "#333",
-                borderRadius: "6px",
-                '&:hover': {
-                    bgcolor: "inherit",
-                    color: 'black',
-                    borderColor: "#808080"
-                }
-            }}>
+return (
+    <div>
+        <Button className="button__login" variant="outlined" onClick={handleClickOpen} sx={{
+            bgcolor: "black",
+            color: "white",
+            borderColor: "#333",
+            borderRadius: "6px",
+            '&:hover': {
+                bgcolor: "inherit",
+                color: 'black',
+                borderColor: "#808080"
+            }
+        }}>
 
-                <AccountCircleIcon sx={{
-                    position: "relative",
-                    left: "-4px"
-                }} />
+            <AccountCircleIcon sx={{
+                position: "relative",
+                left: "-4px"
+            }} />
 
-                Sign up</Button>
-            <Dialog
-                open={open}
-                TransitionComponent={Transition}
-                keepMounted
-                onClose={handleClose}
-                aria-describedby="alert-dialog-slide-description"
-            >
-                <DialogTitle sx={{
+            Sign up</Button>
+        <Dialog
+            open={open}
+            TransitionComponent={Transition}
+            keepMounted
+            onClose={handleClose}
+            aria-describedby="alert-dialog-slide-description"
+        >
+            <DialogTitle sx={{
+                display: "flex",
+                justifyContent: "center"
+            }}>Iniciar Sesion</DialogTitle>
+            <hr />
+            <DialogContent
+                sx={{
                     display: "flex",
+                    flexDirection: "column",
                     justifyContent: "center"
-                }}>Iniciar Sesion</DialogTitle>
-                <hr />
-                <DialogContent
-                    sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center"
-                    }}
-                >
-                    <TextField
-                        fullWidth
-                        id="lastName"
-                        type="text"
-                        onChange={handleChangeUserName}
-                        label="Usuario"
-                        variant="outlined"
-                        autoFocus
-                        margin="dense"
+                }}
+            >
+                <TextField
+                    fullWidth
+                    id="lastName"
+                    type="text"
+                    onChange={handleChangeUserName}
+                    label="Usuario"
+                    variant="outlined"
+                    autoFocus
+                    margin="dense"
+                />
+                <FormControl variant="outlined" sx={{ marginTop:"1rem"}}>
+                    <InputLabel
+                        htmlFor="outlined-adornment-password"
+                    >Contraseña</InputLabel>
+                    <OutlinedInput
+                        id="password"
+                        type={values.showPassword ? 'text' : 'password'}
+                        onChange={handleChangePassword}
+                        label="Contraseña"
+                        endAdornment={
+                            <InputAdornment position="end" >
+                                <IconButton
+                                    aria-label="toggle password visibility"
+                                    onClick={handleClickShowPassword}
+                                    onMouseDown={handleMouseDownPassword}
+                                    edge="end"
+                                >
+                                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                            </InputAdornment>
+                        }
                     />
-                    <FormControl variant="outlined" sx={{ marginTop:"1rem"}}>
-                        <InputLabel
-                            htmlFor="outlined-adornment-password"
-                        >Contraseña</InputLabel>
-                        <OutlinedInput
-                            id="password"
-                            type={values.showPassword ? 'text' : 'password'}
-                            onChange={handleChangePassword}
-                            label="Contraseña"
-                            endAdornment={
-                                <InputAdornment position="end" >
-                                    <IconButton
-                                        aria-label="toggle password visibility"
-                                        onClick={handleClickShowPassword}
-                                        onMouseDown={handleMouseDownPassword}
-                                        edge="end"
-                                    >
-                                        {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                    </IconButton>
-                                </InputAdornment>
-                            }
-                        />
-                    </FormControl>
+                </FormControl>
 
-                </DialogContent>
-                <DialogActions sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
+            </DialogContent>
+            <DialogActions sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+            }}>
+                <Button fullWidth variant="contained" type={'submit'} onClick={handleLogin} sx={{
+                    marginRight: "15px",
+                    marginLeft: "15px",
+                    bgcolor: '#7bf1a8'
+                }}>Login</Button>
+            </DialogActions>
+            <DialogContentText sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+            }}>
+                <p style={{
+                    padding: "20px"
                 }}>
-                    <Button fullWidth variant="contained" type={'submit'} onClick={handleLogin} sx={{
-                        marginRight: "15px",
-                        marginLeft: "15px",
-                        bgcolor: '#7bf1a8'
-                    }}>Login</Button>
-                </DialogActions>
-                <DialogContentText sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}>
-                    <p style={{
-                        padding: "20px"
-                    }}>
-                        No tienes una cuenta?
-                        <a href='/register' style={{
-                            textDecoration: "none",
-                            color: "blue"
-                        }}> Registrarme</a>
-                    </p>
-                </DialogContentText>
-            </Dialog>
-        </div>
-    );
+                    No tienes una cuenta?
+                    <a href='/register' style={{
+                        textDecoration: "none",
+                        color: "blue"
+                    }}> Registrarme</a>
+                </p>
+            </DialogContentText>
+        </Dialog>
+    </div>
+);
 }
 
 export default DialogLogin
