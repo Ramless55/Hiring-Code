@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 const UserCatalog = () => {
     let location = useLocation()
     const [user, setUser] = useState([])
-    const userPro = location.pathname.split('/')[1]
+    const userPro = location.pathname.split('/')[2]
 
     useEffect(() => {
         axios

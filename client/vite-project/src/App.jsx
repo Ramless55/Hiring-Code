@@ -20,7 +20,7 @@ function App() {
           <Route path='/' element={<LandingPage />} />
           <Route path='home' element={<HomePage />} />
           <Route path='my-profile' element ={<ProfilePage />} />
-          <Route path='/:user' element={<ProfileUsersPage />} />
+          <Route path='profile/:user' element={<ProfileUsersPage />} />
           <Route path='register' element={<RegisterPage />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>

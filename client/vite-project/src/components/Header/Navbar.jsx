@@ -37,7 +37,7 @@ const pages = [
     },
     {
         name: "Profile",
-        to: "/GonzalezGabi9",
+        to: '/profile/GonzalezGabi9',
     },
     {
         name: "My Profile",
