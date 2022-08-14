@@ -39,6 +39,10 @@ const pages = [
         name: "Profile",
         to: "/tobias",
     },
+    {
+        name: "My Profile",
+        to: "/my-profile",,
+    },
 ]
 
 
@@ -156,7 +160,7 @@ const ResponsiveAppBar = () => {
                         variant="h5"
                         noWrap
                         component="a"
-                        href=""
+                        href="/"
                         sx={{
                             mr: 2,
                             display: { xs: "flex", md: "none" },

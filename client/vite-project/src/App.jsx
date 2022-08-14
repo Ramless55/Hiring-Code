@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import RegisterPage from './pages/RegisterPage/RegisterPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 import Footer from './components/Footer/Footer'
 
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='home' element={<HomePage />} />
+          <Route path='my-profile' element ={<ProfilePage />} />
           <Route path='register' element={<RegisterPage />} />
           <Route path='/:user' element={<Profile />} />
           <Route path='*' element={<ErrorPage />} />

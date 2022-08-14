@@ -6,8 +6,19 @@ import Rating from './Rating/Rating'
 const PostCard = () => {
     return (
         <div className='post__content' title="Ingresar">
-            <div className="post__infoUser">
-                <img src={profile} className='post__profile' />
+
+            <div className="post__top">
+
+                <div className="post__left">
+
+                        <div className="post__profile">
+
+                            <img src={profile} />
+
+                        </div>
+
+                </div>
+
                 <div className="post__right">
 
                     <div className="infoUser__container">
@@ -23,22 +34,25 @@ const PostCard = () => {
                     </div>
 
                     <div className='post__description'>
-                        <p>Ea elit ea nulla incididunt culpa sint veniam officia culpa ut. Aliquip nostrud consectetur eu proident nulla enim consectetur tempor officia ullamco mollit culpa. Nisi laboris.
+                        <p>Ea elit ea nulla incididunt culpa sint veniam officia culpa ut. Aliquip nostrud consectetur eu proident nulla enim consectetur tempor officia ullamco mollit culpa. Nisi laboris. Ea elit ea nulla incididunt culpa sint veniam officia culpa ut. Aliquip nostrud consectetur eu proident nulla enim consectetur tempor officia ullamco mollit culpa. Nisi laboris.
                         </p>
                     </div>
                 </div>
             </div>
-            <div className='skill_container'>
-                <div className='skill_container-post'>.NET</div>
-                <div className='skill_container-post'>C#</div>
-                <div className='skill_container-post'>JavaScript</div>
-                <div className='skill_container-post'>React</div>
-                <div className='skill_container-post'>Node.js</div>
-                <div className='skill_container-post'>Materiaul UI</div>
-                <div className='skill_container-post'>MongoDB</div>
-                <div className='skill_container-post'>SCRUM</div>
-                <div className='skill_container-post'>Bootstrap</div>
-                <div className='skill_container-post'>Git</div>
+
+            <div className="post__bottom">
+                <div className='skill_container'>
+                    <div className='skill_container-post'>.NET</div>
+                    <div className='skill_container-post'>C#</div>
+                    <div className='skill_container-post'>JavaScript</div>
+                    <div className='skill_container-post'>React</div>
+                    <div className='skill_container-post'>Node.js</div>
+                    <div className='skill_container-post'>MUI</div>
+                    <div className='skill_container-post'>MongoDB</div>
+                    <div className='skill_container-post'>SCRUM</div>
+                    <div className='skill_container-post'>Bootstrap</div>
+                    <div className='skill_container-post'>Git</div>
+                </div>
             </div>
         </div>
     )

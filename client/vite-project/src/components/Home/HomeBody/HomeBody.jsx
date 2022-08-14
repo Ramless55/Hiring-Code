@@ -1,5 +1,6 @@
 import React from 'react'
 import PostCard from '../../PostCard/PostCard'
+import NewPost from '../../PostCard/NewPost/NewPost'
 import Pagination from '../../../components/Home/Pagination/Pagination'
 import Filter from '../Filter/Filter'
 import image from '../../../assets/svg/filter.svg'
@@ -17,6 +18,7 @@ const HomeBody = () => {
                     <Filter />
                 </div>
                 <div className="homeBody__right">
+                        <NewPost />
                     <div className="right__postCards">
                         <PostCard />
                         <PostCard />
