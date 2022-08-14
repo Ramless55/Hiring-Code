@@ -1,17 +1,42 @@
-import React, { useEffect } from 'react'
-import ProfileBody from '../../components/Profile/ProfileBody/ProfileBody'
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Card from "../../components/Card/Card";
 
-import './ProfilePage.css'
+import { useLocation } from 'react-router-dom';
 
-const ProfilePage = () => {
+const UserCatalog = () => {
+    let location = useLocation()
+    const [user, setUser] = useState([])
+    const userPro = location.pathname.split('/')[1]
+
     useEffect(() => {
-        window.scrollTo(0,0)
-    },[])
-    return (
-        <div>
-            <ProfileBody />
-        </div>
-    )
-}
+        axios
+            .get(`http://localhost:8080/api/user?userName=${userPro}`)
+            .then((res) => setUser(res.data))
+            .catch((err) => console.log(err));
+    },[]);
 
-export default ProfilePage
+    return (
+            <div>
+                <tbody
+                    style={{
+                        paddingTop: '4.3rem',
+                        display: "flex",
+                        justifyContent: "space-evenly",
+                        alingContent: "center",
+                        flexWrap: "wrap",
+                        gap: "2rem",
+                        margin: "2rem",
+                    }}
+                >
+                    {user.map((user) => (
+                        <tr key={user.id}>
+                            <Card data={user} key={user.userName} />
+                        </tr>
+                    ))}
+                </tbody>
+            </div>
+    );
+};
+
+export default UserCatalog;
