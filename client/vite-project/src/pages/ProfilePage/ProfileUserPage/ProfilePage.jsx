@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import Card from "../../../components/Card/Card";
 
 import { useLocation } from 'react-router-dom';
+import { getAllUser } from "../../../services/axiosServices";
 
 const UserCatalog = () => {
     let location = useLocation()
@@ -10,10 +10,7 @@ const UserCatalog = () => {
     const userPro = location.pathname.split('/')[2]
 
     useEffect(() => {
-        axios
-            .get(`http://localhost:8080/api/user?userName=${userPro}`)
-            .then((res) => setUser(res.data))
-            .catch((err) => console.log(err));
+        getAllUser({ setUser, userPro})
     },[]);
 
     return (

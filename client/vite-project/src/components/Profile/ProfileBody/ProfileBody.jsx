@@ -3,9 +3,7 @@ import './ProfileBody.css'
 import PostCard from '../../PostCard/PostCard'
 // import profile from '../../../assets/img/profile.png'
 
-import axios from 'axios'
-
-// import { getUserById } from '../../../services/axiosServices'
+import { getMyProfile } from '../../../services/axiosServices'
 
 const ProfileBody = () => {
     const [localData, setLocalData] = useState({
@@ -16,18 +14,9 @@ const ProfileBody = () => {
     const [user, setUser] = useState([])
 
     useEffect(() => {
-        axios
-        .get(`http://localhost:8080/api/user/${userId}`,{
-            headers: {
-                'Authorization': `Bearer ${JSON.parse(localStorage.getItem('Token'))}`,
-                'Content-Type': 'application/json'
-            }
-        })
-        .then((res) => setUser(res.data))
-        .catch((err) => console.log(err));
-    },[]);
+        getMyProfile({ userId, setUser })
+    }, []);
 
-    console.log(user.address)
     return (
         <div>
             <div className='container__profile'>
