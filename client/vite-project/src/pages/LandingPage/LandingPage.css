@@ -151,7 +151,7 @@ a:hover:after{
     border-color: rgba(0,0,0);
 }
 
-/* Opiniones (seccion1)*/
+/* Opiniones (seccion 1)*/
 
 .landing__content-2{
     color: rgb(60, 49, 49);
@@ -190,7 +190,6 @@ a:hover:after{
 .container__cards-card
 img{
     width: 18vw;
-    
 }
 
 /* content 3 */
@@ -387,7 +386,61 @@ div{
     border-color: #f9f9f9;
 }
 
+@media screen and (max-width: 768px){
+    .landing__content-2{
+        width: 100%;
+        height:250vh;        
+        background-color: var(--color-bg-light);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+    }
 
+    .landing__content-2-title{
+        width: 100%;
+        height: 20vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .container__cards{
+        background-color: var(--color-bg-light);
+        width: 100%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:1rem;
+    }
+    
+    .container__cards-card{
+        width: 70%;
+        height: 70vh;
+        padding: 2rem;
+        display: flex;
+        
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        border-radius: 7px;
+        box-shadow: 1.5px 1.5px 5px gray;
+    }
+
+    .container__cards-card
+    p{
+        width: 80%;
+    }
+    
+    .container__cards-card
+    img{
+        width: 18vw;
+    }
+
+}
 
 
 

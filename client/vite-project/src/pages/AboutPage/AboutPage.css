@@ -2,6 +2,8 @@
     --font-dark: #3d464d;
     --color-bg-light:#f9f9f9;
     --color-button:rgb(155, 196, 93);;
+    --color-green:#b0f2c2;
+    --color-bg-dark: #485f70 ;
 }
 
 
@@ -11,13 +13,21 @@
     box-sizing: border-box;
     color: var(--font-dark);
     padding-top: 7rem ;
+    background-color: var(--color-bg-light);
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .aboutPage__title{
     width: 100%;
+    color: var(--font-dark);
 }
 
 .aboutPage__container-cards{
+    width: 85%;
     padding: 2rem;
 }
 
@@ -33,4 +43,12 @@
     align-items: center;
     justify-content: center;
     padding: 1rem;
+}
+
+@media screen and (max-width: 768px){
+
+    .aboutPage__container-cards-grid{
+        display: flex;
+        flex-direction: column;
+    }
 }
