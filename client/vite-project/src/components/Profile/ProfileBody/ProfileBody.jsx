@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './ProfileBody.css'
 import PostCard from '../../PostCard/PostCard'
 // import profile from '../../../assets/img/profile.png'
-
+import EditProfile from '../../Button/EditProfile/EditProfile'
 import { getMyProfile } from '../../../services/axiosServices'
 
 const ProfileBody = () => {
@@ -33,6 +33,8 @@ const ProfileBody = () => {
 
                             </div>
 
+
+
                         </div>
 
                         <div className='top__right'>
@@ -50,11 +52,19 @@ const ProfileBody = () => {
 
                             </div>
 
+
+                            <div>
+                                <EditProfile />
+                            </div>
+
+
                         </div>
 
                     </div>
 
+
                 </div>
+
 
                 <div className='container__bottom'>
 

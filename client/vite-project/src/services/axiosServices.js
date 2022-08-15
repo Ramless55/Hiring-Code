@@ -37,3 +37,16 @@ export const getMyProfile = async ({ setUser, userId }) => {
         .catch((err) => err.response.data);
     return response
 };
+
+export const putMyProfile = async ({data, userId, setUser}) => {
+    const response = axios
+        .put(`http://localhost:8080/api/user/${userId}`, data,{
+            headers: {
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem("Token"))}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        .then((res) => setUser(res.data))
+        .catch((err) => err.response.data);
+    return response
+};
