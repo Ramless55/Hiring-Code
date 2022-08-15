@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import AboutCard from '../../components/AboutCard/AboutCard'
-import imgDani from '../../assets/img/about-us__card-dani.png'
 import axios from 'axios'
 import './AboutPage.css'
 
-
 const AboutPage = () => {
-    const [user1, setUser1] = useState({})
-    const [user2, setUser2] = useState({})
-    const [user3, setUser3] = useState({})
-    const [user4, setUser4] = useState({})
 
     const users = ['daniluna032', 'Ramless55', 'TobiasGonzalezz', 'ezemoralesmdp']
-
 
     const githubUser = () => {
         axios.get(`https://api.github.com/users/${users[0]}`)
@@ -51,37 +44,8 @@ const AboutPage = () => {
                             </div>
                         )
                     })}
-                    {/* <div className='aboutPage__container-cards-box'>
-                    <AboutCard
-                        image={user1.avatar_url}
-                        title={user1.name} 
-                        description={user1.bio}
-                    />
-                </div>
-                <div className='aboutPage__container-cards-box'>
-                    <AboutCard
-                        image={user2.avatar_url}
-                        title={user2.name}
-                        description={user2.bio} 
-                    />
-                </div>
-                <div className='aboutPage__container-cards-box'>
-                    <AboutCard
-                        image={user3.avatar_url}
-                        title={user3.name}
-                        description={user3.bio} 
-                    />
-                </div>
-                <div className='aboutPage__container-cards-box'>
-                    <AboutCard
-                        image={user4.avatar_url}
-                        title={user4.name}
-                        description={user4.bio} 
-                    />
-                </div> */}
                 </div>
             </div>
-
         </div>
     )
 }
