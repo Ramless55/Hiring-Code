@@ -3,32 +3,31 @@ import './NewPost.css'
 import profile from '../../../assets/img/profile.png'
 import Rating from '../Rating/Rating'
 import NewPost from '../../Button/NewPost/NewPost'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 const PostCard = () => {
     return (
-        <div className='newPost__content'>
 
-            <div className="newPost__top">
-
-                <form className='newPost__form'>
-
-                    <label for="titlePost">Título</label>
-                    <input className="form__input" type="text" id="titlePost" placeholder="Ingresar titulo" required></input>
-
-                    <label for="personalDescription">Contanos de vos... (máx. 500 caracteres)</label>
-                    <textarea className="form__input-description" id="personalDescription"  placeholder="Escribe algo..." maxlength="500" required></textarea>
-
-                </form>
-
-            </div>
-
-            <div className="newPost__bottom">
-
-                    <NewPost />
-
-            </div>
-            
-
+        <div style={{ width: 500, display: flex }}>
+        <Box
+                component="form"
+                sx={{
+                    '& .MuiTextField-root': { m: 1, width: '25ch' },
+                }}
+                noValidate
+                autoComplete="off"
+            >
+                <TextField
+                    required
+                    id="outlined-required"
+                    label="Titulo"
+                    autoFocus
+                    margin='dense'
+                    type='text'
+                />
+            </Box>
+                
         </div>
     )
 }
