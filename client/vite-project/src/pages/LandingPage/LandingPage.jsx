@@ -42,24 +42,27 @@ const LandingPage = () => {
       </div>
 
       <div className='landing__content-2' id='sect-1'>
+        <div className='landing__content-2-title'>
           <h1>Opiniones</h1>
-          <div className='container__cards'>
-            <div className='container__cards-card'>
-                <img src={cardImage} alt="Imagen" />
-                <h3>Titulo 1</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto blanditiis ea. Magni, quaerat illum nulla, sit possimus inventore dolorum laborum est odio doloribus vel nobis sapiente modi rem ipsa.</p>
-            </div>
-            <div className='container__cards-card'>
-                <img src={cardImage} alt="Imagen" />
-                <h3>Titulo 2</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto blanditiis ea. Magni, quaerat illum nulla, sit possimus inventore dolorum laborum est odio doloribus vel nobis sapiente modi rem ipsa.</p>
-            </div>
-            <div className='container__cards-card'>
-                <img src={cardImage} alt="Imagen" />
-                <h3>Titulo 3</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto blanditiis ea. Magni, quaerat illum nulla, sit possimus inventore dolorum laborum est odio doloribus vel nobis sapiente modi rem ipsa.</p>
-            </div>
+        </div> 
+        
+        <div className='container__cards'>
+          <div className='container__cards-card'>
+              <img src={cardImage} alt="Imagen" />
+              <h3>Titulo 1</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto blanditiis ea. Magni, quaerat illum nulla, sit possimus inventore dolorum laborum est odio doloribus vel nobis sapiente modi rem ipsa.</p>
           </div>
+          <div className='container__cards-card'>
+              <img src={cardImage} alt="Imagen" />
+              <h3>Titulo 2</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto blanditiis ea. Magni, quaerat illum nulla, sit possimus inventore dolorum laborum est odio doloribus vel nobis sapiente modi rem ipsa.</p>
+          </div>
+          <div className='container__cards-card'>
+              <img src={cardImage} alt="Imagen" />
+              <h3>Titulo 3</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto blanditiis ea. Magni, quaerat illum nulla, sit possimus inventore dolorum laborum est odio doloribus vel nobis sapiente modi rem ipsa.</p>
+          </div>
+        </div>
       </div>
 
       <div className='landing__content-3'>
@@ -125,6 +128,7 @@ const LandingPage = () => {
             </button>
           </div>
       </div>
+
     </div>
   )
 }
