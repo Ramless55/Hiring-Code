@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
@@ -21,7 +21,7 @@ const LoginPage = () => {
     const handleChangeUser = (event) => {
         setUser(event.target.value)
     }
-    
+
     const handleChangePass = (event) => {
         setPassword(event.target.value)
     }
@@ -34,9 +34,9 @@ const LoginPage = () => {
         // console.log(jsonForm)
         await axios.post(`http://localhost:8080/auth/login`, form)
             .then(res => {
-                if(res.data.status === 'logged in'){
-                    localStorage.setItem('Token',JSON.stringify(res.data.token))
-                    localStorage.setItem('User',JSON.stringify(res.data.user))
+                if (res.data.status === 'logged in') {
+                    localStorage.setItem('Token', JSON.stringify(res.data.token))
+                    localStorage.setItem('User', JSON.stringify(res.data.user))
                     navigate('/home')
                     setErrorLogin(false)
                 }
@@ -50,40 +50,40 @@ const LoginPage = () => {
 
     return (
         <Box
-        component="form"
-        sx={{
-          '& .MuiTextField-root': { m: 1, width: '25ch' },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <div className='container-of-login'>
-            <div style={{backgroundColor: 'grey'}}>
-                {errorLogin ? 
-                <p style={{color: 'red'}}>
-                    *Usuario y/o Constraseña invalidos, vuelva a intentar.
-                </p>
-                : ''
-                }
-                <TextField
-                    id="userInput"
-                    onChange={handleChangeUser}
-                    label="Usuario"
-                />
-                <TextField
-                    id="passwordInput"
-                    onChange={handleChangePass}
-                    label="Contraseña"
-                    type="password"
-                    autoComplete="current-password"
-                />
+            component="form"
+            sx={{
+                '& .MuiTextField-root': { m: 1, width: '25ch' },
+            }}
+            noValidate
+            autoComplete="off"
+        >
+            <div className='container-of-login'>
+                <div style={{ backgroundColor: 'grey' }}>
+                    {errorLogin ?
+                        <p style={{ color: 'red' }}>
+                            *Usuario y/o Constraseña invalidos, vuelva a intentar.
+                        </p>
+                        : ''
+                    }
+                    <TextField
+                        id="userInput"
+                        onChange={handleChangeUser}
+                        label="Usuario"
+                    />
+                    <TextField
+                        id="passwordInput"
+                        onChange={handleChangePass}
+                        label="Contraseña"
+                        type="password"
+                        autoComplete="current-password"
+                    />
 
-                    <Button onClick={handleClick} variant="ingresar" sx={{border: '.5px solid black'  }}>Ingresar</Button>
+                    <Button onClick={handleClick} variant="ingresar" sx={{ border: '.5px solid black' }}>Ingresar</Button>
 
 
+                </div>
             </div>
-        </div>
-      </Box>
+        </Box>
     )
 }
 

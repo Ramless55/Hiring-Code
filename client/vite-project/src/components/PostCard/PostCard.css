@@ -1,5 +1,5 @@
 .post__content {
-    height: 35vh;
+    width: 60vw;
     margin: 20px 50px;
     display: flex;
     flex-direction: column;
@@ -7,7 +7,7 @@
     color: #11151c;
     border-radius: 0 10px 0px 10px;
     padding: 20px 50px 0 50px;
-    font-family: monospace;
+    /* font-family: monospace; */
     box-shadow: inset 0 0 0 2.5px rgba(255, 255, 255, 0.726);
     transition: all 0.3s ease-out;
     box-shadow: 8px 5px 3px 3px #16262e;  
@@ -23,11 +23,13 @@
     box-shadow: 15px 5px 3px 3px #16262e;  
 }
 
-.post__content .post__infoUser {
+/* .post__content .post__infoUser {
     display: flex;
-}
+    width: 50vw;
+} */
 
-.post__content .post__infoUser .post__description {
+.post__content .post__description {
+    width: 35vw;
     margin: 10px 0;
     padding: 0 20px;
     text-align: justify;
@@ -37,49 +39,74 @@
     /* border: 5px solid #22223b; */
 }
 
-.post__content .post__infoUser .post__description p {
+.post__content .post__description p {
     margin: 10px 0
 }
 
+.post__content .post__top {
+    display: flex;
+    margin-bottom: 10px;
+}
 
-.post__content .post__infoUser .post__right p {
+.post__content .post__top .post__right p {
     margin: 0;
 }
 
-.post__content .post__infoUser .post__right {
+.post__content .post__top .post__right {
     margin-left: 25px;
 }
 
-.post__content .post__infoUser .post__right .infoUser__container {
+.post__content .post__top .post__right .infoUser__container {
     display: flex;
     flex-direction: column;
 }
 
-.post__content .post__infoUser .post__right .infoUser__container .container__bottom {
+.post__content .post__top .post__right .infoUser__container .container__bottom {
     margin: 10px 0 0 20px;
     display: flex;
 }
 
-.post__content .post__infoUser .post__right .infoUser__container .container__bottom p {
+.post__content .post__top .post__right .infoUser__container .container__bottom p {
     margin: 0 5px;
     font-size: 15px;
 }
 
-.post__content .post__infoUser .post__profile {
-    width: 35%;
-    height: 50%;
-    border-radius: 50%;
-    border: 2px solid white;
+.post__content .post__top .post__left {
+    width: 15vw;
+    display: flex
 }
 
-.post__content .skill_container {
+.post__content .post__top .post__left .post__profile {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35vw;
+    height: 32.5vh;
+    border-radius: 50%;
+    border: 7px double whitesmoke;
+    overflow: hidden;
+    margin: 20px 0 10px 0; 
+    /* width: 50vw; */
+}
+
+.post__content .post__top .post__left .post__profile img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* height: 50%; */
+    object-fit: cover;
+}
+
+.post__content .post__bottom .skill_container {
+    width: 10vw;
     display: flex;
     scroll-behavior: smooth;
-    padding: 5px 0 15px;
-    margin-top: -85px
+    /* /* padding: 5px 0 15px; */
 }
 
-.post__content .skill_container .skill_container-post {
+.post__content .post__bottom .skill_container .skill_container-post {
     --skill-height: 25px;
     --skill-color: whitesmoke;
     --skill-bg: #1b4332;
@@ -97,12 +124,7 @@
     cursor: pointer
 }
 
-.post__content .post__infoUser .post__right .infoUser__container .container__top {
-    /* position: relative 
-       left:40vh;
-       ^^^^^^^^^
-       Esto hacia que el div del componente rating se saliera del width de la HomePage
-    */
+.post__content .post__top .post__right .infoUser__container .container__top {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;

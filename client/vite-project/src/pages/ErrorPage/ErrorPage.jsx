@@ -16,8 +16,6 @@ const ErrorPage = () => {
         return () => document.removeEventListener("mousemove", mouseFunction)
     }, [])
 
-
-
     return (
         <>
             <div className='container'>

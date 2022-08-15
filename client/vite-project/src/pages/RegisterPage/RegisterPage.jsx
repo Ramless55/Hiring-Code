@@ -20,6 +20,7 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 //dependencies
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { userRegister } from '../../services/axiosServices';
 
 const RegisterPage = () => {
 
@@ -162,16 +163,15 @@ const RegisterPage = () => {
 
     const handleClick = async (event) => {
         event.preventDefault();
-        await axios.post(`http://localhost:8080/auth/register`, { ..._.omit(user, "passwordRepeat") })
-            .then(res => {
-                if (res.data.status === 'registered') {
+
+        const response = await userRegister ({ ..._.omit(user, "passwordRepeat")})
+                if (response.status === 'registered') {
                     navigate('/home')
                     setErrorRegister(false)
                 }
                 console.log(res)
-            })
             .catch(err => {
-                console.log(err)
+                console.log(response)
                 setErrorRegister(true)
             })
     }
