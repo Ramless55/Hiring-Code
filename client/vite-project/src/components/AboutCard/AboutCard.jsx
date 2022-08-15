@@ -1,17 +1,14 @@
-import './AboutCard.css'
-
 import * as React from 'react';
+import './AboutCard.css'
+import { useState, useEffect } from 'react';
+import axios from 'axios'
+//MATERIAL UI
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { height } from '@mui/system';
-import { useState, useEffect } from 'react';
-import axios from 'axios'
-
-
-
 
 const AboutCard = ({ user }) => {
     const [info, setInfo] = useState({})
@@ -40,10 +37,6 @@ const AboutCard = ({ user }) => {
                 maxWidth: 400,
                 borderRadius: "20px",
                 boxShadow: "0 0 10px rgba(0,0,0,0.7)",
-                // display:"flex",
-                // flexDirection:"column",
-                // justifyContent:"center",
-                // alingItems:"center",
             }}>
                 <CardActionArea onClick={visitGithub}>
                     <CardMedia
