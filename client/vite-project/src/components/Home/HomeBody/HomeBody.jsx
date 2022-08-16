@@ -1,18 +1,35 @@
 import React from 'react'
 import PostCard from '../../PostCard/PostCard'
 import Pagination from '../../../components/Home/Pagination/Pagination'
+import Filter from '../Filter/Filter'
+import image from '../../../assets/svg/filter.svg'
 import './HomeBody.css'
+import ButtonPost from '../../Button/Post/ButtonPost'
 
 const HomeBody = () => {
     return (
         <div>
             <div className="homeBody">
-                <PostCard />
-                <PostCard />
-                <PostCard />
-                <PostCard />
+                <div className="homeBody__left">
+                    <img src={image}></img>
+                    <ButtonPost />
+                    <Filter />
+                    <Filter />
+                    <Filter />
+                    <Filter />
+                </div>
+                <div className="homeBody__right">
+                    <div className="right__postCards">
+                        <PostCard />
+                        <PostCard />
+                        <PostCard />
+                        <PostCard />
+                        <PostCard />
+                        <PostCard />
+                    </div>
+                        <Pagination />
+                </div>
             </div>
-            <Pagination />
         </div>
     )
 }

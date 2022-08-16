@@ -1,0 +1,8 @@
+.aboutCard__container{
+    transition: all .25s;
+}
+
+.aboutCard__container:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0,0,0,0.2)
+}
