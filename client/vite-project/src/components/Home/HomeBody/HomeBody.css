@@ -3,10 +3,11 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
+    margin-bottom: 2%;
 }
 
 .homeBody .homeBody__left img {
-    width: 30vh;
+    width: 17vw;
     transform: scaleX(-1);
     margin: 10px 0
 }

@@ -35,9 +35,6 @@ const [values, setValues] = React.useState({
     showPassword: false,
 });
 
-const Navigate = useNavigate()
-const location = useLocation();
-
 const handleLogin = async (event) => {
     event.preventDefault();
 
@@ -49,6 +46,7 @@ const handleLogin = async (event) => {
         localStorage.setItem('Token', JSON.stringify(response.token))
         localStorage.setItem('User', JSON.stringify(response.user))
         handleClose()
+        window.location.reload()
     } else {
         console.log(response)
         alert('Usuario no encontrado')

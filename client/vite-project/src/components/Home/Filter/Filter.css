@@ -5,15 +5,21 @@ usamos modules solo para esta pagina podrias hacer eso  */
 } */
 
 .filter__container {
-    background: #7bf1a8;
+    background: #d9dcd6;
     padding: 20px;
     margin: 0 0 10px 0;
     border-radius: 5px;
+    /* height: 75%; */
+    height: fit-content;
+    margin-top: 10%;
+    border: 1px grey solid;
 }
 
 .filter__container .filter__section .footer__section-header {
     font-weight: bolder;
     padding: 5px 0 15px 0;
+    color: black;
+    font-size: larger;
 }
 
 .filter__container .filter__section {
@@ -27,4 +33,5 @@ usamos modules solo para esta pagina podrias hacer eso  */
 
 .filter__container .filter__section li a {
     text-decoration: none;
+
 }

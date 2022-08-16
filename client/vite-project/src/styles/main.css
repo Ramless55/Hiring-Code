@@ -18,21 +18,18 @@
 
 body,
 #root {
-    height: 100%;
-    width: 100%;
-    background-color: rgb(230, 230, 230);
+
+    background-color: whitesmoke;
     font-family: Roboto;
 }
 
 .app {
-    height: 100%;
-    width: 100%;
+
     background-color: rgb(251, 201, 208);
 }
 
 .main {
-    height: 95%;
-    width: 100%;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
