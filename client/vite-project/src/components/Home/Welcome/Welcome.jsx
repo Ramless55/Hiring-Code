@@ -15,7 +15,7 @@ const Welcome = () => {
                     {/* <HomeIcon sx={{fontSize: "200px"}}/> */}
                     <img className="left__image" src={image}/>
                 </div>
-                <div className="content__middle">
+                {/* <div className="content__middle">
                     <div className="middle__info">
                         <p>Buenos días, Ezequiel M.</p>
                         <p>Martes 09/08/2022</p>
@@ -23,11 +23,11 @@ const Welcome = () => {
 
                     <div className="middle__box">
                         <div className="box__top">
-                            {/* <ButtonDialogOne /> */}
+                            <ButtonDialogOne />
                             <ButtonDialogTwo />
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="content__right">
                     <div className="right__info">
                         <p>Buenos días, Ezequiel M.</p>
