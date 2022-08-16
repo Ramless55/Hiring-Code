@@ -2,6 +2,7 @@
     margin: 10px 50px;
     display: flex;
     justify-content: center;
+    flex-direction: row;
 }
 
 .homeBody .homeBody__left img {
@@ -15,14 +16,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 30px;
+    margin-left: 3%;
     padding: 20px 20px;
-    background: repeating-linear-gradient(
+    /* background: repeating-linear-gradient(
         45deg,
         rgba(0, 0, 0, 0) 20px,
         rgba(0, 0, 0, 0) 40px,
         #7bf1a8 40px,
         #7bf1a8 60px
-    );
+    ); */
 
 }

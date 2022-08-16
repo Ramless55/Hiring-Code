@@ -48,7 +48,6 @@ const publicationController = (Publication) => {
                         ceated_by: body.ceated_by,
                         title: body.title,
                         description: body.description,
-                        files: body.files,
                         created_date: body.created_date,
                         price: body.price,
                         labels: body.labels,

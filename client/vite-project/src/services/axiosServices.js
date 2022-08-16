@@ -17,6 +17,14 @@ export const userRegister = async (data) => {
     return response
 };
 
+export const postPublications = async (data) => {
+    const response = axios
+        .post("http://localhost:8080/api/publication", data)
+        .then((res) => res.data)
+        .catch((err) => console.log(err.response.data));
+    return response
+};
+
 export const getAllUser = async ({ setUser, userPro }) => {
     const response = axios
         .get(`http://localhost:8080/api/user?userName=${userPro}`)
