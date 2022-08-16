@@ -11,11 +11,8 @@ const PostCard = () => {
 
                 <div className="post__left">
 
-                        <div className="post__profile">
-
-                            <img src={profile} />
-
-                        </div>
+                    <img src={profile}/>
+                    <p>Ramless</p>
 
                 </div>
 

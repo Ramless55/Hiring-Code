@@ -1,16 +1,33 @@
 import React, { useEffect } from 'react'
 import cardImage from '../../assets/img/card_image.jpg'
 import './LandingPage.css'
+import { motion } from 'framer-motion'
 
 const LandingPage = () => {
+
   useEffect(() => {
     window.scrollTo(0,0)
 },[])
+
+  const firstSection = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  }
+
+  const cardsAnimation= {
+
+  }
+
   return (
     <div className='container__landing-page'>
       <div className='landing__content-1'>
         <div className='filter-content-1'>
-          <div className='section-header'>
+          <motion.div 
+            className='section-header'
+            initial={{opacity:0}}
+            animate={{ opacity: 1}}
+            transition={{ ease: "easeInOut", duration: 1}}
+            >
             <div>
               <a href="#sect-1">Sección 1</a>
             </div>
@@ -20,75 +37,115 @@ const LandingPage = () => {
             <div>
               <a href="#sect-3">Novedades</a>
             </div>
-          </div>
+          </motion.div>
           <div className='landing__content-1-title'>
-            <h1>Anunciate <span className='title-span'>Ya!</span></h1>
-            <h3>Anunciate en la página Nº1 en busqueda laboral y prestación de servivicios</h3>
+            <motion.h1
+              variants={firstSection}
+              initial="hidden"
+              animate="visible"
+              transition={{ ease: "easeInOut", duration: 1}}
+            >
+              Anunciate <span className='title-span'>Ya!</span>
+            </motion.h1>
+            <motion.h3
+              initial={{opacity:0}}
+              animate={{ opacity: 1}}
+              transition={{ ease: "easeInOut", duration: 1}}
+            >
+              Anunciate en la página Nº1 en busqueda laboral y prestación de servivicios
+            </motion.h3>
           </div>
-          <div className='landing__content-login-register'>
+          <motion.div 
+            className='landing__content-login-register'
+            initial={{y: 200 , opacity:0}}
+            animate={{y: 0 , opacity: 1}}
+            transition={{ ease: "easeInOut" , duration: 1}}
+          >
               <p>Buscá tu empleo o brindá tu servicio ahora.</p>
               <div className='container__button'>
                 <button 
-                className='button__login-register'>
+                className='button__template'>
                 Ingresar
                 </button>
                 <button 
-                className='button__login-register'>
+                className='button__template'>
                 Registrarse
                 </button>
               </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       <div className='landing__content-2' id='sect-1'>
+        <div className='landing__content-2-title'>
           <h1>Opiniones</h1>
-          <div className='container__cards'>
-            <div className='container__cards-card'>
-                <img src={cardImage} alt="Imagen" />
-                <h3>Titulo 1</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto blanditiis ea. Magni, quaerat illum nulla, sit possimus inventore dolorum laborum est odio doloribus vel nobis sapiente modi rem ipsa.</p>
-            </div>
-            <div className='container__cards-card'>
-                <img src={cardImage} alt="Imagen" />
-                <h3>Titulo 2</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto blanditiis ea. Magni, quaerat illum nulla, sit possimus inventore dolorum laborum est odio doloribus vel nobis sapiente modi rem ipsa.</p>
-            </div>
-            <div className='container__cards-card'>
-                <img src={cardImage} alt="Imagen" />
-                <h3>Titulo 3</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto blanditiis ea. Magni, quaerat illum nulla, sit possimus inventore dolorum laborum est odio doloribus vel nobis sapiente modi rem ipsa.</p>
-            </div>
+        </div> 
+        
+        <motion.div 
+        className='container__cards'
+        initial={{}}
+        animate={{}}
+        transition={{}}
+        >
+          <div className='container__cards-card'>
+              <img src={cardImage} alt="Imagen" />
+              <h3>Titulo 1</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto blanditiis ea. Magni, quaerat illum nulla, sit possimus inventore dolorum laborum est odio doloribus vel nobis sapiente modi rem ipsa.</p>
           </div>
+          <div className='container__cards-card'>
+              <img src={cardImage} alt="Imagen" />
+              <h3>Titulo 2</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto blanditiis ea. Magni, quaerat illum nulla, sit possimus inventore dolorum laborum est odio doloribus vel nobis sapiente modi rem ipsa.</p>
+          </div>
+          <div className='container__cards-card'>
+              <img src={cardImage} alt="Imagen" />
+              <h3>Titulo 3</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto blanditiis ea. Magni, quaerat illum nulla, sit possimus inventore dolorum laborum est odio doloribus vel nobis sapiente modi rem ipsa.</p>
+          </div>
+        </motion.div>
       </div>
 
-      <div className='landing__content-3'>
+      <motion.div 
+        className='landing__content-3'
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}>
         <div className='landing__content-3-first' id='sect-2'>
           <div className='landing__content-3-first-filter'>
             <div>
               <h2>Sample title</h2>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt nam similique officia quidem sapiente culpa libero? Saepe quaerat, deleniti totam suscipit vel sint, quidem, alias quasi recusandae dolore libero aperiam?</p>
-              <button className='button-more-info'>
-                + Info
-              </button>
+              <button className='button-more-info'>+ Info</button>
             </div>
           </div>
         </div>
-        <div className='landing__content-3-second'>
+        <motion.div className='landing__content-3-second'
+        initial={{ opacity: 0 , overflow:"hidden"}}
+        whileInView={{opacity: 1 , overflow:"hidden"}}
+        transition={{ease: 'easeInOut' , duration: 1}}
+        >
           <div className='content-3-second-box1'>
-            <div>
+            <motion.div
+            initial={{ opacity: 0 , x: -200,  }}
+            whileInView={{opacity: 1 , x:0, }}
+            transition={{ease: 'easeInOut' , duration: 1}}>
               <h2>Sample title</h2>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt nam similique officia quidem sapiente culpa libero? Saepe quaerat, deleniti totam suscipit vel sint, quidem, alias quasi recusandae dolore libero aperiam?</p>
-            </div>
+            </motion.div>
           </div>
-          <div className='content-3-second-box2'>
-            <div>
+          <div 
+            className='content-3-second-box2'
+            >
+            
+            <motion.div
+            initial={{ opacity: 0 , x: 200 , }}
+            whileInView={{opacity: 1 , x:0 , }}
+            transition={{ease: 'easeInOut' , duration: 1}}>
               <h2>Sample title</h2>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt nam similique officia quidem sapiente culpa libero? Saepe quaerat, deleniti totam suscipit vel sint, quidem, alias quasi recusandae dolore libero aperiam?</p>
-            </div>
+            </motion.div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       <div className='landing__content-4' id='sect-3'>
         <h1>Novedades</h1>
@@ -117,12 +174,8 @@ const LandingPage = () => {
       <div className='landing__content-5'>
           <div>
             <h3>¿Aun no te decidís?</h3>
-            <p>
-              ¡Comenzá por registrarte para conseguir empleo o brindar tus servicios!
-            </p>
-            <button className='content-5-button'>
-              Registrarse
-            </button>
+            <p>¡Comenzá por registrarte para conseguir empleo o brindar tus servicios!</p>
+            <button className='button__template'>Registrarse</button>
           </div>
       </div>
     </div>

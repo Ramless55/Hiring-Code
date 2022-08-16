@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import RegisterPage from './pages/RegisterPage/RegisterPage';
+import AboutPage from './pages/AboutPage/AboutPage';
 import ProfilePage from './pages/ProfilePage/MyProfilePage/ProfilePage';
 import ProfileUsersPage from "./pages/ProfilePage/ProfileUserPage/ProfilePage"
 import Footer from './components/Footer/Footer'
@@ -29,9 +30,11 @@ function App() {
         <Route path='home' element={<HomePage />} />
         <Route path='profile/:user' element={<ProfileUsersPage />} />
         <Route path='register' element={<RegisterPage />} />
+                  <Route path='about' element={<AboutPage />} />
+
         <Route path='*' element={<ErrorPage />} />
       </Routes>
-      <Footer />
+
     </div>
   )
 }

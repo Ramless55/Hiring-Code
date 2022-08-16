@@ -22,8 +22,15 @@ const authController = (User) => {
                 token,
                 user: {
                     id: user._id,
-                    username: user.userName,
-                    img: user.image
+                    name: user.name,
+                    lastName: user.lastName,
+                    userName: user.userName,
+                    phone: user.phone,
+                    country: user.country,
+                    date: user.date,
+                    address: user.address,
+                    email: user.email,
+                    image: user.image
                 }
             })
         } catch (err) {

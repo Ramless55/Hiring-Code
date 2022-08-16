@@ -13,6 +13,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import FormControl from '@mui/material/FormControl';
+import { useNavigate, useLocation } from 'react-router-dom'
 
 import _ from 'lodash';
 
@@ -34,6 +35,9 @@ const [values, setValues] = React.useState({
     showPassword: false,
 });
 
+const Navigate = useNavigate()
+const location = useLocation();
+
 const handleLogin = async (event) => {
     event.preventDefault();
 
@@ -44,9 +48,15 @@ const handleLogin = async (event) => {
         console.log(`Bienvenido ${values.userName}`);
         localStorage.setItem('Token', JSON.stringify(response.token))
         localStorage.setItem('User', JSON.stringify(response.user))
+        handleClose()
+        return (
+            <Navigate to='/' replace={true} />
+        )
     } else {
         console.log(response)
     }
+
+    handleClose()
 }
 
 const handleClickOpen = () => {
@@ -173,7 +183,7 @@ return (
                     <a href='/register' style={{
                         textDecoration: "none",
                         color: "blue"
-                    }}> Registrarme</a>
+                    }}> Registrate</a>
                 </p>
             </DialogContentText>
         </Dialog>
