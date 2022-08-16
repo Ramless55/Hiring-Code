@@ -38,7 +38,7 @@ export const getMyProfile = async ({ setUser, userId }) => {
     return response
 };
 
-export const putMyProfile = async ({data, userId, setUser}) => {
+export const putMyProfile = async ({ user, userId}) => {
     const response = axios
         .put(`http://localhost:8080/api/user/${userId}`, data,{
             headers: {
@@ -46,7 +46,7 @@ export const putMyProfile = async ({data, userId, setUser}) => {
                 'Content-Type': 'application/json'
             }
         })
-        .then((res) => setUser(res.data))
+        .then((res) => user(res.data))
         .catch((err) => err.response.data);
     return response
 };

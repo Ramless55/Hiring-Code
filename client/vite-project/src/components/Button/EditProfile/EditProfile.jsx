@@ -50,7 +50,11 @@ const EditProfile = () => {
         address: false,
         email: false
     })
-    const [user, setUser] = useState([])
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem('User'))
+    )
+
+    console.log(user)
 
     // const [newData, setNewData] = useState([])
 
@@ -104,23 +108,6 @@ const EditProfile = () => {
                 const emailRegExp = new RegExp('^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$', 'gi')
                 result = !emailRegExp.test(data) || (data.length < 3)
                 break;
-
-            // case 'password':
-            //     const passRegExp = new RegExp(/(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}/, 'gi')
-            //     data === user.passwordRepeat
-            //         ? setError(prev => ({ ...prev, passwordRepeat: false }))
-            //         : setError(prev => ({ ...prev, passwordRepeat: true }))
-            //     result = !passRegExp.test(data) || (data.length < 3)
-            //     break;
-
-            // case 'passwordRepeat':
-            //     result = user.password === data ? false : true
-            //     break;
-
-            // case 'country':
-            //     const regExpCountry = new RegExp('^[a-zA-Z\\s]*$', 'gi')
-            //     result = !regExpCountry.test(data) || (data.length < 3)
-            //     break;
 
             case 'address':
                 const regExpAddress = new RegExp('^[a-zA-Z\\s]*$', 'gi')
@@ -182,19 +169,19 @@ const EditProfile = () => {
         console.log(user)
     }, [user])
 
-    useEffect(() => {
-        getMyProfile({ setUser, userId })
-    }, [])
+    // useEffect(() => {
+    //     getMyProfile({ setUser, userId })
+    // }, [])
 
     const handleClick = async (event) => {
         event.preventDefault();
 
-        const response = await putMyProfile({setUser, userId})
+        const response = await putMyProfile({user,userId})
         if (response.status === 'updated') {
             navigate('/my-profile')
             setErrorRegister(false)
         }
-        console.log(res)
+        console.log(response)
             .catch(err => {
                 console.log(response)
                 setErrorRegister(true)
