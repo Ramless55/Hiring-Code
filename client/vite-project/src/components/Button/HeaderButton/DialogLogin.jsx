@@ -49,14 +49,10 @@ const handleLogin = async (event) => {
         localStorage.setItem('Token', JSON.stringify(response.token))
         localStorage.setItem('User', JSON.stringify(response.user))
         handleClose()
-        return (
-            <Navigate to='/' replace={true} />
-        )
     } else {
         console.log(response)
+        alert('Usuario no encontrado')
     }
-
-    handleClose()
 }
 
 const handleClickOpen = () => {
