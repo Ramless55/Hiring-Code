@@ -14,9 +14,29 @@ a{
     color: rgb(155, 196, 93);
 }
 
-/* Landing Page */
+/* TEMPLATES */
 
-/* Section 1 */
+.button__template{
+    background-color: var(--color-button-2);
+    color: #f9f9f9;
+    border-radius: 10px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.button__template:hover{
+    border-color: var(--color-bg-light);
+    background-color: rgb(130, 169, 53);
+}
+
+/* --------- LANDING PAGE --------- */
+
 
 .container__landing-page {
     display: flex;
@@ -29,6 +49,8 @@ a{
     box-sizing: border-box;
 }
 
+/* -------- SECTION 1 -------- */
+
 .landing__content-1{
     width: 100%;
     height: 100vh;
@@ -38,11 +60,6 @@ a{
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
-}
-
-.landing__content-1-title{
-    display: flex;
-    align-items: center;
 }
 
 .filter-content-1{
@@ -66,7 +83,6 @@ a{
     align-items: center;
     justify-content: flex-end;
     padding-top: 68.5px ;
-    
 }
 
 .section-header
@@ -111,6 +127,7 @@ a:hover:after{
 .landing__content-1-title{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
 }
 
@@ -134,27 +151,7 @@ a:hover:after{
     gap: 1rem;
 }
 
-.button__login-register{
-    background-color: var(--color-button-2);
-    color: #f9f9f9;
-    border-radius: 10px;
-    border-radius: 8px;
-    border: 2px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: bold;
-    font-family: inherit;
-    cursor: pointer;
-    transition: border-color 0.25s;
-    transition: background-color 0.50s;
-}
-
-.button__login-register:hover{
-    border-color: var(--color-bg-light);
-    background-color: rgb(130, 169, 53);
-}
-
-/* Opiniones (seccion 1)*/
+/* OPINIONES ---- SECTION 2 ----*/
 
 .landing__content-2{
     color: rgb(60, 49, 49);
@@ -279,7 +276,7 @@ div{
     width: 80%;
 }
 
-/* Novedades (seccion 3) */
+/* NOVEDADES (SECCION 3) */
 
 .landing__content-4{
     background-color: #f9f9f9;
@@ -386,58 +383,97 @@ div{
 }
 
 @media screen and (max-width: 768px){
-    .landing__content-2{
-        width: 100%;
-        height:250vh;        
-        background-color: var(--color-bg-light);
+    /* SECCION 2 */
+    .landing__content-2{        
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 0;
+        padding: 2rem 0;
     }
 
     .landing__content-2-title{
-        width: 100%;
-        height: 20vh;
+        height: 10vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        
     }
-    
+
     .container__cards{
         background-color: var(--color-bg-light);
         width: 100%;
-        height: 90%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap:1rem;
+        
+        gap:3rem;
     }
     
     .container__cards-card{
         width: 70%;
-        height: 70vh;
-        padding: 2rem;
         display: flex;
-        
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 1.5rem;
         border-radius: 7px;
         box-shadow: 1.5px 1.5px 5px gray;
+        padding: 0 0 2rem 0;
     }
 
     .container__cards-card
     p{
-        width: 80%;
+        width: 90%;
     }
     
     .container__cards-card
     img{
-        width: 18vw;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        padding: 1rem 1rem 1rem;
     }
+    
+    /* NOVEDADES (SECCION 4) */
+
+    .landing__content-4-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+    }
+    
+    .content-4-card-animation{
+        width: 70%;
+        padding: 0rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 2rem;
+        gap: 2rem;
+        border-radius: 7px;
+        box-shadow: 1.5px 1.5px 5px gray;
+        transition: all .1s linear;
+    }
+
+    .content-4-card-animation
+    p{
+        width: 90%;    
+    }
+    
+    .content-4-card-animation
+    img{
+        width:68vw;
+        aspect-ratio: 16 / 9;
+        padding: 2rem 2rem 0 2rem;
+    }
+    
+    .content-4-card-animation:hover{
+        transform:scale(1.05);
+        cursor: pointer;
+    }
+    
 
 }
 
