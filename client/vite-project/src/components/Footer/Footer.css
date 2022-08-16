@@ -13,7 +13,7 @@
 }
 
 .container__footer .footer__row .row__left {
-    width: 150vh;
+    width: 100vw;
     display: flex;
     justify-content: space-evenly;
 }
@@ -28,7 +28,7 @@
 }
 
 .container__footer .footer__row .row__left .footer__section {
-    margin: 0 5vh;
+    
     padding: 0
 }
 
@@ -46,8 +46,9 @@
 .container__footer .footer__row .row__right {
     display: flex;
     margin-left: 2vh;
+    justify-content: center;
 }
 
 .container__footer .footer__row .row__right img {
-    width: 300px;
+    width: 60%;
 }

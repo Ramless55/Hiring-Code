@@ -22,7 +22,7 @@
 .welcome__content .content__right,
 .welcome__content .content__middle,
 .welcome__content p {
-    width: 60vh;
+    width: 60%;
     margin: 0 5px;
     display: flex;
     align-items: center;
@@ -30,7 +30,7 @@
 }
 
 .welcome__content .content__left .left__image {
-    width: 50vh;
+    width: 50%;
 }
 
 .welcome__content .content__right .right__box,

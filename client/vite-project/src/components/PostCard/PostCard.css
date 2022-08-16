@@ -15,6 +15,7 @@
 
 .post__content:hover{
     transition: all 0.2s ease-out;
+    transition-delay: 0.2s;
     box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
     top: -4px;
     border: 1px solid #cccccc;
@@ -53,7 +54,7 @@
 }
 
 .post__content .post__top .post__right {
-    margin-left: 25px;
+    margin-left: 5%;
 }
 
 .post__content .post__top .post__right .infoUser__container {
@@ -73,10 +74,13 @@
 
 .post__content .post__top .post__left {
     width: 15vw;
-    display: flex
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.post__content .post__top .post__left .post__profile {
+/* .post__content .post__top .post__left .post__profile {
     position: relative;
     display: flex;
     justify-content: center;
@@ -87,30 +91,34 @@
     border: 7px double whitesmoke;
     overflow: hidden;
     margin: 20px 0 10px 0; 
-    /* width: 50vw; */
-}
+    width: 50vw;
+} */
 
-.post__content .post__top .post__left .post__profile img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+.post__content .post__top .post__left img {
+
+    max-width: 50rem;
+    max-height: 10rem;
+    min-height: 50%;
+    min-width: 50%;
     /* height: 50%; */
-    object-fit: cover;
+    border: 2px grey solid;
+    border-radius: 50%;
 }
 
 .post__content .post__bottom .skill_container {
-    width: 10vw;
+    flex-wrap: wrap;
     display: flex;
     scroll-behavior: smooth;
+    align-items: flex-start;
     /* /* padding: 5px 0 15px; */
 }
 
 .post__content .post__bottom .skill_container .skill_container-post {
-    --skill-height: 25px;
+    --skill-height: 1.5rem;
     --skill-color: whitesmoke;
     --skill-bg: #1b4332;
     display: inline-flex;
+    width: fit-content;
     align-items: center;
     height: var(--skill-height);
     margin: 0 5px 10px 0;
