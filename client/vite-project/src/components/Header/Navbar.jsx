@@ -36,8 +36,13 @@ const pages = [
         to: "/register",
     },
     {
+        name: "About-us",
+        to: "/about",
+        },
+        {
         name: "Profile",
         to: '/profile/GonzalezGabi9',
+     
     },
     {
         name: "My Profile",
