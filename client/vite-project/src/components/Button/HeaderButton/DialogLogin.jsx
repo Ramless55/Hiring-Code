@@ -48,6 +48,7 @@ const handleLogin = async (event) => {
         console.log(`Bienvenido ${values.userName}`);
         localStorage.setItem('Token', JSON.stringify(response.token))
         localStorage.setItem('User', JSON.stringify(response.user))
+        localStorage.setItem('Id', JSON.stringify(response.id))
         handleClose()
     } else {
         console.log(response)

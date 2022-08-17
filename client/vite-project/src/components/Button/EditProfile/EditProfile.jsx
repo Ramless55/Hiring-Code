@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
+import _ from 'lodash';
+
 
 //material ui
-import { MuiTelInput, isValidPhoneNumber } from 'mui-tel-input'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -11,34 +12,20 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import InputLabel from '@mui/material/InputLabel';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import Slide from '@mui/material/Slide';
-import IconButton from '@mui/material/IconButton';
-import InputAdornment from '@mui/material/InputAdornment';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import TextField from '@mui/material/TextField';
 
-import { getMyProfile, putMyProfile } from '../../../services/axiosServices'
+import { putMyProfile } from '../../../services/axiosServices'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
 const EditProfile = () => {
-    const [localData, setLocalData] = useState({
-        localData: JSON.parse(localStorage.getItem("User")),
-    })
-    const userId = localData.localData.id
-
     const [open, setOpen] = React.useState(false);
-
-    const [value, setValue] = useState('+54')
+    const [errorRegister, setErrorRegister] = useState(false)
     const [isValid, setIsValid] = useState(false)
     const [disabled, setDisabled] = useState(true)
-    const [showPassword, setShowPassword] = useState(false);
-    const [dateValue, setDateValue] = useState(new Date('2001-01-01T21:11:54'));
     const [error, setError] = useState({
         name: false,
         lastName: false,
@@ -50,30 +37,14 @@ const EditProfile = () => {
         address: false,
         email: false
     })
+
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem('User'))
     )
 
-    console.log(user)
-
-    // const [newData, setNewData] = useState([])
+    // console.log(user)
 
     const navigate = useNavigate()
-
-    const handleDateChange = (newValue) => {
-        setDateValue(newValue);
-    };
-
-    const handleClickShowPassword = () => {
-        setShowPassword(!showPassword)
-    };
-
-    const handleChangePhone = (newValue) => {
-        setIsValid(isValidPhoneNumber(newValue))
-
-        setValue(newValue)
-        setUser(prev => ({ ...prev, phone: newValue }))
-    }
 
     const handleButtonDisable = () => {
         let result = true
@@ -143,18 +114,6 @@ const EditProfile = () => {
         setOpen(false);
     };
 
-    const handleChangeUserName = (event) => {
-        setValues(prev => ({ ...prev, userName: event.target.value }))
-    }
-
-    const handleChangePassword = (event) => {
-        setValues(prev => ({ ...prev, password: event.target.value }))
-    }
-
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
-
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
@@ -166,26 +125,21 @@ const EditProfile = () => {
 
     useEffect(() => {
         setError(prev => ({ ...prev, phone: !isValid }))
-        console.log(user)
     }, [user])
-
-    // useEffect(() => {
-    //     getMyProfile({ setUser, userId })
-    // }, [])
 
     const handleClick = async (event) => {
         event.preventDefault();
-
-        const response = await putMyProfile({user,userId})
-        if (response.status === 'updated') {
+        console.log(user)
+        const response = await putMyProfile(user.id, user)
+        // console.log(response)
+        if (response.status.toString() === 'updated') {
+            // localStorage.removeItem('User')
+            // localStorage.setItem('User', JSON.stringify(response.user))
             navigate('/my-profile')
             setErrorRegister(false)
+        }else{
+            console.log(response.error)
         }
-        console.log(response)
-            .catch(err => {
-                console.log(response)
-                setErrorRegister(true)
-            })
     }
 
     return (
