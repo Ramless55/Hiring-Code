@@ -4,12 +4,8 @@ import profile from '../../assets/svg/profile.svg'
 import Rating from './Rating/Rating'
 import StarIcon from '@mui/icons-material/Star';
 
-<<<<<<< HEAD
 const PostCard = (props) => {
-=======
-const PostCard = () => {
 
->>>>>>> 00c13126a978071017bd145b2664a320159e666b
     return (
         <div className='post__content'>
 
