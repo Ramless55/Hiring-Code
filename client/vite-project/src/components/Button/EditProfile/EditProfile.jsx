@@ -128,16 +128,16 @@ const EditProfile = () => {
     const handleClick = async (event) => {
         event.preventDefault();
         console.log(user)
-        const idUser =  {id: user.id}
+        const idUser = { id: user.id }
         const response = await putMyProfile(user.id, user)
-        if (response.status.toString() === 'updated') {
+        if (response?.status.toString() === 'updated') {
             localStorage.removeItem('User')
             const aux = response.user
             localStorage.setItem('User', JSON.stringify(Object.assign(idUser, aux)))
             navigate('/my-profile')
             setErrorRegister(false)
-        }else{
-            console.log(response.error)
+        } else {
+            console.log(response?.error)
         }
     }
 
@@ -181,8 +181,11 @@ const EditProfile = () => {
                         helperText={error.name ? 'No se permiten numeros o simbolos' : ''}
                         sx={{ marginTop: '1rem' }}
                         id="name"
-                        // label="*Nombre"
+                        label="Nombre"
                         value={user.name}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
                         variant="outlined"
                         onChange={handleInputChange('name')}
                     />
@@ -192,8 +195,11 @@ const EditProfile = () => {
                         helperText={error.lastName ? 'No se permiten numeros o simbolos' : ''}
                         sx={{ marginTop: '1rem' }}
                         id="lastName"
-                        // label="*Apellido"
+                        label="Apellido"
                         value={user.lastName}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
                         variant="outlined"
                         onChange={handleInputChange('lastName')}
                     />
@@ -203,8 +209,11 @@ const EditProfile = () => {
                         helperText={error.userName ? 'No se permiten simbolos' : ''}
                         sx={{ marginTop: '1rem' }}
                         id="userName"
-                        // label="*Usuario"
+                        label="Usuario"
                         value={user.userName}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
                         variant="outlined"
                         onChange={handleInputChange('userName')}
                     />
@@ -214,7 +223,10 @@ const EditProfile = () => {
                         helperText={error.email ? 'Utilice un formato valido' : ''}
                         sx={{ marginTop: '1rem' }}
                         id="email"
-                        // label="*Email"
+                        label="Email"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
                         value={user.email}
                         variant="outlined"
                         onChange={handleInputChange('email')} />
@@ -222,10 +234,27 @@ const EditProfile = () => {
                     <TextField
                         sx={{ marginTop: '1rem' }}
                         id="address"
-                        // label="*Direccion"
+                        label="Direecion"
                         value={user.address}
                         variant="outlined"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
                         onChange={handleInputChange('address')}
+                    />
+
+                    <TextField
+                        // error={error.userName}
+                        // helperText={error.userName ? 'No se permiten simbolos' : ''}
+                        sx={{ marginTop: '1rem' }}
+                        id="userName"
+                        label="Iamgen URL"
+                        value={user.image}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        variant="outlined"
+                        onChange={handleInputChange('image')}
                     />
 
                 </DialogContent>
