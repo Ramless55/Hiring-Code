@@ -54,10 +54,9 @@ BootstrapDialogTitle.propTypes = {
     onClose: PropTypes.func.isRequired,
 };
 
-export default function CustomizedDialogs() {
+export default function CustomizedDialogs(props) {
     const [open, setOpen] = useState(false);
     const [date, setDate] = useState(new Date())
-    const [logged, setLogged] = useState(false)
     const [publicationData, setPublicationData] = useState({
         created_by:{},
         title: "",
@@ -73,6 +72,7 @@ export default function CustomizedDialogs() {
         price: false,
         labels: false,
     })
+    
 
     const checkData = (key, data) => {
         let result = false;
@@ -105,7 +105,7 @@ export default function CustomizedDialogs() {
     }
 
     const handleClickOpen = () => {
-        !logged
+        !props.logged
         ? alert("¡Inicia sesion para poder publicar ahora!") 
         : setOpen(true);
     };
@@ -114,7 +114,7 @@ export default function CustomizedDialogs() {
     };
 
     const handleClick = () => {
-        logged ?
+        props.logged ?
         postPublications(publicationData) 
         : ''
     }
@@ -134,8 +134,6 @@ export default function CustomizedDialogs() {
     }
 
     useEffect(() => {
-        const token = JSON.parse(localStorage.getItem("Token"))
-
         let day = date.getDate()
         let month = date.getMonth() + 1
         let year = date.getFullYear()
@@ -145,23 +143,14 @@ export default function CustomizedDialogs() {
         
         const dateTransform = `${day}/${month}/${year}`
         setPublicationData(prev => ({ ...prev, created_date: dateTransform}))
-
-        //esto realmente funcionara cuando agreguemos redux para el estado global de logeo
-        if(token !== null){
-            setLogged(true)
-            const user = JSON.parse(localStorage.getItem("User"))
-            setPublicationData(prev => ({ ...prev, created_by: user }))
-        }
+        
     }, [])
 
     useEffect(() => {
-        const token = JSON.parse(localStorage.getItem("Token"))
-        if(token !== null){
-            setLogged(true)
-            const user = JSON.parse(localStorage.getItem("User"))
-            setPublicationData(prev => ({ ...prev, created_by: user }))
-        }
-    }, [logged])
+
+            props.logged ? setPublicationData(prev => ({ ...prev, created_by: props.user })) : ''
+
+    }, [props.logged])
 
     useEffect(() => {
         document.body.style.overflow = 'auto'
@@ -226,11 +215,11 @@ export default function CustomizedDialogs() {
                             <TextField
                                 sx={{ marginTop: '1rem' }}
                                 id="description"
-                                // label={value ? value.length + '/600' : 'Ingrese una descripcion *'}
+                                label={publicationData.description !== "" ? publicationData.description.length + '/600' : 'Ingrese una descripcion *'}
                                 multiline
                                 minRows={12}
                                 maxRows={12}
-                                // value={value}
+                                value={publicationData.description}
                                 onChange={handleInputChange('description')}
                                 inputProps={{ maxLength: 600 }}
                             />
@@ -242,7 +231,7 @@ export default function CustomizedDialogs() {
                     </DialogContent>
                     <DialogActions>
                         <Button autoFocus onClick={handleClose}>
-                        <Button variant="contained" color="success" onClick={handleClick} disabled={!logged}>
+                        <Button variant="contained" color="success" onClick={handleClick} disabled={!props.logged}>
                                 Crear nueva publicación
                             </Button>
                         </Button>

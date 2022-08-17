@@ -1,4 +1,4 @@
-import * as React from "react";
+import {useState, useEffect} from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -16,6 +16,7 @@ import { useLocation } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 
 import Dialog from "../Button/HeaderButton/DialogLogin";
+import ProfileIcon from "../Button/ProfileIcon/ProfileIcon"
 import SearchBar from "../SearchBar/SearchBar";
 
 const pages = [
@@ -53,8 +54,9 @@ const pages = [
 
 const ResponsiveAppBar = () => {
     let location = useLocation()
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorElNav, setAnchorElNav] = useState(null);
+    const [anchorElUser, setAnchorElUser] = useState(null);
+    const [logged, setLogged] = useState(false)
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -70,6 +72,17 @@ const ResponsiveAppBar = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    useEffect(() => {
+        const token = JSON.parse(localStorage.getItem('Token'))
+        if(token !== null){
+            setLogged(true)
+        }else{
+            setLogged(false)
+            localStorage.clear()
+        }
+        
+    },[])
 
     return (
         <AppBar
@@ -194,7 +207,11 @@ const ResponsiveAppBar = () => {
                         })}
                     </Box>
 
-                    <Dialog />
+                    {!logged
+                    ? <Dialog />
+                    : <ProfileIcon/>
+                    }
+
                 </Toolbar>
             </Container>
         </AppBar>

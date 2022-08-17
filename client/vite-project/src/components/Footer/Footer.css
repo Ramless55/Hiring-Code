@@ -10,6 +10,8 @@
 .footer__row {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 .container__footer .footer__row .row__left {
