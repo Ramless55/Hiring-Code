@@ -169,7 +169,7 @@ const RegisterPage = () => {
                     navigate('/home')
                     setErrorRegister(false)
                 }
-                console.log(res)
+                console.log(response)
             .catch(err => {
                 console.log(response)
                 setErrorRegister(true)
@@ -198,8 +198,7 @@ const RegisterPage = () => {
 
             day < 10 ? day = `0${day}` : ''
             month < 10 ? month = `0${month}` : ''
-
-            console.log(dateValue)
+            
             const date = `${day}/${month}/${year}`
             setUser(prev => ({ ...prev, date: date }))
         }
@@ -215,8 +214,8 @@ const RegisterPage = () => {
         <main className={styles.container}>
             <div className={styles.formContainer}>
                 <div>
-                    <h1 style={{ marginBottom: '1rem' }}>Registrate</h1>
-                    <p>Se parte de nuestra comunidad ahora!</p>
+                    <h1 style={{ marginBottom: '1rem', color: 'black' }}>Registrate</h1>
+                    <p style={{color: 'green'}}>Se parte de nuestra comunidad ahora!</p>
                     {errorRegister ? <p style={{ color: 'red' }}>*El Usuario, Email o Numero ya estan asociados a un usuario.</p> : ''}
                 </div>
                 <div className={styles.containerInputs}>
@@ -224,7 +223,7 @@ const RegisterPage = () => {
                         <TextField
                             error={error.name}
                             helperText={error.name ? 'No se permiten numeros o simbolos' : ''}
-                            sx={{ marginTop: '1rem' }}
+                            sx={{ marginTop: '5%' }}
                             id="name"
                             label="*Nombre"
                             variant="outlined"
@@ -234,7 +233,7 @@ const RegisterPage = () => {
                         <TextField
                             error={error.lastName}
                             helperText={error.lastName ? 'No se permiten numeros o simbolos' : ''}
-                            sx={{ marginTop: '1rem' }}
+                            sx={{ marginTop: '5%' }}
                             id="lastName"
                             label="*Apellido"
                             variant="outlined"
@@ -244,7 +243,7 @@ const RegisterPage = () => {
                         <TextField
                             error={error.userName}
                             helperText={error.userName ? 'No se permiten simbolos' : ''}
-                            sx={{ marginTop: '1rem' }}
+                            sx={{ marginTop: '5%' }}
                             id="userName"
                             label="*Usuario"
                             variant="outlined"
@@ -254,7 +253,7 @@ const RegisterPage = () => {
                         <TextField
                             error={error.email}
                             helperText={error.email ? 'Utilice un formato valido' : ''}
-                            sx={{ marginTop: '1rem' }}
+                            sx={{ marginTop: '5%' }}
                             id="email"
                             label="*Email"
                             variant="outlined"
@@ -264,7 +263,7 @@ const RegisterPage = () => {
                         <MuiTelInput
                             error={error.phone}
                             helperText={error.phone ? 'Utilice un formato valido' : ''}
-                            sx={{ marginTop: '1rem' }}
+                            sx={{ marginTop: '5%' }}
                             value={value}
                             onChange={handleChangePhone}
                             label="Numero Telefonico"
@@ -273,7 +272,7 @@ const RegisterPage = () => {
                     </div>
 
                     <div className={styles.secondFive}>
-                        <FormControl variant="outlined" sx={{ marginTop: '1rem' }}>
+                        <FormControl variant="outlined" sx={{ marginTop: '5%' }}>
                             <InputLabel
                                 htmlFor="outlined-adornment-password"
                                 error={error.password}
@@ -301,7 +300,7 @@ const RegisterPage = () => {
 
                         {error.password ? <p className={styles.error}>La contraseña debe contener 1 Minuscula 1 Mayuscula 1 Numero 1 Caracter Especial y 8 Caracteres de longitud</p> : ''}
 
-                        <FormControl variant="outlined" sx={{ marginTop: '1rem' }}>
+                        <FormControl variant="outlined" sx={{ marginTop: '5%' }}>
                             <InputLabel htmlFor="outlined-adornment-password" error={error.passwordRepeat}>*Repetir Contraseña</InputLabel>
                             <OutlinedInput
                                 id="passwordRepeat"
@@ -327,7 +326,7 @@ const RegisterPage = () => {
                         {error.passwordRepeat ? <p className={styles.error}>Las contraseñas deben ser iguales.</p> : ''}
 
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
-                            <Stack spacing={3} sx={{ marginTop: '1rem' }}>
+                            <Stack spacing={3} sx={{ marginTop: '5%' }}>
                                 <DesktopDatePicker
                                     value={dateValue}
                                     label="Fecha de Nacimiento"
@@ -344,10 +343,10 @@ const RegisterPage = () => {
                             </Stack>
                         </LocalizationProvider>
 
-                        {error.date ? <p style={{ color: 'red' }}>Formato y/o fecha invalido.</p> : ''}
+                        {error.date ? <p className={styles.error}>Formato y/o fecha invalido.</p> : ''}
 
                         <TextField
-                            sx={{ marginTop: '1rem' }}
+                            sx={{ marginTop: '5%' }}
                             id="country"
                             label="*Pais"
                             variant="outlined"
@@ -355,7 +354,7 @@ const RegisterPage = () => {
                         />
 
                         <TextField
-                            sx={{ marginTop: '1rem' }}
+                            sx={{ marginTop: '5%' }}
                             id="address"
                             label="*Direccion"
                             variant="outlined"
@@ -366,9 +365,16 @@ const RegisterPage = () => {
                 </div>
 
 
-                <div>
+                <div className={styles.buttonContainer}>
                     <Button
-                        sx={{ marginTop: '1rem', width: '15vw', height: '7vh' }}
+                        sx={{
+                            width: '15vw',
+                            height: '7vh',
+                            bgcolor: 'green',
+                            '&:hover': {
+                                bgcolor: "rgba(0, 128, 0, .9)",
+                            }
+                        }}
                         variant="contained"
                         onClick={handleClick}
                         disabled={disabled}>

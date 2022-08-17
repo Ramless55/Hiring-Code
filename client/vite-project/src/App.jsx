@@ -1,6 +1,6 @@
 import './App.css'
 import './styles/main.css'
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header/Navbar"
 import HomePage from "./pages/HomePage/HomePage";
@@ -17,10 +17,10 @@ import { AnimatePresence } from 'framer-motion';
 function App() {
   const [isLogged, setIslogged] = useState(window.localStorage.getItem("Token"))
   const location = useLocation()
-  
-  useEffect(()=> {
+
+  useEffect(() => {
     setIslogged(window.localStorage.getItem("Token"))
-  },[location])
+  }, [location])
 
   return (
     <div className="App">
@@ -28,15 +28,15 @@ function App() {
       <AnimatePresence exitBeforeEnter>
         <Routes key={location.pathname} location={location}>
           <Route path='/' element={<LandingPage />} />
-          <Route path='my-profile' element={<ProtectedRoutes user={isLogged}> <ProfilePage /> </ProtectedRoutes> } />
+          <Route path='my-profile' element={<ProtectedRoutes user={isLogged}> <ProfilePage /> </ProtectedRoutes>} />
           <Route path='home' element={<HomePage />} />
           <Route path='profile/:user' element={<ProfileUsersPage />} />
           <Route path='register' element={<RegisterPage />} />
           <Route path='about' element={<AboutPage />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
+        <Footer />
       </AnimatePresence>
-
     </div>
   )
 }

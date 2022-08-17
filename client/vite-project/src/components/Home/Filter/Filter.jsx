@@ -5,7 +5,8 @@ const Filter = () => {
     return (
         <div className="filter__container">
             <ul className="filter__section">
-                <li className="footer__section-header">holaholaholaholahola</li>
+                <li className="footer__section-header">Filtros</li>
+                <hr/>
                 <li><a href="#">holaholaholaholahola</a></li>
                 <li><a href="#">holaholaholaholahola</a></li>
                 <li><a href="#">holaholaholaholahola</a></li>
@@ -13,6 +14,40 @@ const Filter = () => {
                 <li><a href="#">holaholaholaholahola</a></li>
                 <li><a href="#">holaholaholaholahola</a></li>
             </ul>
+            <hr/>
+            <ul className="filter__section">
+                <li className="footer__section-header">Filtros</li>
+                <hr/>
+                <li><a href="#">holaholaholaholahola</a></li>
+                <li><a href="#">holaholaholaholahola</a></li>
+                <li><a href="#">holaholaholaholahola</a></li>
+                <li><a href="#">holaholaholaholahola</a></li>
+                <li><a href="#">holaholaholaholahola</a></li>
+                <li><a href="#">holaholaholaholahola</a></li>
+            </ul>
+            <hr/>
+            <ul className="filter__section">
+                <li className="footer__section-header">Filtros</li>
+                <hr/>
+                <li><a href="#">holaholaholaholahola</a></li>
+                <li><a href="#">holaholaholaholahola</a></li>
+                <li><a href="#">holaholaholaholahola</a></li>
+                <li><a href="#">holaholaholaholahola</a></li>
+                <li><a href="#">holaholaholaholahola</a></li>
+                <li><a href="#">holaholaholaholahola</a></li>
+            </ul>
+            <hr/>
+            <ul className="filter__section">
+                <li className="footer__section-header">Filtros</li>
+                <hr/>
+                <li><a href="#">holaholaholaholahola</a></li>
+                <li><a href="#">holaholaholaholahola</a></li>
+                <li><a href="#">holaholaholaholahola</a></li>
+                <li><a href="#">holaholaholaholahola</a></li>
+                <li><a href="#">holaholaholaholahola</a></li>
+                <li><a href="#">holaholaholaholahola</a></li>
+            </ul>
+            <hr/>
         </div>
     )
 }

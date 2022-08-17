@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
@@ -14,6 +14,7 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Stack from '@mui/material/Stack';
+import { postPublications } from '../../../services/axiosServices';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -53,27 +54,112 @@ BootstrapDialogTitle.propTypes = {
     onClose: PropTypes.func.isRequired,
 };
 
-export default function CustomizedDialogs() {
-    const [open, setOpen] = React.useState(false);
+export default function CustomizedDialogs(props) {
+    const [open, setOpen] = useState(false);
+    const [date, setDate] = useState(new Date())
+    const [publicationData, setPublicationData] = useState({
+        created_by:{},
+        title: "",
+        description: "",
+        created_date: "",
+        price: "",
+        labels: [],
+    })
+    const [error, setError] = useState({
+        title: false,
+        description: false,
+        created_date: false,
+        price: false,
+        labels: false,
+    })
+    
+
+    const checkData = (key, data) => {
+        let result = false;
+        
+        switch (key) {
+            case 'title':
+
+                break;
+
+            case 'description':
+
+                break;
+
+            case 'created_date':
+
+                break;
+
+            case 'price':
+
+                break;
+
+            case 'labels':
+
+                break;
+
+            default:
+                break;
+        }
+        return result
+    }
 
     const handleClickOpen = () => {
-        setOpen(true);
+        !props.logged
+        ? alert("¡Inicia sesion para poder publicar ahora!") 
+        : setOpen(true);
     };
     const handleClose = () => {
         setOpen(false);
     };
 
-    React.useEffect(() => {
+    const handleClick = () => {
+        props.logged ?
+        postPublications(publicationData) 
+        : ''
+    }
+    const handleInputChange = (key) => (event) => {
+        setPublicationData((prev) => {
+            return {
+                ...prev,
+                [key]: event.target.value
+            }
+        })
+        setError((prev) => {
+            return {
+                ...prev,
+                [key]: checkData(key, event.target.value)
+            }
+        })
+    }
+
+    useEffect(() => {
+        let day = date.getDate()
+        let month = date.getMonth() + 1
+        let year = date.getFullYear()
+
+        day < 10 ? day = `0${day}` : ''
+        month < 10 ? month = `0${month}` : ''
+        
+        const dateTransform = `${day}/${month}/${year}`
+        setPublicationData(prev => ({ ...prev, created_date: dateTransform}))
+        
+    }, [])
+
+    useEffect(() => {
+
+            props.logged ? setPublicationData(prev => ({ ...prev, created_by: props.user })) : ''
+
+    }, [props.logged])
+
+    useEffect(() => {
         document.body.style.overflow = 'auto'
         return () => document.body.style.overflow = 'auto'
     }, [])
 
-    const [value, setValue] = React.useState('');
-
-    const handleChange = (event) => {
-        setValue(true)
-        setValue(event.target.value);
-    };
+    useEffect(() => {
+        console.log(publicationData)
+    }, [publicationData])
 
     return (
 
@@ -103,37 +189,38 @@ export default function CustomizedDialogs() {
                     <DialogContent dividers>
 
                         <div style={{ width: 500, display: 'flex', flexDirection: 'column' }}>
-
                             <TextField
                                 fullWidth
                                 required
-                                id="outlined-required"
+                                id="title"
                                 label="Titulo"
                                 autoFocus
                                 margin='dense'
                                 type='text'
+                                onChange={handleInputChange('title')}
                             />
 
                             <TextField
                                 sx={{ marginTop: '1rem' }}
                                 fullWidth
                                 required
-                                id="outlined-required"
+                                id="price"
                                 label="Precio por hora"
                                 autoFocus
                                 margin='dense'
                                 type='text'
+                                onChange={handleInputChange('price')}
                             />
 
                             <TextField
                                 sx={{ marginTop: '1rem' }}
-                                id="outlined-multiline-flexible"
-                                label={value ? value.length + '/600' : 'Ingrese una descripcion *'}
+                                id="description"
+                                label={publicationData.description !== "" ? publicationData.description.length + '/600' : 'Ingrese una descripcion *'}
                                 multiline
                                 minRows={12}
                                 maxRows={12}
-                                value={value}
-                                onChange={handleChange}
+                                value={publicationData.description}
+                                onChange={handleInputChange('description')}
                                 inputProps={{ maxLength: 600 }}
                             />
 
@@ -144,7 +231,7 @@ export default function CustomizedDialogs() {
                     </DialogContent>
                     <DialogActions>
                         <Button autoFocus onClick={handleClose}>
-                        <Button variant="contained" color="success">
+                        <Button variant="contained" color="success" onClick={handleClick} disabled={!props.logged}>
                                 Crear nueva publicación
                             </Button>
                         </Button>

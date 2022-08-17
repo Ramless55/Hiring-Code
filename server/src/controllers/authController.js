@@ -6,8 +6,9 @@ const authController = (User) => {
     const logIn = async (req, res, next) => {
         try {
             const { body } = req
+            console.log(body)
             const user = await User.findOne({
-                username: body.username
+                userName: body.userName
             })
             if
                 (user === null ||
@@ -22,8 +23,18 @@ const authController = (User) => {
                 token,
                 user: {
                     id: user._id,
-                    username: user.userName,
-                    img: user.image
+                    name: user.name,
+                    lastName: user.lastName,
+                    userName: user.userName,
+                    phone: user.phone,
+                    country: user.country,
+                    date: user.date,
+                    address: user.address,
+                    email: user.email,
+                    image: user.image,
+                    password: user.password,
+                    rating: user.rating,
+                    role: user.role
                 }
             })
         } catch (err) {

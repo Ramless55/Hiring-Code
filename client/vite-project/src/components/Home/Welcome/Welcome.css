@@ -15,14 +15,21 @@
 
 .welcome__content .content__right .right__info,
 .welcome__content .content__middle .middle__info {
-    margin: 10px;
+    margin: 1%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    width: 100%;
+    font-size: large;
+    color: rgb(31, 31, 31);
 }
 
 .welcome__content .content__left,
 .welcome__content .content__right,
 .welcome__content .content__middle,
 .welcome__content p {
-    width: 60vh;
+    width: 60%;
     margin: 0 5px;
     display: flex;
     align-items: center;
@@ -30,7 +37,7 @@
 }
 
 .welcome__content .content__left .left__image {
-    width: 50vh;
+    width: 50%;
 }
 
 .welcome__content .content__right .right__box,

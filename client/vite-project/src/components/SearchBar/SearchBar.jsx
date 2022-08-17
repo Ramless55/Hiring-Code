@@ -6,9 +6,9 @@ import SearchIcon from '@mui/icons-material/Search';
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.black, 0.25),
+    backgroundColor: 'var(--color-secondary)',
     '&:hover': {
-        backgroundColor: 'var(--color-p)',
+        backgroundColor: 'var(--background)',
     },
     marginLeft: 0,
     width: '100%',
@@ -29,7 +29,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'black',
+    color: 'rgb(0,0,0)',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
@@ -37,9 +37,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         transition: theme.transitions.create('width'),
         width: '100%',
         [theme.breakpoints.up('sm')]: {
-            width: '12ch',
+            width: '15vw',
             '&:hover': {
-                width: '20ch',
+                width: '17vw',
             },
         },
     },
@@ -47,13 +47,21 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
     return (
-        <Search>
+        <Search sx={{
+            mr: 3,
+
+        }}>
             <SearchIconWrapper>
-                <SearchIcon />
+                <SearchIcon sx={{
+                    color: 'Black'
+                }} />
             </SearchIconWrapper>
             <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
+                sx={{
+                    color:'black',
+                }}
             />
         </Search>
     );
