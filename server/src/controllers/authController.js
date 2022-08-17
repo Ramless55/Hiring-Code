@@ -6,8 +6,9 @@ const authController = (User) => {
     const logIn = async (req, res, next) => {
         try {
             const { body } = req
+            console.log(body)
             const user = await User.findOne({
-                username: body.username
+                userName: body.userName
             })
             if
                 (user === null ||
