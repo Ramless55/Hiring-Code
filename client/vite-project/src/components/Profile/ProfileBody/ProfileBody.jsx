@@ -1,21 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import './ProfileBody.css'
 import PostCard from '../../PostCard/PostCard'
-// import profile from '../../../assets/img/profile.png'
 import EditProfile from '../../Button/EditProfile/EditProfile'
-import { getMyProfile } from '../../../services/axiosServices'
 
 const ProfileBody = () => {
-    const [localData, setLocalData] = useState({
-        localData: JSON.parse(localStorage.getItem("User")),
-    })
-    const userId = localData.localData.id
-
-    const [user, setUser] = useState([])
-
-    useEffect(() => {
-        getMyProfile({ userId, setUser })
-    }, []);
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem('User'))
+    )
 
     return (
         <div>

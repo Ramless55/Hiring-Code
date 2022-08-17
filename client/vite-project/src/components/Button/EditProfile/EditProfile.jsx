@@ -42,8 +42,6 @@ const EditProfile = () => {
         JSON.parse(localStorage.getItem('User'))
     )
 
-    // console.log(user)
-
     const navigate = useNavigate()
 
     const handleButtonDisable = () => {
@@ -130,11 +128,12 @@ const EditProfile = () => {
     const handleClick = async (event) => {
         event.preventDefault();
         console.log(user)
+        const idUser =  {id: user.id}
         const response = await putMyProfile(user.id, user)
-        // console.log(response)
         if (response.status.toString() === 'updated') {
-            // localStorage.removeItem('User')
-            // localStorage.setItem('User', JSON.stringify(response.user))
+            localStorage.removeItem('User')
+            const aux = response.user
+            localStorage.setItem('User', JSON.stringify(Object.assign(idUser, aux)))
             navigate('/my-profile')
             setErrorRegister(false)
         }else{

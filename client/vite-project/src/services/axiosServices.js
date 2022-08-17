@@ -48,7 +48,7 @@ export const getMyProfile = async ({ setUser, userId }) => {
 
 export const putMyProfile = async (userId, data) => {
     const response = axios
-        .put(`http://localhost:8080/api/user/${userId}`, data, {
+        .put(`http://localhost:8080/api/user/${userId}`, {..._.omit(data, "id")}, {
             headers: {
                 'Authorization': `Bearer ${JSON.parse(localStorage.getItem("Token"))}`,
                 'Content-Type': 'application/json'
