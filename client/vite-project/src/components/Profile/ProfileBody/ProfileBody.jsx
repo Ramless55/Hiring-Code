@@ -39,7 +39,7 @@ const ProfileBody = () => {
                                 <p>Pais: {(user.country)}</p>
                                 <p>Fecha de Nacimiento: {(user.date)}</p>
                                 <p>Direccion: {(user.address)}</p>
-                                <p>correo: {(user.email)}</p>
+                                <p>Correo: {(user.email)}</p>
 
                             </div>
 

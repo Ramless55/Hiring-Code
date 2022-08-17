@@ -46,28 +46,8 @@ const userController = (User) => {
             if (checkData.length === 0) {
                 return res.status(httpStatus.FORBIDDEN).send('No data found with the provided ID.')
             }
-
-            const encryptedPassword = await bcrypt.hash(body.password, 10)
-
-            await User.updateOne(
-                {
-                    _id: params.id
-                },
-                {
-                    $set: {
-                        name: body.name,
-                        lastName: body.lastName,
-                        username: body.username,
-                        phone: body.phone,
-                        country: body.country,
-                        date: body.date,
-                        password: encryptedPassword,
-                        email: body.email,
-                        address: body.address,
-                        image: body.image,
-                    }
-                }
-            )
+            
+            await User.findByIdAndUpdate(params.id, body)
 
             return res.status(httpStatus.CREATED).json({
                 status: 'updated',

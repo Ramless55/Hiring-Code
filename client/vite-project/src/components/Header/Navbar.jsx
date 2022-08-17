@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -21,33 +21,16 @@ import SearchBar from "../SearchBar/SearchBar";
 
 const pages = [
     {
-        name: "Landing",
+        name: "Inicio",
         to: "/",
     },
     {
-        name: "home",
+        name: "Menu",
         to: "/home",
     },
     {
-        name: "Error",
-        to: "/cualquiercosa",
-    },
-    {
-        name: "Register",
-        to: "/register",
-    },
-    {
-        name: "About-us",
+        name: "¿Quienes Somos?",
         to: "/about",
-        },
-        {
-        name: "Profile",
-        to: '/profile/GonzalezGabi9',
-     
-    },
-    {
-        name: "My Profile",
-        to: "/my-profile",
     },
 ]
 
@@ -75,14 +58,14 @@ const ResponsiveAppBar = () => {
 
     useEffect(() => {
         const token = JSON.parse(localStorage.getItem('Token'))
-        if(token !== null){
+        if (token !== null) {
             setLogged(true)
-        }else{
+        } else {
             setLogged(false)
             localStorage.clear()
         }
-        
-    },[])
+
+    }, [])
 
     return (
         <AppBar
@@ -93,6 +76,7 @@ const ResponsiveAppBar = () => {
         >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
+                    {/* Logo */}
                     <AcUnitIcon
                         sx={{
                             display: { xs: "none", md: "flex" },
@@ -101,6 +85,7 @@ const ResponsiveAppBar = () => {
                             textDecoration: "none",
                         }}
                     />
+                    {/* Titulo inicio  */}
                     <Typography
                         variant="h6"
                         noWrap
@@ -111,110 +96,121 @@ const ResponsiveAppBar = () => {
                             display: { xs: "none", md: "flex" },
                             fontFamily: "monospace",
                             fontWeight: 700,
-                            color: "#7bf1a8",
                             textDecoration: "none",
-                        }}
-                    >
-                        Young Enterprising
+                            color: 'var(--color-main)',
+                            '&:hover': {
+                                color: "var(--color-main2)"
+                            }
+                            }
+                        }
+                            >
+                            Hiring Code
                     </Typography>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            sx={{ color: "black" }}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: "bottom",
-                                horizontal: "left",
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: "top",
-                                horizontal: "left",
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: "block", md: "none" },
-                            }}
-                        >
-                            {pages.map((page) => {
-                                return page.to !== location.pathname ? (
-                                    <MenuItem
-                                        key={page.name}
-                                        onClick={handleCloseNavMenu}
-                                        component={NavLink}
-                                        to={page.to}
-                                    >
-                                        <Typography
-                                            textAlign="center"
-                                            sx={{
-                                                color: "black",
-                                            }}
-                                        >
-                                            {page.name}
-                                        </Typography>
-                                    </MenuItem>
-                                ) : (null)
-                            })}
-                        </Menu>
-                    </Box>
-
-                    <SearchBar />
-
-                    <AcUnitIcon
-                        sx={{ display: { xs: "flex", md: "none" }, mr: 1, color: "black" }}
-                    />
-                    <Typography
-                        variant="h5"
-                        noWrap
-                        component="a"
-                        href="/"
+                <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+                    {/* icon de menu desplegable */}
+                    <IconButton
+                        size="large"
+                        aria-label="account of current user"
+                        aria-controls="menu-appbar"
+                        aria-haspopup="true"
+                        onClick={handleOpenNavMenu}
+                        sx={{ color: "black" }}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                    {/* Menu desplegable con opciones */}
+                    <Menu
+                        id="menu-appbar"
+                        anchorEl={anchorElNav}
+                        anchorOrigin={{
+                            vertical: "bottom",
+                            horizontal: "left",
+                        }}
+                        keepMounted
+                        transformOrigin={{
+                            vertical: "top",
+                            horizontal: "left",
+                        }}
+                        open={Boolean(anchorElNav)}
+                        onClose={handleCloseNavMenu}
                         sx={{
-                            mr: 2,
-                            display: { xs: "flex", md: "none" },
-                            flexGrow: 1,
-                            fontFamily: "monospace",
-                            fontWeight: 700,
-                            letterSpacing: ".1rem",
-                            color: "#7bf1a8",
-                            textDecoration: "none",
+                            display: { xs: "block", md: "none" },
                         }}
                     >
-                        Young Enterprising
-                    </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                         {pages.map((page) => {
-                            return page.to !== location.pathname ?
-                                (<Button
+                            return page.to !== location.pathname ? (
+                                <MenuItem
                                     key={page.name}
                                     onClick={handleCloseNavMenu}
                                     component={NavLink}
                                     to={page.to}
-                                    sx={{ my: 2, color: "black", display: "block" }}
+
                                 >
-                                    {page.name}
-                                </Button>) : (null)
+                                    <Typography
+                                        textAlign="center"
+                                        sx={{
+                                            color: "black",
+                                        }}
+                                    >
+                                        {page.name}
+                                    </Typography>
+                                </MenuItem>
+                            ) : (null)
                         })}
-                    </Box>
+                    </Menu>
+                </Box>
 
-                    {!logged
+
+                <AcUnitIcon
+                    sx={{ display: { xs: "flex", md: "none" }, mr: 1, color: "black" }}
+                />
+                {/* Titulo  mobile*/}
+                <Typography
+                    variant="h5"
+                    noWrap
+                    component="a"
+                    href="/"
+                    sx={{
+                        display: { xs: "flex", md: "none" },
+                        flexGrow: 1,
+                        fontFamily: "monospace",
+                        fontWeight: 700,
+                        textDecoration: "none",
+                        color: "var(--color-main)",
+                        '&:hover': {
+                            color: "var(--color-main2)",
+                        }
+                    }}
+                >
+                    Hiring Code
+                </Typography>
+                <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+                    {/* menu de incio */}
+                    {pages.map((page) => {
+                        return page.to !== location.pathname ?
+                            (<Button
+                                key={page.name}
+                                onClick={handleCloseNavMenu}
+                                component={NavLink}
+                                to={page.to}
+                                sx={{ my: 2, color: "black", display: "block", }}
+                            >
+                                {page.name}
+                            </Button>) : (null)
+                    })}
+                </Box>
+
+                <SearchBar />
+
+                {!logged
                     ? <Dialog />
-                    : <ProfileIcon/>
-                    }
+                    : <ProfileIcon />
+                }
 
-                </Toolbar>
-            </Container>
-        </AppBar>
+            </Toolbar>
+        </Container>
+        </AppBar >
     );
 };
 export default ResponsiveAppBar;

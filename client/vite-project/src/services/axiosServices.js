@@ -59,8 +59,7 @@ export const putMyProfile = async (userId, data) => {
             return res.data
         })
         .catch((err) => {
-            err.data
-            console.log(data)
+            console.log(err)
         })
 
     return response
