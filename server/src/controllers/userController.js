@@ -69,7 +69,25 @@ const userController = (User) => {
                 }
             )
 
-            return res.status(httpStatus.CREATED).send('Data successful updated')
+            return res.status(httpStatus.CREATED).json({
+                status: 'updated',
+                user: {
+                    // id: body._id,
+                    name: body.name,
+                    lastName: body.lastName,
+                    userName: body.userName,
+                    phone: body.phone,
+                    country: body.country,
+                    date: body.date,
+                    address: body.address,
+                    email: body.email,
+                    image: body.image,
+                    password: body.password,
+                    rating: body.rating,
+                    role: body.role
+                }
+            })
+
         } catch (err) {
             next(err)
         }

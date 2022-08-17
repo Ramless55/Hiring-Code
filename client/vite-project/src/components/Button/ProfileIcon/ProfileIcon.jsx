@@ -19,6 +19,8 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const ProfileButton = () => {
     const [anchorElUser, setAnchorElUser] = useState(null);
 
+    const image = JSON.parse(localStorage.getItem("User")).image
+
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
@@ -55,7 +57,7 @@ const ProfileButton = () => {
         <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Remy Sharp" src={localStorage.getItem("User").image} />
+                    <Avatar alt="Remy Sharp" src={image} />
                 </IconButton>
             </Tooltip>
             <Menu

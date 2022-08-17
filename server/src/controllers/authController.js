@@ -30,7 +30,10 @@ const authController = (User) => {
                     date: user.date,
                     address: user.address,
                     email: user.email,
-                    image: user.image
+                    image: user.image,
+                    password: user.password,
+                    rating: user.rating,
+                    role: user.role
                 }
             })
         } catch (err) {

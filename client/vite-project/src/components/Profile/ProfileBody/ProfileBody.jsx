@@ -1,21 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import './ProfileBody.css'
 import PostCard from '../../PostCard/PostCard'
-// import profile from '../../../assets/img/profile.png'
-
-import { getMyProfile } from '../../../services/axiosServices'
+import EditProfile from '../../Button/EditProfile/EditProfile'
 
 const ProfileBody = () => {
-    const [localData, setLocalData] = useState({
-        localData: JSON.parse(localStorage.getItem("User")),
-    })
-    const userId = localData.localData.id
-
-    const [user, setUser] = useState([])
-
-    useEffect(() => {
-        getMyProfile({ userId, setUser })
-    }, []);
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem('User'))
+    )
 
     return (
         <div>
@@ -32,6 +23,8 @@ const ProfileBody = () => {
                                 <img src={user.image} />
 
                             </div>
+
+
 
                         </div>
 
@@ -50,11 +43,19 @@ const ProfileBody = () => {
 
                             </div>
 
+
+                            <div>
+                                <EditProfile />
+                            </div>
+
+
                         </div>
 
                     </div>
 
+
                 </div>
+
 
                 <div className='container__bottom'>
 

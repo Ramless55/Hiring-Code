@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import _ from 'lodash';
 
 export const userLogin = async (data) => {
     const response = axios
@@ -35,7 +35,7 @@ export const getAllUser = async ({ setUser, userPro }) => {
 
 export const getMyProfile = async ({ setUser, userId }) => {
     const response = axios
-        .get(`http://localhost:8080/api/user/${userId}`,{
+        .get(`http://localhost:8080/api/user/${userId}`, {
             headers: {
                 'Authorization': `Bearer ${JSON.parse(localStorage.getItem("Token"))}`,
                 'Content-Type': 'application/json'
@@ -43,5 +43,25 @@ export const getMyProfile = async ({ setUser, userId }) => {
         })
         .then((res) => setUser(res.data))
         .catch((err) => err.response.data);
+    return response
+};
+
+export const putMyProfile = async (userId, data) => {
+    const response = axios
+        .put(`http://localhost:8080/api/user/${userId}`, {..._.omit(data, "id")}, {
+            headers: {
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem("Token"))}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        .then((res) => {
+            console.log(res.data)
+            return res.data
+        })
+        .catch((err) => {
+            err.data
+            console.log(data)
+        })
+
     return response
 };
