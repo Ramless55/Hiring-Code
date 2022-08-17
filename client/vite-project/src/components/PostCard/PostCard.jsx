@@ -3,16 +3,16 @@ import './PostCard.css'
 import profile from '../../assets/img/profile.png'
 import Rating from './Rating/Rating'
 
-const PostCard = () => {
+const PostCard = (props) => {
     return (
-        <div className='post__content' title="Ingresar">
+        <div className='post__content'>
 
             <div className="post__top">
 
                 <div className="post__left">
 
-                    <img src={profile}/>
-                    <p>Ramless</p>
+                    <img src={props.image}/>
+                    <p className='user'>{props.user}</p>
 
                 </div>
 
@@ -24,15 +24,14 @@ const PostCard = () => {
                         </div>
 
                         <div className="container__bottom">
-                            <p className="infoUser__name">Ezequiel Morales</p>
-                            <p className="infoUser__profession">(Programador)</p>
-                            <p className="infoUser__location">Mar del Plata, Buenos Aires</p>
+                            <img className='phone-image' src={props.image}/>
+                            <p className="infoUser__name">{props.name} {props.lastName}</p>
+                            <p className="infoUser__location">{props.country}</p>
                         </div>
                     </div>
 
                     <div className='post__description'>
-                        <p>Ea elit ea nulla incididunt culpa sint veniam officia culpa ut. Aliquip nostrud consectetur eu proident nulla enim consectetur tempor officia ullamco mollit culpa. Nisi laboris. Ea elit ea nulla incididunt culpa sint veniam officia culpa ut. Aliquip nostrud consectetur eu proident nulla enim consectetur tempor officia ullamco mollit culpa. Nisi laboris.
-                        </p>
+                        <p className='description'>{props.description}</p>
                     </div>
                 </div>
             </div>

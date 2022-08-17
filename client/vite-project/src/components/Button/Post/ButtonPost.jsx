@@ -14,7 +14,7 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Stack from '@mui/material/Stack';
-import { postPublications } from '../../../services/axiosServices';
+import { postPublications, getAllPublications } from '../../../services/axiosServices';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -117,6 +117,8 @@ export default function CustomizedDialogs(props) {
         props.logged ?
         postPublications(publicationData) 
         : ''
+
+        getAllPublications(props.setPublications)
     }
     const handleInputChange = (key) => (event) => {
         setPublicationData((prev) => {
@@ -158,7 +160,7 @@ export default function CustomizedDialogs(props) {
     }, [])
 
     useEffect(() => {
-        console.log(publicationData)
+        // console.log(publicationData)
     }, [publicationData])
 
     return (

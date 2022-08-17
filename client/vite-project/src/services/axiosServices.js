@@ -33,9 +33,20 @@ export const getAllUser = async ({ setUser, userPro }) => {
     return response
 };
 
+export const getAllPublications = async (setPublication) => {
+    const response = axios
+        .get(`http://localhost:8080/api/publication`)
+            .then((res) => {
+                setPublication(res.data)
+                return res.data
+            })
+            .catch((err) => err.data);
+    return response
+};
+
 export const getMyProfile = async ({ setUser, userId }) => {
     const response = axios
-        .get(`http://localhost:8080/api/user/${userId}`,{
+        .get(`http://localhost:8080/api/user/${userId}`, {
             headers: {
                 'Authorization': `Bearer ${JSON.parse(localStorage.getItem("Token"))}`,
                 'Content-Type': 'application/json'
