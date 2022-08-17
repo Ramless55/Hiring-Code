@@ -1,9 +1,11 @@
 import React from 'react'
 import './PostCard.css'
-import profile from '../../assets/img/profile.png'
+import profile from '../../assets/svg/profile.svg'
 import Rating from './Rating/Rating'
+import StarIcon from '@mui/icons-material/Star';
 
 const PostCard = () => {
+
     return (
         <div className='post__content' title="Ingresar">
 
@@ -20,7 +22,7 @@ const PostCard = () => {
 
                     <div className="infoUser__container">
                         <div className="container__top">
-                            <Rating />
+                            <StarIcon />
                         </div>
 
                         <div className="container__bottom">

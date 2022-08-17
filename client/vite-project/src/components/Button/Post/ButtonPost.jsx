@@ -15,6 +15,11 @@ import Box from '@mui/material/Box';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Stack from '@mui/material/Stack';
 import { postPublications } from '../../../services/axiosServices';
+import { useAutocomplete } from '@mui/base/AutocompleteUnstyled';
+import CheckIcon from '@mui/icons-material/Check';
+import { autocompleteClasses } from '@mui/material/Autocomplete';
+import Label from '../Label/Label'
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -161,6 +166,8 @@ export default function CustomizedDialogs(props) {
         console.log(publicationData)
     }, [publicationData])
 
+    // console.log(`ButtonPost ${publicationData.labels}`)
+
     return (
 
         <Box
@@ -174,7 +181,7 @@ export default function CustomizedDialogs(props) {
 
             <div>
                 <Button variant="outlined" onClick={handleClickOpen} sx={{ margin: 1, backgroundColor: 'palette.success.dark ', color: 'primary.info' }} >
-                    Crear publicacion <AddCircleIcon sx={{ marginLeft: '0.5rem' }} />
+                <AddCircleIcon sx={{ marginLeft: '0.5rem' }} />&nbsp;&nbsp;Crear publicacion 
                 </Button>
                 <BootstrapDialog
                     onClose={handleClose}
@@ -224,8 +231,7 @@ export default function CustomizedDialogs(props) {
                                 inputProps={{ maxLength: 600 }}
                             />
 
-                            
-                            
+                            <Label setPublicationData={setPublicationData} publicationData={publicationData} />
 
                         </div>
                     </DialogContent>

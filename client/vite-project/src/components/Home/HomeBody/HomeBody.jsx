@@ -6,6 +6,7 @@ import image from '../../../assets/svg/filter.svg'
 import './HomeBody.css'
 import ButtonPost from '../../Button/Post/ButtonPost'
 
+
 const HomeBody = (props) => {
     return (
         <div>
@@ -21,6 +22,7 @@ const HomeBody = (props) => {
                     </div>
                         <Pagination />
                 </div>
+                
             </div>
         </div>
     )

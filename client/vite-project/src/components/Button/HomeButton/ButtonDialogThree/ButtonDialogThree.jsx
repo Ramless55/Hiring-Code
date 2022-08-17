@@ -9,6 +9,9 @@ import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
+import HowPost from '../../../../assets/svg/howPost.svg'
+import './ButtonDialogThree.css'
+import InfoIcon from '@mui/icons-material/Info';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -61,7 +64,7 @@ export default function CustomizedDialogs() {
     return (
         <div>
             <Button variant="outlined" onClick={handleClickOpen} sx={{margin: 1}}>
-                Button Three
+                <InfoIcon />&nbsp;&nbsp;COMO CREAR UNA PUBLICACION
             </Button>
             <BootstrapDialog
                 onClose={handleClose}
@@ -73,23 +76,30 @@ export default function CustomizedDialogs() {
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
                     <Typography gutterBottom>
-                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                        dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.
+                        ¡Crear una publicación es muy sencillo! Solo tienes que dirigirte al botón
+                        que se encuentra debajo a la izquierda llamado "Crear publicacion".
                     </Typography>
                     <Typography gutterBottom>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                        Luego debes escribir el título de tu nueva publicación (recuerda ser conciso
+                        en tu anuncio pero no olvidar ningún detalle importante).
                     </Typography>
                     <Typography gutterBottom>
-                        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-                        magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-                        ullamcorper nulla non metus auctor fringilla.
+                        Una vez cargado el título pon el precio a tu anuncio. ¿Cuánto vale tu trabajo?
+                        Recuerda valer tu esfuerzo y demuestrale a la comunidad cuanto conoces tu oficio. 
+                        <img className="ok" src={HowPost}></img>
+                    </Typography>
+                    <Typography gutterBottom>
+                        ¡Sé un profesional a gran escala! Según nuestras estadísticas de este último año
+                        YoungEnterprising aumento las posibilidades de los profesionales que confían en nosotros
+                        en más de un 87%.
+                    </Typography>
+                    <Typography gutterBottom>
+                        Sé profesional... sé #YoungEnterprising !
                     </Typography>
                 </DialogContent>
                 <DialogActions>
                     <Button autoFocus onClick={handleClose}>
-                        Ok
+                        Entendido
                     </Button>
                 </DialogActions>
             </BootstrapDialog>
