@@ -8,6 +8,7 @@ import ButtonPost from '../../Button/Post/ButtonPost'
 import { getAllPublications } from '../../../services/axiosServices'
 import { update } from 'lodash'
 
+
 const HomeBody = (props) => {
     const [publications, setPublications] = useState([])
     const [matriz, setMatriz] = useState([])
@@ -75,6 +76,7 @@ const HomeBody = (props) => {
                     </div>
                         <Pagination pages={matriz.length} setActualPage={setActualPage} />
                 </div>
+                
             </div>
         </div>
     )

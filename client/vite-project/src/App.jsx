@@ -29,8 +29,9 @@ function App() {
         <Route path='my-profile' element={<ProtectedRoutes user={isLogged}> <ProfilePage /> </ProtectedRoutes>} />
         <Route path='home' element={<HomePage />} />
         <Route path='profile/:user' element={<ProfileUsersPage />} />
-        <Route path='register' element={<RegisterPage />} />
+        <Route path='register' element={<ProtectedRoutes user={!isLogged}> <RegisterPage /> </ProtectedRoutes>} />
         <Route path='about' element={<AboutPage />} />
+
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />

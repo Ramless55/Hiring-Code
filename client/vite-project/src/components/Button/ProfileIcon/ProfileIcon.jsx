@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Switch } from '@mui/material';
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Mi Perfil', 'Logout'];
 
 const ProfileButton = () => {
     const [anchorElUser, setAnchorElUser] = useState(null);
@@ -31,15 +31,8 @@ const ProfileButton = () => {
 
     const handleOptions = (key) => (event) => {
         switch (key) {
-            case 'Profile':
-
-                break;
-
-            case 'Account':
-
-                break;
-
-            case 'Dashboard':
+            case 'Mi Perfil':
+                window.location.href=('/my-profile')
 
                 break;
 
