@@ -15,7 +15,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { postPublications, getAllPublications } from '../../../services/axiosServices';
 import { useAutocomplete } from '@mui/base/AutocompleteUnstyled';
 import Label from '../Label/Label'
-
+import InputAdornment from '@mui/material/InputAdornment';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -80,11 +80,13 @@ export default function CustomizedDialogs(props) {
         
         switch (key) {
             case 'title':
-
+                const regExp = new RegExp('^[a-zA-Z\\s]*$', 'gi')
+                result = !regExp.test(data) || (data.length < 3)
                 break;
 
             case 'description':
-
+                const descriptionExp = new RegExp('^[a-zA-Z\\s]*$', 'gi')
+                result = !descriptionExp.test(data) || (data.length < 3)
                 break;
 
             case 'created_date':
@@ -92,7 +94,8 @@ export default function CustomizedDialogs(props) {
                 break;
 
             case 'price':
-
+                const priceExp = new RegExp('^[0-9]')
+                result = !priceExp.test(data) || (data.length < 3)
                 break;
 
             case 'labels':
