@@ -35,6 +35,7 @@ const AboutCard = ({ user }) => {
             <Card sx={{
                 minWidth: 400,
                 maxWidth: 400,
+                minHeight: 450,
                 borderRadius: "20px",
                 boxShadow: "0 0 10px rgba(0,0,0,0.7)",
             }}>
@@ -48,7 +49,13 @@ const AboutCard = ({ user }) => {
                             maxHeight: '300px',
                         }}
                     />
-                    <CardContent>
+                    <CardContent sx={{
+                        display:"flex",
+                        flexDirection:"column",
+                        alingItems:"center",
+                        justifyContent:"space-between",
+                        gap:"1rem",
+                    }}>
                         <Typography
                             gutterBottom
                             variant="h5"
@@ -57,6 +64,7 @@ const AboutCard = ({ user }) => {
                                 display: "flex",
                                 alingItems: "center",
                                 justifyContent: "center",
+                                
                             }}
                         >
                             {info.name}
@@ -68,6 +76,9 @@ const AboutCard = ({ user }) => {
                                 fontFamily: "Roboto",
                                 color: "var(--font-dark)",
                                 height: "5vh",
+                                display: "flex",
+                                alingItems: "center",
+                                justifyContent: "center",
                             }}
                         >
                             {info.bio && 
@@ -83,9 +94,12 @@ const AboutCard = ({ user }) => {
                                 fontFamily: "Roboto",
                                 color: "var(--font-dark)",
                                 height: "5vh",
+                                display: "flex",
+                                alingItems: "center",
+                                justifyContent: "center",
                             }}
                         >
-                            {info.location}
+                            {"📍 " + info.location}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
