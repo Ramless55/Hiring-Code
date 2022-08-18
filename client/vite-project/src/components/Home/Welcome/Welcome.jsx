@@ -57,7 +57,7 @@ const Welcome = (props) => {
 
         setDateTransform(`${wordDay} ${day}/${month}/${year}`)
 
-        console.log(props.logged)
+        // console.log(props.logged)
 
         //esto realmente funcionara cuando agreguemos redux para el estado global de logeo
     }, [])

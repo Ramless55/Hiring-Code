@@ -8,16 +8,12 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import Typography from '@mui/material/Typography';
 // import NewPost from '../../PostCard/NewPost/NewPost'
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import Stack from '@mui/material/Stack';
-import { postPublications } from '../../../services/axiosServices';
+import { postPublications, getAllPublications } from '../../../services/axiosServices';
 import { useAutocomplete } from '@mui/base/AutocompleteUnstyled';
-import CheckIcon from '@mui/icons-material/Check';
-import { autocompleteClasses } from '@mui/material/Autocomplete';
 import Label from '../Label/Label'
 
 
@@ -122,6 +118,8 @@ export default function CustomizedDialogs(props) {
         props.logged ?
         postPublications(publicationData) 
         : ''
+
+        getAllPublications(props.setPublications)
     }
     const handleInputChange = (key) => (event) => {
         setPublicationData((prev) => {
@@ -163,7 +161,7 @@ export default function CustomizedDialogs(props) {
     }, [])
 
     useEffect(() => {
-        console.log(publicationData)
+        // console.log(publicationData)
     }, [publicationData])
 
     // console.log(`ButtonPost ${publicationData.labels}`)
