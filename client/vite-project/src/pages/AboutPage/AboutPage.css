@@ -4,15 +4,27 @@
     --color-button:rgb(155, 196, 93);;
     --color-green:#b0f2c2;
     --color-bg-dark: #485f70 ;
+    --color-green-group:#83e0b594;
 }
 
 .aboutPage__container{
+    width: 100%;
+    height: 100%;
+    background-image: url(../../assets/img/minimalism-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--font-dark);
-    padding-top: 7rem ;
+    padding-top: calc(68.5px) ;
     background-color: var(--color-bg-light);
+}
+
+.aboutPage__filter{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
     display: flex;
     gap: 2rem;
     flex-direction: column;
@@ -23,6 +35,13 @@
 .aboutPage__title{
     width: 100%;
     color: var(--font-dark);
+    font-weight: 700;
+    /* background-color: var(--color-green-group); */
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .aboutPage__container-cards{

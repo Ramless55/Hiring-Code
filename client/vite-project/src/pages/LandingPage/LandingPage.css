@@ -47,6 +47,7 @@ a{
     padding: 0;
     box-sizing: border-box;
     background-color: #f9f9f9;
+    color: #f9f9f9;
 }
 
 /* -------- SECTION 1 -------- */
@@ -54,7 +55,7 @@ a{
 .landing__content-1{
     width: 100%;
     height: 100vh;
-    background-image: url(../../assets/img/landing_section.jpg);
+    background-image: url(../../assets/img/landing_section-1.jpg);
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -197,7 +198,7 @@ a:hover:after{
 .landing__content-3-first{
     width: 100%;
     height: 100vh;
-    background-image: url(../../assets/img/landing_page.jpg);
+    background-image: url(../../assets/img/landing_section-2.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -258,7 +259,7 @@ div{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(33, 141, 242);
+    background-color: rgb(155, 196, 93);
     color: #f9f9f9;
     width: 50%;
 }
@@ -298,19 +299,20 @@ div{
 }
 
 .title-container-news{
-    font-size: 2rem;
-    background-color: rgba(0,0,0,.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background-color: #41d28f;
     width: 50%;
-    height: 100%;
-    padding: 1rem 2rem;
-    text-align: center;
-    color: rgb(155, 196, 93);
-    box-shadow: 0 3px 10px gray;
+    height: 23.1vh;
+    color: whitesmoke;
+    
 }
 
 .title-image{
     content: "";
-    background-image: url(../../assets/img/landing_news.jpg);
+    background-image: url(../../assets/img/background-about.jpg);
     background-size: cover;
     background-position: center;
     width: 50%;
@@ -326,29 +328,6 @@ div{
     justify-content: space-evenly;
 }
 
-.content-4-card-animation{
-    width: 22vw;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    border-radius: 7px;
-    box-shadow: 1.5px 1.5px 5px gray;
-    transition: all .1s linear;
-
-}
-
-.content-4-card-animation
-img{
-    width:20vw;
-    aspect-ratio: 6 / 4;
-}
-
-.content-4-card-animation:hover{
-    transform:scale(1.05);
-    cursor: pointer;
-}
 
 
 /* lo ultimo*/
@@ -359,6 +338,7 @@ img{
     background-color: rgb(40, 74, 115);
     width: 100%;
     height: 50vh;
+    color: #f9f9f9;
 
 }
 
@@ -466,15 +446,15 @@ div{
 
     .landing__content-4-container{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
         gap: 3rem;
     }
     
-    .content-4-card-animation{
+    /* .content-4-card-animation{
         width: 70%;
-        padding: 0rem;
+        padding: 1rem;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -483,24 +463,10 @@ div{
         border-radius: 7px;
         box-shadow: 1.5px 1.5px 5px gray;
         transition: all .1s linear;
-    }
+    } */
 
-    .content-4-card-animation
-    p{
-        width: 90%;    
-    }
+   
     
-    .content-4-card-animation
-    img{
-        width:68vw;
-        aspect-ratio: 16 / 9;
-        padding: 2rem 2rem 0 2rem;
-    }
-    
-    .content-4-card-animation:hover{
-        transform:scale(1.05);
-        cursor: pointer;
-    }
     
 
 }
