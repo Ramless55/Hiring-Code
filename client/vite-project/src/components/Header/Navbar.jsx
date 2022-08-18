@@ -71,7 +71,7 @@ const ResponsiveAppBar = () => {
 
     return (
         <AppBar
-            position="fixed"
+            position="sticky"
             sx={{
                 bgcolor: "whiteSmoke",
             }}

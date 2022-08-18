@@ -48,7 +48,7 @@ const ProfileButton = () => {
     }
 
     return (
-        <Box sx={{ flexGrow: 0}}>
+        <>
             <CssBaseline />
             <Tooltip title="Open settings" >
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -56,13 +56,14 @@ const ProfileButton = () => {
                 </IconButton>
             </Tooltip>
             <Menu
-                sx={{ mt: '45px' }}
+                sx={{ mt: '45px' , flexGrow: 0, position: 'fixed'}}
                 id="menu-appbar"
                 anchorEl={anchorElUser}
                 anchorOrigin={{
                     vertical: 'top',
                     horizontal: 'right',
                 }}
+                getContentAnchorEl={null}
                 keepMounted
                 transformOrigin={{
                     vertical: 'top',
@@ -72,14 +73,14 @@ const ProfileButton = () => {
                 onClose={handleCloseUserMenu}
             >
                 {settings.map((setting) => (
-                    <div onClick={handleOptions(setting)}>
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                        <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                </div>
+                    <Box onClick={handleOptions(setting)}>
+                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                            <Typography textAlign="center">{setting}</Typography>
+                        </MenuItem>
+                    </Box>
                 ))}
             </Menu>
-        </Box>
+        </>
     );
 }
 
