@@ -1,0 +1,24 @@
+.content-4-card-animation{
+    width: 22vw;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 50%;
+    box-shadow: 1.5px 1.5px 5px gray;
+    transition: all .1s linear;
+
+}
+
+.content-4-card-animation
+img{
+    width:20vw;
+    aspect-ratio: 4 / 3;
+}
+
+.content-4-card-animation:hover{
+    transform:scale(1.05);
+    cursor: pointer;
+}

@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
 import _ from 'lodash';
 
-
-//material ui
 import { useNavigate } from 'react-router-dom'
-
+import SaveIcon from '@mui/icons-material/Save';
 
 import * as React from 'react';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -134,7 +133,7 @@ const EditProfile = () => {
             localStorage.removeItem('User')
             const aux = response.user
             localStorage.setItem('User', JSON.stringify(Object.assign(idUser, aux)))
-            navigate('/my-profile')
+            window.location.reload()
             setErrorRegister(false)
         } else {
             console.log(response?.error)
@@ -144,18 +143,23 @@ const EditProfile = () => {
     return (
         <div>
             <Button className="button__login" variant="outlined" onClick={handleClickOpen} sx={{
-                bgcolor: "black",
-                color: "white",
+                bgcolor: "white",
+                color: "black",
                 borderColor: "#333",
                 borderRadius: "6px",
+                marginTop: '1rem',
                 '&:hover': {
-                    bgcolor: "inherit",
-                    color: 'black',
-                    borderColor: "#808080"
+                    bgcolor: "#52b69a",
+                    color: 'white',
+                    borderColor: "white"
                 }
             }}>
-
-                Edit</Button>
+                <EditOutlinedIcon sx={{
+                    position:'relative',
+                    bottom:'1px',
+                    left:'-1px'
+                }}/>
+                Editar Informacion personal</Button>
             <Dialog
                 open={open}
                 TransitionComponent={Transition}
@@ -166,7 +170,7 @@ const EditProfile = () => {
                 <DialogTitle sx={{
                     display: "flex",
                     justifyContent: "center"
-                }}>Edite su informacion de Usuario</DialogTitle>
+                }}>Edite su informacion Personal</DialogTitle>
                 <hr />
                 <DialogContent
                     sx={{
@@ -234,7 +238,7 @@ const EditProfile = () => {
                     <TextField
                         sx={{ marginTop: '1rem' }}
                         id="address"
-                        label="Direecion"
+                        label="Dirección"
                         value={user.address}
                         variant="outlined"
                         InputLabelProps={{
@@ -244,11 +248,9 @@ const EditProfile = () => {
                     />
 
                     <TextField
-                        // error={error.userName}
-                        // helperText={error.userName ? 'No se permiten simbolos' : ''}
                         sx={{ marginTop: '1rem' }}
                         id="userName"
-                        label="Iamgen URL"
+                        label="Imagen URL"
                         value={user.image}
                         InputLabelProps={{
                             shrink: true,
@@ -267,7 +269,15 @@ const EditProfile = () => {
                         sx={{
                             marginRight: "15px",
                             marginLeft: "15px",
-                        }}>submit</Button>
+                        }}> <SaveIcon sx={{
+                            position:'relative',
+                            bottom:'2px',
+                            right:'2px'
+                        }}/> guardar</Button>
+                        <Button fullWidth variant="contained" color='error' onClick={handleClose}
+                        sx={{
+                            marginRight: "15px",
+                        }}>cancelar</Button>
                 </DialogActions>
             </Dialog>
         </div >

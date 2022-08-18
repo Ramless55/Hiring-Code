@@ -1,5 +1,4 @@
 .container__profile {
-    margin-top: 68.5px;
     background-color: #d9dcd6;
     display: flex;
     flex-direction: column;
@@ -10,12 +9,17 @@
 }
 
 .container__profile .container__top .top__row {
-    background: #90a955;
+    background:rgba(163, 207, 190, 0.664);
     border-radius: 10px;
-    padding: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
     margin: 20px;
-    width: 70vw;
+    width: 75vw;
     display: flex;
+    flex-direction:column;
+    justify-content: center;
+    position: relative;
+    align-items: center;
 }
 
 .container__profile .container__top .top__row .top__left {
@@ -27,48 +31,46 @@
 .container__profile .container__top .top__left .left__profile {
     position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 25vw;
     height: 50vh;
-    border-radius: 50%;
-    border: 7px double whitesmoke;
     overflow: hidden;
-    margin: 20px 0 10px 0; 
+    /* margin: 20px 0 10px 0;  */
 }
 
 .container__profile .container__top .top__left .left__profile img {
     position: absolute;
+    border: 3px solid var(--color-main);
     top: 0;
     left: 0;
     width: 100%;
     object-fit: cover;
+    border-radius: 50%;
+    width: 25vw;
+    height: 50vh;
+    
 }
 
 /* ------------------------------------ [ INFO USER ] -------------------------------- */
 .container__profile .container__top .top__row .top__right {
-    width: 40vw;
-    margin-left: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .container__profile .container__top .top__row .top__right .right__infoUser {
-    background: #d9dcd6;
+    background: whitesmoke;
     padding: 30px;
+    margin: 10px;
     color: #11151c;
     border-radius: 10px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    text-align: start;
 }
 
+
 .container__profile .container__top .top__row .top__right .right__infoUser p {
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 /* ----------------------------------------------------------------------------------- */
-
-.container__profile .container__bottom .bottom__row {
-    margin: auto;
-    width: 70vw;
-    background: #90a955;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './ProfileBody.css'
-import PostCard from '../../PostCard/PostCard'
 import EditProfile from '../../Button/EditProfile/EditProfile'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import Typography from "@mui/material/Typography";
+import { fontSize } from '@mui/system';
+
 
 const ProfileBody = () => {
     const [user, setUser] = useState(
@@ -25,45 +28,39 @@ const ProfileBody = () => {
                             </div>
 
 
-
                         </div>
 
                         <div className='top__right'>
+                            <div className='right__infoUser'>
+                                <h2 style={{
+                                    textAlign:'center',
+                                    color: 'var(--color-main)'
+                                }}> Informacion Personal</h2>
+                                <hr />
+                                <h3>Nombre: {(user.name)}</h3>
+                                <h3>Apellido: {(user.lastName)}</h3>
+                                <h3> Nacimiento: {(user.date)}</h3>
+                                <h3>Ubicación: {(user.country)}, {(user.address)} </h3>
+
+                            </div>
 
                             <div className='right__infoUser'>
-
-                                <p>Nombre: {(user.name)}</p>
-                                <p>Apellido: {(user.lastName)}</p>
-                                <p>Usuario: {(user.userName)}</p>
-                                <p>Telefono: {(user.phone)}</p>
-                                <p>Pais: {(user.country)}</p>
-                                <p>Fecha de Nacimiento: {(user.date)}</p>
-                                <p>Direccion: {(user.address)}</p>
-                                <p>Correo: {(user.email)}</p>
+                                <h2 style={{
+                                    textAlign:'center',
+                                    color: 'var(--color-main)'
+                                }}> Informacion de Contacto</h2>
+                                <hr />
+                                <h3>Correo: {(user.email)}</h3>
+                                <h3>Telefono: {(user.phone)}</h3>
 
                             </div>
-
-
-                            <div>
-                                <EditProfile />
-                            </div>
-
-
                         </div>
 
+                            <div >
+                                <EditProfile />
+                            </div>
                     </div>
 
-
-                </div>
-
-
-                <div className='container__bottom'>
-
-                    <div className='bottom__row'>
-                        <p>Mis publicaciones</p>
-                        <PostCard />
-                        <PostCard />
-                    </div>
 
                 </div>
 
