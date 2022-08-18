@@ -187,7 +187,9 @@ const RegisterPage = () => {
 
     useEffect(() => {
         setError(prev => ({ ...prev, phone: !isValid }))
+        console.log({ ..._.omit(user, "passwordRepeat")})
         console.log(user)
+        // console.log(user)
     }, [user])
 
     useEffect(() => {

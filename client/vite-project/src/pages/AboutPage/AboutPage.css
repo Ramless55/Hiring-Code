@@ -17,7 +17,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    padding-top: calc(68.5px) ;
+    color: var(--font-dark);
     background-color: var(--color-bg-light);
 }
 

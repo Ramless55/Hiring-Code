@@ -7,6 +7,9 @@ const AboutPage = () => {
 
     const users = ['daniluna032', 'Ramless55', 'TobiasGonzalezz', 'ezemoralesmdp']
 
+    useEffect(() => {
+        window.scrollTo(0, 0)})
+
     return (
         <AnimatedPage>
             <div className='aboutPage__container'>

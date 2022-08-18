@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 import _ from 'lodash';
 
-
-//material ui
 import { useNavigate } from 'react-router-dom'
-
+import SaveIcon from '@mui/icons-material/Save';
 
 import * as React from 'react';
 import Button from '@mui/material/Button';
@@ -134,7 +132,7 @@ const EditProfile = () => {
             localStorage.removeItem('User')
             const aux = response.user
             localStorage.setItem('User', JSON.stringify(Object.assign(idUser, aux)))
-            navigate('/my-profile')
+            window.location.reload()
             setErrorRegister(false)
         } else {
             console.log(response?.error)
@@ -144,18 +142,19 @@ const EditProfile = () => {
     return (
         <div>
             <Button className="button__login" variant="outlined" onClick={handleClickOpen} sx={{
-                bgcolor: "black",
-                color: "white",
+                bgcolor: "white",
+                color: "black",
                 borderColor: "#333",
                 borderRadius: "6px",
+                marginTop: '1rem',
                 '&:hover': {
-                    bgcolor: "inherit",
-                    color: 'black',
-                    borderColor: "#808080"
+                    bgcolor: "#52b69a",
+                    color: 'white',
+                    borderColor: "white"
                 }
             }}>
 
-                Edit</Button>
+                Editar información personal</Button>
             <Dialog
                 open={open}
                 TransitionComponent={Transition}
@@ -267,7 +266,15 @@ const EditProfile = () => {
                         sx={{
                             marginRight: "15px",
                             marginLeft: "15px",
-                        }}>submit</Button>
+                        }}> <SaveIcon sx={{
+                            position:'relative',
+                            bottom:'2px',
+                            right:'2px'
+                        }}/> guardar</Button>
+                        <Button fullWidth variant="contained" color='error' onClick={handleClose}
+                        sx={{
+                            marginRight: "15px",
+                        }}>cancelar</Button>
                 </DialogActions>
             </Dialog>
         </div >

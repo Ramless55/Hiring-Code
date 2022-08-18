@@ -9,7 +9,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import AcUnitIcon from "@mui/icons-material/AcUnit";
+// import AcUnitIcon from "@mui/icons-material/AcUnit";
+import Logo from '../../assets/img/logo.png'
+import './Navbar.css'
 
 import { useLocation } from 'react-router-dom';
 
@@ -69,7 +71,7 @@ const ResponsiveAppBar = () => {
 
     return (
         <AppBar
-            position="fixed"
+            position="sticky"
             sx={{
                 bgcolor: "whiteSmoke",
             }}
@@ -77,14 +79,15 @@ const ResponsiveAppBar = () => {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     {/* Logo */}
-                    <AcUnitIcon
+                    {/* <AcUnitIcon
                         sx={{
                             display: { xs: "none", md: "flex" },
                             mr: 1,
                             color: "black",
                             textDecoration: "none",
                         }}
-                    />
+                    /> */}
+                    <img className="Logo" src={Logo}></img>
                     {/* Titulo inicio  */}
                     <Typography
                         variant="h6"
@@ -161,10 +164,10 @@ const ResponsiveAppBar = () => {
                     </Menu>
                 </Box>
 
-
-                <AcUnitIcon
+                {/* <AcUnitIcon
                     sx={{ display: { xs: "flex", md: "none" }, mr: 1, color: "black" }}
-                />
+                /> */}
+                
                 {/* Titulo  mobile*/}
                 <Typography
                     variant="h5"

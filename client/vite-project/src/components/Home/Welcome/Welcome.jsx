@@ -3,9 +3,9 @@ import './Welcome.css'
 import HomeIcon from '@mui/icons-material/Home';
 import image from '../../../assets/svg/welcome.svg';
 // import ButtonDialogOne from '../../Button/HomeButton/ButtonDialogOne/ButtonDialogOne.jsx'
-import ButtonDialogTwo from '../../Button/HomeButton/ButtonDialogTwo/ButtonDialogTwo'
+// import ButtonDialogTwo from '../../Button/HomeButton/ButtonDialogTwo/ButtonDialogTwo'
 import ButtonDialogThree from '../../Button/HomeButton/ButtonDialogThree/ButtonDialogThree.jsx'
-import ButtonDialogFour from '../../Button/HomeButton/ButtonDialogFour/ButtonDialogFour'
+// import ButtonDialogFour from '../../Button/HomeButton/ButtonDialogFour/ButtonDialogFour'
 
 const Welcome = (props) => {
     const [dateTransform, setDateTransform] = useState('')
@@ -57,7 +57,7 @@ const Welcome = (props) => {
 
         setDateTransform(`${wordDay} ${day}/${month}/${year}`)
 
-        console.log(props.logged)
+        // console.log(props.logged)
 
         //esto realmente funcionara cuando agreguemos redux para el estado global de logeo
     }, [])
@@ -70,14 +70,13 @@ const Welcome = (props) => {
                 </div>
                 <div className="content__right">
                     <div className="right__info">
-                        <p className='name'>{props.logged ? `Buenos dias ${props.user.name} ${props.user.lastName}!` : 'Buenos dias!'}</p>
+                        <p className='name'>{props.logged ? `¡Buenos dias ${props.user.name} ${props.user.lastName}!` : '¡Buenos dias!'}</p>
                         <p className='day'>{dateTransform}</p>
                     </div>
 
                     <div className="right__box">
                         <div className="box__top">
                             <ButtonDialogThree />
-                            <ButtonDialogFour />
                         </div>
                     </div>
                 </div>
