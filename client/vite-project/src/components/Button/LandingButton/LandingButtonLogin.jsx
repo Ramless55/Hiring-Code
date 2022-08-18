@@ -44,8 +44,12 @@ const handleLogin = async (event) => {
         console.log(`Bienvenido ${values.userName}`);
         localStorage.setItem('Token', JSON.stringify(response.token))
         localStorage.setItem('User', JSON.stringify(response.user))
+        handleClose()
+        window.location.reload()
+        window.location.href=('/home')
     } else {
         console.log(response)
+        alert('Usuario no encontrado')
     }
 }
 
@@ -92,89 +96,93 @@ return (
         }}>
             {props.name}</Button>
 
-        <Dialog
-            open={open}
-            TransitionComponent={Transition}
-            keepMounted
-            onClose={handleClose}
-            aria-describedby="alert-dialog-slide-description"
-        >
-            <DialogTitle sx={{
-                display: "flex",
-                justifyContent: "center"
-            }}>Iniciar Sesion</DialogTitle>
-            <hr />
-            <DialogContent
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center"
-                }}
+            <Dialog
+                open={open}
+                TransitionComponent={Transition}
+                keepMounted
+                onClose={handleClose}
+                aria-describedby="alert-dialog-slide-description"
             >
-                <TextField
-                    fullWidth
-                    id="lastName"
-                    type="text"
-                    onChange={handleChangeUserName}
-                    label="Usuario"
-                    variant="outlined"
-                    autoFocus
-                    margin="dense"
-                />
-                <FormControl variant="outlined" sx={{ marginTop:"1rem"}}>
-                    <InputLabel
-                        htmlFor="outlined-adornment-password"
-                    >Contraseña</InputLabel>
-                    <OutlinedInput
-                        id="password"
-                        type={values.showPassword ? 'text' : 'password'}
-                        onChange={handleChangePassword}
-                        label="Contraseña"
-                        endAdornment={
-                            <InputAdornment position="end" >
-                                <IconButton
-                                    aria-label="toggle password visibility"
-                                    onClick={handleClickShowPassword}
-                                    onMouseDown={handleMouseDownPassword}
-                                    edge="end"
-                                >
-                                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                </IconButton>
-                            </InputAdornment>
-                        }
-                    />
-                </FormControl>
+                <DialogTitle sx={{
+                    display: "flex",
+                    justifyContent: "center"
+                }}>Iniciar Sesion</DialogTitle>
+                <hr />
+                <DialogContent
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center"
+                    }}
+                >
+                    <TextField
+                        fullWidth
+                        id="lastName"
+                        type="text"
+                        onChange={handleChangeUserName}
+                        label="Usuario"
+                        variant="outlined"
+                        autoFocus
+                        margin="dense"
 
-            </DialogContent>
-            <DialogActions sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-            }}>
-                <Button fullWidth variant="contained" type={'submit'} onClick={handleLogin} sx={{
-                    marginRight: "15px",
-                    marginLeft: "15px",
-                    bgcolor: '#7bf1a8'
-                }}>Login</Button>
-            </DialogActions>
-            <DialogContentText sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-            }}>
-                <p style={{
-                    padding: "20px"
+                    />
+                    <FormControl variant="outlined" sx={{ marginTop: "1rem" }}>
+                        <InputLabel
+                            htmlFor="outlined-adornment-password"
+                        >Contraseña</InputLabel>
+                        <OutlinedInput
+                            id="password"
+                            type={values.showPassword ? 'text' : 'password'}
+                            onChange={handleChangePassword}
+                            label="Contraseña"
+                            endAdornment={
+                                <InputAdornment position="end" >
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickShowPassword}
+                                        onMouseDown={handleMouseDownPassword}
+                                        edge="end"
+                                    >
+                                        {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton>
+                                </InputAdornment>
+                            }
+                        />
+                    </FormControl>
+
+                </DialogContent>
+                <DialogActions sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                 }}>
-                    No tienes una cuenta?
-                    <a href='/register' style={{
-                        textDecoration: "none",
-                        color: "blue"
-                    }}> Registrarme</a>
-                </p>
-            </DialogContentText>
-        </Dialog>
-    </div>
-);
+                    <Button fullWidth variant="contained" type={'submit'}  onClick={handleLogin} sx={{
+                        marginRight: "15px",
+                        marginLeft: "15px",
+                        bgcolor: 'var(--color-main)',
+                        '&:hover': {
+                            bgcolor: "var(--color-main2)"
+                        }
+                    }}>Login</Button>
+                </DialogActions>
+                <DialogContentText sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}>
+                    <p style={{
+                        padding: "20px"
+                    }}>
+                        No tienes una cuenta?
+                        <a href='/register' style={{
+                            textDecoration: "none",
+                            color: "var(--color-main)",
+                        }}> Registrate</a>
+                    </p>
+                </DialogContentText>
+            </Dialog>
+        </div>
+    );
 }
 
 export default LoginButton
