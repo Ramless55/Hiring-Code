@@ -144,18 +144,19 @@ const EditProfile = () => {
     return (
         <div>
             <Button className="button__login" variant="outlined" onClick={handleClickOpen} sx={{
-                bgcolor: "black",
-                color: "white",
+                bgcolor: "white",
+                color: "black",
                 borderColor: "#333",
                 borderRadius: "6px",
+                marginTop: '1rem',
                 '&:hover': {
-                    bgcolor: "inherit",
-                    color: 'black',
-                    borderColor: "#808080"
+                    bgcolor: "#52b69a",
+                    color: 'white',
+                    borderColor: "white"
                 }
             }}>
 
-                Edit</Button>
+                Editar información personal</Button>
             <Dialog
                 open={open}
                 TransitionComponent={Transition}

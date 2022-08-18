@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import './ProfileBody.css'
 import PostCard from '../../PostCard/PostCard'
 import EditProfile from '../../Button/EditProfile/EditProfile'
+import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const ProfileBody = () => {
     const [user, setUser] = useState(
@@ -29,9 +31,9 @@ const ProfileBody = () => {
                         </div>
 
                         <div className='top__right'>
-
+                                <AccountCircleIcon />
+                                <p className='top__right-title'>Mis publicaciones</p>
                             <div className='right__infoUser'>
-
                                 <p>Nombre: {(user.name)}</p>
                                 <p>Apellido: {(user.lastName)}</p>
                                 <p>Usuario: {(user.userName)}</p>
@@ -60,7 +62,7 @@ const ProfileBody = () => {
                 <div className='container__bottom'>
 
                     <div className='bottom__row'>
-                        <p>Mis publicaciones</p>
+                        <DynamicFeedIcon /><p>Mis publicaciones</p>
                         <PostCard />
                         <PostCard />
                     </div>
