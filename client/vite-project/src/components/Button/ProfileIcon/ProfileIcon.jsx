@@ -12,7 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Switch } from '@mui/material';
+import { CssBaseline, Switch } from '@mui/material';
+
 
 const settings = ['Mi Perfil', 'Logout'];
 
@@ -33,7 +34,7 @@ const ProfileButton = () => {
         switch (key) {
             case 'Mi Perfil':
                 window.location.href=('/my-profile')
-
+                
                 break;
 
             case 'Logout':
@@ -47,8 +48,9 @@ const ProfileButton = () => {
     }
 
     return (
-        <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+        <Box sx={{ flexGrow: 0}}>
+            <CssBaseline />
+            <Tooltip title="Open settings" >
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar alt="Remy Sharp" src={image} />
                 </IconButton>
@@ -70,9 +72,11 @@ const ProfileButton = () => {
                 onClose={handleCloseUserMenu}
             >
                 {settings.map((setting) => (
+                    <div onClick={handleOptions(setting)}>
                     <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                        <Typography textAlign="center" onClick={handleOptions(setting)}>{setting}</Typography>
+                        <Typography textAlign="center">{setting}</Typography>
                     </MenuItem>
+                </div>
                 ))}
             </Menu>
         </Box>

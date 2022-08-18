@@ -14,6 +14,7 @@ import Box from '@mui/material/Box';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { postPublications, getAllPublications } from '../../../services/axiosServices';
 import { useAutocomplete } from '@mui/base/AutocompleteUnstyled';
+import Label from '../Label/Label'
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
