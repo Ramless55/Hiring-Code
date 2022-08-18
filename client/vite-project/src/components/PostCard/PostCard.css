@@ -1,62 +1,250 @@
 .post__content {
-    margin: 20px 0;
+    width: 60vw;
+    margin: 20px 50px;
     display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: rgb(22, 182, 22);
+    background-color: rgb(235, 234, 234);
+    color: #11151c;
     border-radius: 0 10px 0px 10px;
     padding: 20px 50px 0 50px;
-    font-family: monospace;
+    /* font-family: monospace; */
+    box-shadow: inset 0 0 0 2.5px rgba(255, 255, 255, 0.726);
+    transition: all 0.3s ease-out;
+    box-shadow: 6px 3px 1px 1px #7a7a7a; 
+}
+
+.phone-image{
+    display: none;
+}
+
+.post__content:hover{
+    transition: all 0.2s ease-out;
+    transition-delay: 0.2s;
+    /* box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2); */
+    /* top: -4px; */
+    /* border: 1px solid black; */
+    /* transform: scale(1.007); */
+    background-color: rgb(223, 223, 223);
+    cursor: pointer;
+    box-shadow: 8px 3px 2px 2px #7a7a7a;  
+}
+
+/* .post__content .post__infoUser {
+    display: flex;
+    width: 50vw;
+} */
+
+.price{
+    font-weight: bold;
+    text-align: end;
+    
 }
 
 .post__content .post__description {
-    margin: 10px 0;
+    width: 35vw;
+    min-height: 15vh;
+    max-height: 15vh;
+    margin-bottom: 10px;
+    margin-top: 3px;
     padding: 0 20px;
     text-align: justify;
     font-size: 15px;
-    background: rgba(245, 245, 245, 0.1);
-    border-radius: 10px 10px 10px 10px;
+    background: white;
+    border-radius: 10px 0px 0px 10px;
+    border: 1px solid grey;
+    word-break:break-all;
+    overflow-y: scroll;
+    /* border: 5px solid #22223b; */
 }
 
-.post__content .post__infoUser {
+.post__content .post__description p {
+    margin: 10  px 0;
+    font-size: 1.1rem;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 1px;
+    text-overflow: ellipsis;
+}
+
+.post__content .post__top {
     display: flex;
+    margin-bottom: 10px;
 }
 
-.post__content .post__infoUser p {
+.post__content .post__top .post__right p {
     margin: 0;
 }
 
-.post__content .post__infoUser .infoUser__data {
-    margin: 10px 0 0 20px;
+.post__content .post__top .post__right {
+    margin-left: 5%;
 }
 
-.post__content .post__profile {
-    width: 100px;
-    border-radius: 50%;
-    border: 2px solid white;
-}
-
-.post__content .skill_container {
+.post__content .post__top .post__right .infoUser__container {
     display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 5px 0 15px;
+    flex-direction: column;
 }
 
-.post__content .skill_container .skill_container-post {
-    --skill-height: 25px;
+.post__content .post__top .post__right .infoUser__container .container__bottom {
+    display: flex;
+}
+
+.post__content .post__top .post__right .infoUser__container .container__bottom p {
+    margin: 0 2px;
+    font-size: 1.7rem;
+}
+
+.post__content .post__top .post__left {
+    width: 15vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* .post__content .post__top .post__left .post__profile {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35vw;
+    height: 32.5vh;
+    border-radius: 50%;
+    border: 7px double whitesmoke;
+    overflow: hidden;
+    margin: 20px 0 10px 0; 
+    width: 50vw;
+} */
+
+.post__content .post__top .post__left img {
+    width: 200px;
+    height: 200px;
+    border: 2px grey solid;
+    border-radius: 50%;
+}
+
+.user{
+    font-size: 1.2rem;
+}
+
+
+.post__content .post__bottom .skill_container {
+    flex-wrap: wrap;
+    display: flex;
+    scroll-behavior: smooth;
+    align-items: flex-start;
+    /* /* padding: 5px 0 15px; */
+}
+
+.post__content .post__bottom .skill_container .skill_container-post {
+    --skill-height: 1.5rem;
     --skill-color: whitesmoke;
-    --skill-bg: green;
+    --skill-bg: var(--color-main2);
     display: inline-flex;
+    width: fit-content;
     align-items: center;
     height: var(--skill-height);
     margin: 0 5px 10px 0;
     padding: 0 10px;
-    color: var(--skill-color);
+    color: white;
     background-color: var(--skill-bg);
     border-radius: 12px;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1;
     cursor: default;
     cursor: pointer
+}
+
+.post__content .post__top .post__right .infoUser__container .container__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+
+    .post__content {
+        width: 60vw;
+        margin: 20px 50px;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(235, 234, 234);
+        color: #11151c;
+        border-radius: 0 10px 0px 10px;
+        padding: 20px 50px 0 50px;
+        /* font-family: monospace; */
+        box-shadow: inset 0 0 0 2.5px rgba(255, 255, 255, 0.726);
+        transition: all 0.3s ease-out;
+        box-shadow: 6px 3px 1px 1px #7a7a7a; 
+    }
+
+    .post__content .post__top {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .user{
+        display: none;
+    }
+
+    .post__content .post__description {
+        width: 100%;
+        min-height: 20vh;
+        max-height: 20vh;
+        
+        padding: 0 20px;
+        text-align: justify;
+        font-size: 15px;
+        background: white;
+        border-radius: 10px 0px 0px 10px;
+        border: 1px solid grey;
+        word-break:break-all;
+        overflow-y: scroll;
+        /* border: 5px solid #22223b; */
+    }
+
+
+    .post__content .post__top .post__left {
+        width: 15vw;
+        position: flex;
+    }
+    
+    .post__content .post__top .post__left img {
+        display: none;
+    }
+
+    .phone-image{
+        display: block;
+        width: 80px;
+        height: 80px;
+
+        border: 2px grey solid;
+        border-radius: 50%;
+    }
+
+    .post__content .post__top .post__right .infoUser__container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 5%;
+        text-align: center;
+    }
+
+    .post__content .post__top .post__right {
+        margin-left: 0;
+    }
+
+    .post__content .post__top .post__right .infoUser__container .container__bottom {
+        justify-content: center;
+        justify-items: center;
+        align-items:flex-end;
+    }
+
+    .post__content .post__top .post__right .infoUser__container .container__bottom p {
+        margin: 0 5px;
+        font-size: 20px;
+        height: fit-content;
+    }
 }

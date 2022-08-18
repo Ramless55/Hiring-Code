@@ -1,0 +1,73 @@
+#root{
+    --font-dark: #3d464d;
+    --color-bg-light:#f9f9f9;
+    --color-button:rgb(155, 196, 93);;
+    --color-green:#b0f2c2;
+    --color-bg-dark: #485f70 ;
+    --color-green-group:#83e0b594;
+}
+
+.aboutPage__container{
+    width: 100%;
+    height: 100%;
+    background-image: url(../../assets/img/minimalism-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-top: 68.5px;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--font-dark);
+    background-color: var(--color-bg-light);
+}
+
+.aboutPage__filter{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutPage__title{
+    width: 100%;
+    color: var(--font-dark);
+    font-weight: 700;
+    /* background-color: var(--color-green-group); */
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.aboutPage__container-cards{
+    width: 85%;
+    padding: 2rem;
+}
+
+.aboutPage__container-cards-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    
+}
+
+.aboutPage__container-cards-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 4rem;
+}
+
+@media screen and (max-width: 768px){
+
+    .aboutPage__container-cards-grid{
+        display: flex;
+        flex-direction: column;
+    }
+}

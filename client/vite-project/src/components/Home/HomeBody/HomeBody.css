@@ -1,0 +1,30 @@
+.homeBody {
+    margin: 10px 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 2%;
+}
+
+.homeBody .homeBody__left img {
+    width: 17vw;
+    transform: scaleX(-1);
+    margin: 10px 0
+}
+
+.homeBody .homeBody__right .right__postCards {
+    /* max-width: 70vw; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 3%;
+    padding: 20px 20px;
+    /* background: repeating-linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0) 20px,
+        rgba(0, 0, 0, 0) 40px,
+        #7bf1a8 40px,
+        #7bf1a8 60px
+    ); */
+
+}

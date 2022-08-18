@@ -1,0 +1,66 @@
+/* ponele el color a las secciones que busques creo que si 
+usamos modules solo para esta pagina podrias hacer eso  */
+/* * {
+    color: #1b273d
+} */
+
+.filter__container {
+    background: #d9dcd6;
+    padding: 20px;
+    margin: 0 0 10px 0;
+    border-radius: 5px;
+    /* height: 75%; */
+    height: fit-content;
+    margin-top: 10%;
+    border: 1px #9a9a9a solid;
+    padding: 0;
+}
+
+.filter__container .filter__section {
+}
+
+.filter__container .filter__section .footer__section-header {
+    font-weight: bolder;
+    padding: 5px 0 15px 0;
+    color: black;
+    font-size: larger;
+}
+
+.filter__container .filter__section .footer__section-subheader {
+    color: black;
+}
+
+.filter__container .filter__section .language,
+.filter__container .filter__section .footer__section-subheader {
+    border-bottom: #9a9a9a solid 1px;
+}
+
+.filter__container .filter__section .language a {
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    background-image: linear-gradient(var(--color-main), var(--color-main2));
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s ;
+}
+
+.filter__container .filter__section .language a:hover,
+.filter__container .filter__section .language a:focus {
+    background-size: 100% 2px;
+}
+
+.filter__container .filter__section {
+    padding: 20px 30px;
+}
+
+.filter__container .filter__section li {
+    list-style: none;
+    padding: 5px 0;
+}
+
+.filter__container .filter__section li a {
+    text-decoration: none;
+
+}

@@ -1,0 +1,70 @@
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+
+.formContainer{
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    flex-direction: column;
+    background-color: rgb(237, 237, 237);
+    width: 80%;
+    height: fit-content;
+    padding: 1rem;
+    border: .5px solid grey;
+    border-radius: .5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.containerInputs{
+    /* background-color: grey; */
+    padding: 10px;
+    display: flex;
+    height: fit-content;
+    justify-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.firstFive{
+    /* background-color: blue; */
+    width: 35%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    /* background-color: blue; */
+}
+
+.secondFive{
+    /* background-color: orange; */
+    width: 35%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    /* background-color: blueviolet; */
+}
+
+.error{
+    color: #da432f;
+    font-size: .8rem;
+    text-align: left;
+}
+
+.buttonContainer{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}

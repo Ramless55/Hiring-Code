@@ -7,13 +7,13 @@ const bodyValidator = Joi.object({
   lastName: Joi.string().alphanum().min(3).max(60).trim().required(),
   userName: Joi.string().min(6).max(50).required().trim(),
   password: Joi.string().required().trim().min(8).max(60),
-  phone: Joi.string().min(11).max(14).required().trim(),
+  phone: Joi.string().min(11).max(18).required().trim(),
   country: Joi.string().required().min(3).max(58).trim(),
   date: Joi.string().required().length(10).trim(),
   email: Joi.string().email().required().min(5).max(50).trim(),
   address: Joi.string().required().min(5).max(50).trim(),
   image: Joi.string().required(),
-  rating: Joi.number().required().min(1).max(5),
+  rating: Joi.number().required().min(0).max(5),
   role: Joi.string().required().min(3).max(30).trim()
 });
 

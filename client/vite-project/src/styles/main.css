@@ -1,0 +1,40 @@
+:root {
+    --background: rgb(230, 230, 230);
+    --color-main:rgb(65,210,143) ;
+    --color-main2:rgb(65,210,130);
+    --color-secondary: rgb(217,220,214);
+}
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* revisar esto mas declarativo para no afectar codigo */
+@font-face {
+    font-family: Roboto;
+    src: url(./fonts/Roboto/Roboto-Regular.ttf);
+}
+
+body,
+#root {
+
+    background-color: whitesmoke;
+    font-family: Roboto;
+}
+
+.app {
+
+    background-color: rgb(251, 201, 208);
+}
+
+.main {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

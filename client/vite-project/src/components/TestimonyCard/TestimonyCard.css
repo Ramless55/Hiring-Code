@@ -1,0 +1,7 @@
+.card__animation{
+    transition: all .1s ease-in-out;
+}
+.card__animation:hover{
+    transform:scale(1.05);
+    cursor: pointer;
+}

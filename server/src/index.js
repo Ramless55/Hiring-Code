@@ -12,6 +12,7 @@ const opinionRouter = require('./routes/opinionRouter')(Opinion)
 const errorHandler = require('./middleware/errorHandler')
 const httpStatus = require('./helpers/httpStatus')
 const { expressjwt } = require('express-jwt')
+const cors = require('cors')
 require('dotenv').config()
 
 const app = express();
@@ -21,9 +22,11 @@ require('./database/db')
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+app.use(cors())
+
 app.all('/*',
     expressjwt({ secret: process.env.SECRET, algorithms: ['HS256'] }).unless({
-            path: ['/auth/login', '/auth/register', '/api/user', '/api/opinion', '/api/publication']
+            path: ['/auth/login', '/auth/register','/api/user', '/api/opinion', '/api/publication']
         })
 )
 
@@ -40,7 +43,6 @@ app.use((err, _, res, next) => {
 
 app.use('/api', userRouter, publicationRouter, opinionRouter)
 app.use('/', authRouter)
-
 
 app.use(errorHandler);
 

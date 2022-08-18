@@ -4,10 +4,11 @@ const httpStatus = require('../helpers/httpStatus')
 
 const authController = (User) => {
     const logIn = async (req, res, next) => {
-            try {
+        try {
             const { body } = req
+            console.log(body)
             const user = await User.findOne({
-                username: body.username
+                userName: body.userName
             })
             if
                 (user === null ||
@@ -19,7 +20,22 @@ const authController = (User) => {
 
             return res.status(httpStatus.OK).json({
                 status: 'logged in',
-                token
+                token,
+                user: {
+                    id: user._id,
+                    name: user.name,
+                    lastName: user.lastName,
+                    userName: user.userName,
+                    phone: user.phone,
+                    country: user.country,
+                    date: user.date,
+                    address: user.address,
+                    email: user.email,
+                    image: user.image,
+                    password: user.password,
+                    rating: user.rating,
+                    role: user.role
+                }
             })
         } catch (err) {
             next(err)
@@ -41,7 +57,9 @@ const authController = (User) => {
 
             await user.save()
 
-            return res.status(httpStatus.CREATED).json(user)
+            return res.status(httpStatus.CREATED).json({
+                status: 'registered'
+            })
         } catch (err) {
             next(err)
         }
