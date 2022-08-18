@@ -6,6 +6,8 @@ import LoginButton from '../../components/Button/LandingButton/LandingButtonLogi
 import RegisterButton from '../../components/Button/LandingButton/LandingButtonRegister'
 import './LandingPage.css'
 import landing_news from '../../assets/img/landing_news.jpg' 
+import TestimonyCard from '../../components/TestimonyCard/TestimonyCard'
+import RatingTestimony from '../../components/RatingTestimony/RatingTestimony'
 
 const LandingPage = () => {
 
@@ -92,10 +94,7 @@ const LandingPage = () => {
                 initial={{ opacity: 0, x: -200, }}
                 whileInView={{ opacity: 1, x: 0}}
                 transition={{ ease: 'easeInOut', duration: 0.5 }}
-                animate={{once: true,}}
-                // viewport={{once: true,}}
                 >
-                
                 <h2>Comunidad</h2>
                 <p>Tenemos una comunidad de personas involucradas en la industria de TI que está en constante crecimiento. No te prives de ser parte de nosotros y conseguir tu puesto en la industria Tech</p>
               </motion.div>
@@ -111,6 +110,22 @@ const LandingPage = () => {
             </div>
           </motion.div>
         </motion.div>
+
+        <div className='landing__content-2' id='sect-1'>
+          <div className='landing__content-2-title'>
+            <h1>Testimonios</h1>
+          </div>
+          <motion.div
+            className='container__cards'
+            initial={{}}
+            animate={{}}
+            transition={{}}
+          >
+            <TestimonyCard name={"María"} text={"No le tenía mucha fé a la página pero al final decidí intentar registrandome. Ni bien inicié aparecían un montón de publicaciones de empresas personas especialistas en TI. Conseguí bastantes entrevistas alrededor de 2 semanas. Siento que es una buena señal y que mi empleo como desarrolladora está cerca."}/>
+            <TestimonyCard name={"Osvaldo"} text={'Me encantó el sitio, hace mucho tiempo que buscaba una página que me permita buscar empleo como desarrollador de una forma sencilla, como nos permite brinda Anunciate Ya! La recomiendo un montón para aquellos desarrolladores "Trainee" y "Jr." '}/>
+            <TestimonyCard name={"Cristina"} text={'Terminé mi curso como Full Stack Developer en el stack MERN en Global Learning y comencé mi busqueda de una oportunidad laboral. Buscando, encontré Anunciate Ya! con la que conseguí el empleo que tanto buscaba en la industria del software.'}/> 
+          </motion.div>
+        </div>
 
         <div className='landing__content-4' id='sect-3'>
           <div className='landing__content-4-title'>
@@ -139,35 +154,6 @@ const LandingPage = () => {
               <a href="#">Ver más</a>
             </div>
           </div>
-        </div>
-
-        <div className='landing__content-2' id='sect-1'>
-          <div className='landing__content-2-title'>
-            <h1>Opiniones</h1>
-          </div>
-
-          <motion.div
-            className='container__cards'
-            initial={{}}
-            animate={{}}
-            transition={{}}
-          >
-            <div className='container__cards-card'>
-              <img src={cardImage} alt="Imagen" />
-              <h3>Titulo 1</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto blanditiis ea. Magni, quaerat illum nulla, sit possimus inventore dolorum laborum est odio doloribus vel nobis sapiente modi rem ipsa.</p>
-            </div>
-            <div className='container__cards-card'>
-              <img src={cardImage} alt="Imagen" />
-              <h3>Titulo 2</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto blanditiis ea. Magni, quaerat illum nulla, sit possimus inventore dolorum laborum est odio doloribus vel nobis sapiente modi rem ipsa.</p>
-            </div>
-            <div className='container__cards-card'>
-              <img src={cardImage} alt="Imagen" />
-              <h3>Titulo 3</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto blanditiis ea. Magni, quaerat illum nulla, sit possimus inventore dolorum laborum est odio doloribus vel nobis sapiente modi rem ipsa.</p>
-            </div>
-          </motion.div>
         </div>
 
         <div className='landing__content-5'>

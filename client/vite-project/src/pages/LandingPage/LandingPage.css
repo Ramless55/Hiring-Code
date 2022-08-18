@@ -27,10 +27,10 @@ a{
     font-family: inherit;
     cursor: pointer;
     transition: all 0.25s ease;
+    
 }
 
 .button__template:hover{
-    border-color: var(--color-bg-light);
     background-color: rgb(130, 169, 53);
 }
 
@@ -54,7 +54,7 @@ a{
 .landing__content-1{
     width: 100%;
     height: 100vh;
-    background-image: url(../../assets/img/landing_page.jpg);
+    background-image: url(../../assets/img/landing_section.jpg);
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -130,6 +130,7 @@ a:hover:after{
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    color: #f9f9f9;
 }
 
 .landing__content-login-register{
@@ -156,14 +157,24 @@ a:hover:after{
 .landing__content-2{
     color: rgb(60, 49, 49);
     width: 100%;
-    min-height: 90vh;
+    
     background-color: var(--color-bg-light);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
-    padding: 3rem ;
+    gap:2rem;
+    padding: 3rem 0 3rem 0;
+}
+
+.landing__content-2-title{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgb(114, 143, 56); */
+    
 }
 
 .container__cards{
@@ -174,36 +185,19 @@ a:hover:after{
     align-items: center;
 }
 
-.container__cards-card{
-    width: 23vw;
-    min-height: 55vh;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    border-radius: 7px;
-    box-shadow: 1.5px 1.5px 5px gray;
-}
-
-.container__cards-card
-img{
-    width: 21vw;
-}
-
-/* content 3 */
+/* content 3 ¿POR QUE NOSOTROS? */
 
 .landing__content-3{
     width: 100%;
-    
     display: flex;
     flex-direction: column;
+    border-top: groove 3px var(--color-button-2);
 }
 
 .landing__content-3-first{
     width: 100%;
     height: 100vh;
-    background-image: url(../../assets/img/cover.jpg);
+    background-image: url(../../assets/img/landing_page.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -283,7 +277,7 @@ div{
 .landing__content-4{
     background-color: #f9f9f9;
     width: 100%;
-    padding: 5rem 0 5rem 0 ;
+    padding: 0 0 5rem 0 ;
     box-shadow: 0 0 20px rgba(0,0,0,.5);
     color: var(--font-dark);
     display: flex;
