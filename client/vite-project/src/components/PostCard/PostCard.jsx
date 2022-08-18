@@ -20,17 +20,12 @@ const PostCard = (props) => {
 
     const handleDelete = () => {
         const response = deletePublications(props.id)
-        console.log(response)
         setChanger(!changer)
     }
 
     useEffect(() => {
         getAllPublications(props.setPublications)
     },[changer])
-
-    useEffect(() => {
-        console.log(colorStar)
-    },[colorStar])
 
     return (
         <div className='post__content'>

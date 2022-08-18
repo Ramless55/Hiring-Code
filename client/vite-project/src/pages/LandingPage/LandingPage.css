@@ -390,6 +390,15 @@ div{
     border-color: #f9f9f9;
 }
 
+#sect-1{
+    padding: 0;
+    margin-top: 48px;
+}
+
+#sect-3{
+    margin-top: 48px;
+}
+
 @media screen and (max-width: 768px){
     /* SECCION 2 */
     .landing__content-2{        

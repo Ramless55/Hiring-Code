@@ -2,6 +2,8 @@
     background-color: #d9dcd6;
     display: flex;
     flex-direction: column;
+    margin-top: 65px;
+    padding: 2%;
 }
 
 .container__profile .container__top {
@@ -43,11 +45,10 @@
     border: 3px solid var(--color-main);
     top: 0;
     left: 0;
-    width: 100%;
     object-fit: cover;
+    height: 50vh;
     border-radius: 50%;
     width: 25vw;
-    height: 50vh;
     
 }
 

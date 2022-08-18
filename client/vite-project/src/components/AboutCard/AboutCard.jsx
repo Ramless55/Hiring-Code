@@ -23,10 +23,6 @@ const AboutCard = ({ user }) => {
     }
 
     useEffect(() => {
-        console.log(info)
-    }, [info])
-
-    useEffect(() => {
         githubUser()
     }, [])
 

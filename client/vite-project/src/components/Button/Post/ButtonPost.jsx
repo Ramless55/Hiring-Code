@@ -172,12 +172,6 @@ export default function CustomizedDialogs(props) {
         return () => document.body.style.overflow = 'auto'
     }, [])
 
-    useEffect(() => {
-        // console.log(publicationData)
-    }, [publicationData])
-
-    // console.log(`ButtonPost ${publicationData.labels}`)
-
     return (
 
         <Box

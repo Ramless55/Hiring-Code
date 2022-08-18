@@ -11,11 +11,8 @@ export default function CheckboxesTags(props) {
 
     const handleLabel = (event) => {
         const value = event.target.value
-        console.log(value)
         props.setPublicationData((prev) => ({...prev, labels: [...prev, value]}))
     }
-    
-    console.log(`Label ${props.publicationData.labels}`)
     
     return (
         <Autocomplete

@@ -19,10 +19,6 @@ const HomeBody = (props) => {
     },[])
 
     useEffect(() => {
-        console.log(matriz)
-    },[matriz])
-
-    useEffect(() => {
         const subArrayCreator = () => {
             let i = 0;
             let subArray = [];
@@ -40,8 +36,6 @@ const HomeBody = (props) => {
         const subArray = subArrayCreator()
 
         setMatriz(subArray)
-
-        console.log('se publico')
 
     },[publications])
 

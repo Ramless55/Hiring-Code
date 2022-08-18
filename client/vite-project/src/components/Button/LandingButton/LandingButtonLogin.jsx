@@ -41,7 +41,6 @@ const handleLogin = async (event) => {
         ..._.omit(values, 'showPassword')
     })
     if (response.status === 'logged in') {
-        console.log(`Bienvenido ${values.userName}`);
         localStorage.setItem('Token', JSON.stringify(response.token))
         localStorage.setItem('User', JSON.stringify(response.user))
         handleClose()

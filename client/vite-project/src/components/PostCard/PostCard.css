@@ -118,17 +118,8 @@
 } */
 
 .post__content .post__top .post__left img {
-
-
-    /* min-width: 70%;
-    min-height: 100%; */
-
     width: 200px;
     height: 200px;
-
-    /* max-width: 70%;
-    max-height: 100%; */
-    /* height: 50%; */
     border: 2px grey solid;
     border-radius: 50%;
 }

@@ -33,13 +33,13 @@ const LandingPage = () => {
               transition={{ ease: "easeInOut", duration: 1 }}
             >
               <div>
-                <a href="#sect-1">¿Por qué nosotros?</a>
+                <a href="#sect-2">¿Por qué nosotros?</a>
               </div>
               <div>
-                <a href="#sect-2">Testimonios</a>
+                <a href="#sect-1">Testimonios</a>
               </div>
               <div>
-                <a href="#sect-3">Novedades</a>
+                <a href="#sect-3">Tecnologías</a>
               </div>
             </motion.div>
             <div className='landing__content-1-title'>
@@ -120,7 +120,7 @@ const LandingPage = () => {
             <TestimonyCard name={"Cristina"} text={'Terminé mi curso como Full Stack Developer en el stack MERN en Global Learning y comencé mi busqueda de una oportunidad laboral. Buscando, encontré Anunciate Ya! con la que conseguí el empleo que tanto buscaba en la industria del software.'}/> 
           </div>
         </div>
-    
+        
         <div className='landing__content-4' id='sect-3'>
           <div className='landing__content-4-title'>
             <div className='title-container-news'>

@@ -126,7 +126,6 @@ const EditProfile = () => {
 
     const handleClick = async (event) => {
         event.preventDefault();
-        console.log(user)
         const idUser = { id: user.id }
         const response = await putMyProfile(user.id, user)
         if (response?.status.toString() === 'updated') {
