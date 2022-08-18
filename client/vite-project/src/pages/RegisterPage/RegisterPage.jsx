@@ -99,27 +99,27 @@ const RegisterPage = () => {
         
         switch (key) {
             case 'name':
-                const regExp = new RegExp('^[a-zA-Z\\s]*$', 'gi')
+                const regExp = new RegExp(/^[a-zA-Z\\s]*$/, 'gi')
                 result = !regExp.test(data) || (data.length < 3)
                 break;
 
             case 'lastName':
-                const lastNameRegExp = new RegExp('^[a-zA-Z\\s]*$', 'gi')
+                const lastNameRegExp = new RegExp(/^[a-zA-Z\\s]*$/, 'gi')
                 result = !lastNameRegExp.test(data) || (data.length < 3)
                 break;
 
             case 'userName':
-                const userNameRegExp = new RegExp('^[a-zA-Z1-9]*$', 'gi')
+                const userNameRegExp = new RegExp(/^[a-zA-Z0-9]*$/, 'gi')
                 result = !userNameRegExp.test(data) || (data.length < 3)
                 break;
 
             case 'email':
-                const emailRegExp = new RegExp('^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$', 'gi')
+                const emailRegExp = new RegExp(/^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, 'gi')
                 result = !emailRegExp.test(data) || (data.length < 3)
                 break;
 
             case 'password':
-                const passRegExp = new RegExp(/(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}/, 'gi')
+                const passRegExp = new RegExp(/(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,15}$/, 'gi')
                 data === user.passwordRepeat
                     ? setError(prev => ({ ...prev, passwordRepeat: false }))
                     : setError(prev => ({ ...prev, passwordRepeat: true }))
@@ -136,7 +136,7 @@ const RegisterPage = () => {
                 break;
 
             case 'address':
-                const regExpAddress = new RegExp('^[a-zA-Z\\s]*$', 'gi')
+                const regExpAddress = new RegExp('^[a-zA-Z0-9\\s]*$', 'gi')
                 result = !regExpAddress.test(data) || (data.length < 3)
                 break;
 
@@ -217,7 +217,7 @@ const RegisterPage = () => {
             <div className={styles.formContainer}>
                 <div>
                     <h1 style={{ marginBottom: '1rem', color: 'black' }}>Registrate</h1>
-                    <p style={{color: 'green'}}>Se parte de nuestra comunidad ahora!</p>
+                    <p style={{color: 'var(--color-main2)'}}>Se parte de nuestra comunidad ahora!</p>
                     {errorRegister ? <p style={{ color: 'red' }}>*El Usuario, Email o Numero ya estan asociados a un usuario.</p> : ''}
                 </div>
                 <div className={styles.containerInputs}>
@@ -300,7 +300,7 @@ const RegisterPage = () => {
                             />
                         </FormControl>
 
-                        {error.password ? <p className={styles.error}>La contraseña debe contener 1 Minuscula 1 Mayuscula 1 Numero 1 Caracter Especial y 8 Caracteres de longitud</p> : ''}
+                        {error.password ? <p className={styles.error}>La contraseña debe contener 1 Minuscula 1 Numero 1 Caracter Especial y de 8 a 15 Caracteres de longitud</p> : ''}
 
                         <FormControl variant="outlined" sx={{ marginTop: '5%' }}>
                             <InputLabel htmlFor="outlined-adornment-password" error={error.passwordRepeat}>*Repetir Contraseña</InputLabel>
@@ -350,6 +350,8 @@ const RegisterPage = () => {
                         <TextField
                             sx={{ marginTop: '5%' }}
                             id="country"
+                            error={error.country}
+                            helperText={error.country ? 'No se permiten numeros o simbolos' : ''}
                             label="*Pais"
                             variant="outlined"
                             onChange={handleInputChange('country')}
@@ -358,6 +360,8 @@ const RegisterPage = () => {
                         <TextField
                             sx={{ marginTop: '5%' }}
                             id="address"
+                            error={error.address}
+                            helperText={error.address ? 'No se permiten simbolos' : ''}
                             label="*Direccion"
                             variant="outlined"
                             onChange={handleInputChange('address')}
@@ -372,9 +376,9 @@ const RegisterPage = () => {
                         sx={{
                             width: '15vw',
                             height: '7vh',
-                            bgcolor: 'green',
+                            bgcolor: 'var(--color-main2)',
                             '&:hover': {
-                                bgcolor: "rgba(0, 128, 0, .9)",
+                                bgcolor: "var(--color-main)",
                             }
                         }}
                         variant="contained"

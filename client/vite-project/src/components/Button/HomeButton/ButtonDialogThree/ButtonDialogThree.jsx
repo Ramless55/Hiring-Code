@@ -90,11 +90,11 @@ export default function CustomizedDialogs() {
                     </Typography>
                     <Typography gutterBottom>
                         ¡Sé un profesional a gran escala! Según nuestras estadísticas de este último año
-                        YoungEnterprising aumento las posibilidades de los profesionales que confían en nosotros
+                        HiringCode aumento las posibilidades de los profesionales que confían en nosotros
                         en más de un 87%.
                     </Typography>
                     <Typography gutterBottom>
-                        Sé profesional... sé #YoungEnterprising !
+                        Sé profesional... sé #HiringCode !
                     </Typography>
                 </DialogContent>
                 <DialogActions>

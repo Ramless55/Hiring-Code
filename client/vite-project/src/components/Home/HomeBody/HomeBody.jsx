@@ -19,7 +19,7 @@ const HomeBody = (props) => {
     },[])
 
     useEffect(() => {
-        console.log('estado actaulizado')
+        console.log(matriz)
     },[matriz])
 
     useEffect(() => {
@@ -41,6 +41,8 @@ const HomeBody = (props) => {
 
         setMatriz(subArray)
 
+        console.log('se publico')
+
     },[publications])
 
     useEffect(() => {
@@ -61,6 +63,8 @@ const HomeBody = (props) => {
                             matriz[actualPage-1].map((post) => {
                                 return (<PostCard 
                                 image={post.created_by.image}
+                                price={post.price}
+                                title={post.title}
                                 user={post.created_by.userName}
                                 name={post.created_by.name}
                                 lastName={post.created_by.lastName}
@@ -68,6 +72,8 @@ const HomeBody = (props) => {
                                 description={post.description}
                                 labels={post.labels}
                                 createdDate={post.created_date}
+                                id={post._id}
+                                setPublications={setPublications}
                                 />)
                             })
                         ) : (

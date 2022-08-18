@@ -58,6 +58,8 @@ BootstrapDialogTitle.propTypes = {
 export default function CustomizedDialogs(props) {
     const [open, setOpen] = useState(false);
     const [date, setDate] = useState(new Date())
+    const [disabled, setDisabled] = useState(true)
+    const [changer, setChanger] = useState(true)
     const [publicationData, setPublicationData] = useState({
         created_by:{},
         title: "",
@@ -68,35 +70,35 @@ export default function CustomizedDialogs(props) {
     })
     const [error, setError] = useState({
         title: false,
-        description: false,
-        created_date: false,
         price: false,
-        labels: false,
+        description: false
     })
     
+    const handleButtonDisable = () => {
+        let result = true
+
+        result = result && !Object.values(error).some(error => error)
+
+        result = result && Object.values(publicationData).every(text => text !== '')
+
+        return !result
+    }
 
     const checkData = (key, data) => {
         let result = false;
         
         switch (key) {
             case 'title':
-
-                break;
-
-            case 'description':
-
-                break;
-
-            case 'created_date':
-
+                result =  (data.length < 3) || (data.length > 30)
                 break;
 
             case 'price':
-
+                const regExpPrice = new RegExp('^[0-9]*$', 'gi')
+                result = !regExpPrice.test(data) || (data.length < 1)
                 break;
 
-            case 'labels':
-
+            case 'description':
+                result = (data.length < 20) || (data.length > 600)
                 break;
 
             default:
@@ -110,6 +112,7 @@ export default function CustomizedDialogs(props) {
         ? alert("¡Inicia sesion para poder publicar ahora!") 
         : setOpen(true);
     };
+
     const handleClose = () => {
         setOpen(false);
     };
@@ -119,8 +122,9 @@ export default function CustomizedDialogs(props) {
         postPublications(publicationData) 
         : ''
 
-        getAllPublications(props.setPublications)
+        setChanger(!changer)
     }
+
     const handleInputChange = (key) => (event) => {
         setPublicationData((prev) => {
             return {
@@ -135,6 +139,14 @@ export default function CustomizedDialogs(props) {
             }
         })
     }
+
+    useEffect(() => {
+        setDisabled(() => { return handleButtonDisable() })
+    }, [error])
+
+    useEffect(() => {
+        getAllPublications(props.setPublications)
+    },[changer])
 
     useEffect(() => {
         let day = date.getDate()
@@ -197,6 +209,8 @@ export default function CustomizedDialogs(props) {
                             <TextField
                                 fullWidth
                                 required
+                                error={error.title}
+                                helperText={error.title ? 'Ingrese mas de 2 caracteres y menos de 21' : ''}
                                 id="title"
                                 label="Titulo"
                                 autoFocus
@@ -209,6 +223,8 @@ export default function CustomizedDialogs(props) {
                                 sx={{ marginTop: '1rem' }}
                                 fullWidth
                                 required
+                                error={error.price}
+                                helperText={error.price ? 'Solo se aceptan numeros.' : ''}
                                 id="price"
                                 label="Precio por hora"
                                 autoFocus
@@ -220,6 +236,7 @@ export default function CustomizedDialogs(props) {
                             <TextField
                                 sx={{ marginTop: '1rem' }}
                                 id="description"
+                                helperText='Ingrese 20 caracteres o mas.'
                                 label={publicationData.description !== "" ? publicationData.description.length + '/600' : 'Ingrese una descripcion *'}
                                 multiline
                                 minRows={12}
@@ -235,7 +252,7 @@ export default function CustomizedDialogs(props) {
                     </DialogContent>
                     <DialogActions>
                         <Button autoFocus onClick={handleClose}>
-                        <Button variant="contained" color="success" onClick={handleClick} disabled={!props.logged}>
+                        <Button variant="contained" color="success" onClick={handleClick} disabled={disabled}>
                                 Crear nueva publicación
                             </Button>
                         </Button>

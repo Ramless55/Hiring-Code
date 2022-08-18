@@ -32,18 +32,18 @@ usamos modules solo para esta pagina podrias hacer eso  */
 
 .filter__container .filter__section .language,
 .filter__container .filter__section .footer__section-subheader {
-    border-bottom: #9a9a9a solid 1px
+    border-bottom: #9a9a9a solid 1px;
 }
 
 .filter__container .filter__section .language a {
     font-size: 16px;
     color: black;
     text-decoration: none;
-    background-image: linear-gradient(currentColor, currentColor);
+    background-image: linear-gradient(var(--color-main), var(--color-main2));
     background-position: 0% 100%;
     background-repeat: no-repeat;
     background-size: 0% 2px;
-    transition: background-size .3s;
+    transition: background-size .3s ;
 }
 
 .filter__container .filter__section .language a:hover,

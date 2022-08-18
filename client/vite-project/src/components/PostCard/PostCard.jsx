@@ -1,10 +1,36 @@
-import React from 'react'
+import {useState, useEffect} from 'react'
 import './PostCard.css'
 import profile from '../../assets/svg/profile.svg'
 import Rating from './Rating/Rating'
 import StarIcon from '@mui/icons-material/Star';
+import DeleteIcon from '@mui/icons-material/Delete'
+import IconButton from '@mui/material/IconButton';
+import {deletePublications, getAllPublications} from '../../services/axiosServices'
 
 const PostCard = (props) => {
+
+    const [colorStar, setColorStar] = useState('')
+    const [activeStar, setActiveStar] = useState(true)
+    const [changer, setChanger] = useState(true)
+
+    const handleStar = async () => {
+        setActiveStar(!activeStar)
+        setColorStar(activeStar ? '#f1ca25' : 'grey')
+    }
+
+    const handleDelete = () => {
+        const response = deletePublications(props.id)
+        console.log(response)
+        setChanger(!changer)
+    }
+
+    useEffect(() => {
+        getAllPublications(props.setPublications)
+    },[changer])
+
+    useEffect(() => {
+        console.log(colorStar)
+    },[colorStar])
 
     return (
         <div className='post__content'>
@@ -22,18 +48,34 @@ const PostCard = (props) => {
 
                     <div className="infoUser__container">
                         <div className="container__top">
-                            <StarIcon />
+
+                            <IconButton aria-label='like' onClick={handleStar}>
+                            <StarIcon sx={{ color: `${colorStar}` }}/>
+                            </IconButton>
+
+                            <IconButton aria-label='delete' onClick={handleDelete}>
+                                <DeleteIcon sx={{
+                                    color: 'grey',
+                                    '&:hover': {
+                                        color: 'black'
+                                    }
+                                    }} />
+                            </IconButton>
                         </div>
 
                         <div className="container__bottom">
                             <img className='phone-image' src={props.image}/>
+                            <p className="title">{props.title} |</p>
                             <p className="infoUser__name">{props.name} {props.lastName}</p>
                             <p className="infoUser__location">{props.country}</p>
                         </div>
                     </div>
-
+                
                     <div className='post__description'>
                         <p className='description'>{props.description}</p>
+                    </div>
+                    <div className='price'>
+                        <p>$ {props.price}/hs</p>
                     </div>
                 </div>
             </div>

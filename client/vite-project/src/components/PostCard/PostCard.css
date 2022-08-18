@@ -34,6 +34,12 @@
     width: 50vw;
 } */
 
+.price{
+    font-weight: bold;
+    text-align: end;
+    
+}
+
 .post__content .post__description {
     width: 35vw;
     min-height: 15vh;
@@ -52,7 +58,8 @@
 }
 
 .post__content .post__description p {
-    margin: 10px 0;
+    margin: 10  px 0;
+    font-size: 1.1rem;
     text-align: justify;
     justify-content: center;
     align-items: center;
@@ -84,8 +91,8 @@
 }
 
 .post__content .post__top .post__right .infoUser__container .container__bottom p {
-    margin: 0 5px;
-    font-size: 20px;
+    margin: 0 2px;
+    font-size: 1.7rem;
 }
 
 .post__content .post__top .post__left {
@@ -126,6 +133,10 @@
     border-radius: 50%;
 }
 
+.user{
+    font-size: 1.2rem;
+}
+
 
 .post__content .post__bottom .skill_container {
     flex-wrap: wrap;
@@ -138,17 +149,17 @@
 .post__content .post__bottom .skill_container .skill_container-post {
     --skill-height: 1.5rem;
     --skill-color: whitesmoke;
-    --skill-bg: #1b4332;
+    --skill-bg: var(--color-main2);
     display: inline-flex;
     width: fit-content;
     align-items: center;
     height: var(--skill-height);
     margin: 0 5px 10px 0;
     padding: 0 10px;
-    color: var(--skill-color);
+    color: white;
     background-color: var(--skill-bg);
     border-radius: 12px;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1;
     cursor: default;
     cursor: pointer

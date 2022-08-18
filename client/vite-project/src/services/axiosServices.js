@@ -44,6 +44,19 @@ export const getAllPublications = async (setPublication) => {
     return response
 };
 
+export const deletePublications = async (id) => {
+    const response = axios
+        .delete(`http://localhost:8080/api/publication/${id}`,{
+            headers: {
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem("Token"))}`,
+                'Content-Type': 'application/json'
+            }
+        })
+            .then((res) => res)
+            .catch((err) => err);
+    return response
+};
+
 export const getMyProfile = async ({ setUser, userId }) => {
     const response = axios
         .get(`http://localhost:8080/api/user/${userId}`, {
@@ -75,3 +88,7 @@ export const putMyProfile = async (userId, data) => {
 
     return response
 };
+
+
+
+
