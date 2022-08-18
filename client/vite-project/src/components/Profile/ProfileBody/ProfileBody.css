@@ -10,18 +10,20 @@
 }
 
 .container__profile .container__top .top__row {
-    background: #90a955;
+    background: #64dfa5;
     border-radius: 10px;
     padding: 20px;
     margin: 20px;
     width: 70vw;
     display: flex;
+    border: 5px dashed #168aad;
 }
 
 .container__profile .container__top .top__row .top__left {
     width: 30vw;
     display: flex;
     justify-content: center;
+    
 }
 
 .container__profile .container__top .top__left .left__profile {
@@ -31,18 +33,21 @@
     align-items: center;
     width: 25vw;
     height: 50vh;
-    border-radius: 50%;
-    border: 7px double whitesmoke;
+    /* border-radius: 50%; */
     overflow: hidden;
     margin: 20px 0 10px 0; 
 }
 
 .container__profile .container__top .top__left .left__profile img {
     position: absolute;
+    border: 3px solid rgba(197, 196, 196, 0.548);
     top: 0;
     left: 0;
     width: 100%;
     object-fit: cover;
+    border-radius: 50%;
+    width: 25vw;
+    height: 50vh;
 }
 
 /* ------------------------------------ [ INFO USER ] -------------------------------- */
@@ -51,15 +56,22 @@
     margin-left: 10px;
 }
 
+.container__profile .container__top .top__row .top__right .top__right-title {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
 .container__profile .container__top .top__row .top__right .right__infoUser {
-    background: #d9dcd6;
+    background: whitesmoke;
     padding: 30px;
     color: #11151c;
     border-radius: 10px;
+    /* border: 5px dashed #168aad; */
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .container__profile .container__top .top__row .top__right .right__infoUser p {
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 /* ----------------------------------------------------------------------------------- */
@@ -67,8 +79,13 @@
 .container__profile .container__bottom .bottom__row {
     margin: auto;
     width: 70vw;
-    background: #90a955;
+    background: #64dfa5;
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
+    border: 5px dashed #168aad;
+}
+
+.container__profile .container__bottom .bottom__row p {
+    font-size: 20px
 }
