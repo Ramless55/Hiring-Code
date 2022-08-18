@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import cardImage from '../../assets/img/card_image.jpg'
 import AnimatedPage from '../../components/AnimatedPage/AnimatedPage'
 import LoginButton from '../../components/Button/LandingButton/LandingButtonLogin'
 import RegisterButton from '../../components/Button/LandingButton/LandingButtonRegister'
 import './LandingPage.css'
-import landing_news from '../../assets/img/landing_news.jpg' 
 import TestimonyCard from '../../components/TestimonyCard/TestimonyCard'
-import RatingTestimony from '../../components/RatingTestimony/RatingTestimony'
+import TechCard from '../../components/TechCard/TechCard'
+import reactIcon from '../../assets/svg/About/react-icon.svg'
+import mongoIcon from '../../assets/svg/About/mongo-icon.svg'
+import nodeIcon from '../../assets/svg/About/node-icon.svg'
 
 const LandingPage = () => {
 
@@ -32,10 +33,10 @@ const LandingPage = () => {
               transition={{ ease: "easeInOut", duration: 1 }}
             >
               <div>
-                <a href="#sect-1">Sección 1</a>
+                <a href="#sect-1">¿Por qué nosotros?</a>
               </div>
               <div>
-                <a href="#sect-2">Sección 2</a>
+                <a href="#sect-2">Testimonios</a>
               </div>
               <div>
                 <a href="#sect-3">Novedades</a>
@@ -68,7 +69,6 @@ const LandingPage = () => {
               <div className='container__button'>
                 <RegisterButton name={"Registrarme"} />
                 <LoginButton name={"Ingresar"}/>
-                
               </div>
             </motion.div>
           </div>
@@ -87,7 +87,6 @@ const LandingPage = () => {
           <motion.div className='landing__content-3-second' id='info-target'
             initial={{ opacity: 0, overflow: "hidden" }}
             whileInView={{ opacity: 1, overflow: "hidden" , transition: { ease: 'easeInOut', duration: 0.5 }}}
-            viewport={{ once: true , amount: 0.8}}
           >
             <div className='content-3-second-box1'>
               <motion.div
@@ -115,44 +114,24 @@ const LandingPage = () => {
           <div className='landing__content-2-title'>
             <h1>Testimonios</h1>
           </div>
-          <motion.div
-            className='container__cards'
-            initial={{}}
-            animate={{}}
-            transition={{}}
-          >
-            <TestimonyCard name={"María"} text={"No le tenía mucha fé a la página pero al final decidí intentar registrandome. Ni bien inicié aparecían un montón de publicaciones de empresas personas especialistas en TI. Conseguí bastantes entrevistas alrededor de 2 semanas. Siento que es una buena señal y que mi empleo como desarrolladora está cerca."}/>
-            <TestimonyCard name={"Osvaldo"} text={'Me encantó el sitio, hace mucho tiempo que buscaba una página que me permita buscar empleo como desarrollador de una forma sencilla, como nos permite brinda Anunciate Ya! La recomiendo un montón para aquellos desarrolladores "Trainee" y "Jr." '}/>
+          <div className='container__cards'>
+            <TestimonyCard name={"María"} text={"No le tenía mucha fé a la página pero al final decidí intentar registrandome. Ni bien inicié aparecían un montón de publicaciones de empresas y personas especialistas en TI. Conseguí bastantes entrevistas en 2 semanas. Siento que es una buena señal y que mi empleo como desarrolladora está cerca."}/>
+            <TestimonyCard name={"Osvaldo"} text={'Me encantó el sitio, hace mucho tiempo que buscaba una página que me permitiera buscar empleo como desarrollador de una forma sencilla, como nos permite brinda Anunciate Ya! La recomiendo un montón para aquellos desarrolladores "Trainee" y "Jr." '}/>
             <TestimonyCard name={"Cristina"} text={'Terminé mi curso como Full Stack Developer en el stack MERN en Global Learning y comencé mi busqueda de una oportunidad laboral. Buscando, encontré Anunciate Ya! con la que conseguí el empleo que tanto buscaba en la industria del software.'}/> 
-          </motion.div>
+          </div>
         </div>
-
+    
         <div className='landing__content-4' id='sect-3'>
           <div className='landing__content-4-title'>
             <div className='title-container-news'>
-              <h1>Novedades</h1>
+              <h1>Tecnologías</h1>
             </div>
             <div className='title-image'></div>
           </div>
           <div className='landing__content-4-container'>
-            <div className='content-4-card-animation'>
-              <img src={cardImage} alt="Imagen" />
-              <h3>Titulo 1</h3>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus nesciunt neque, itaque quasi saepe voluptate doloribus quia qui omnis exercitationem incidunt magnam debitis molestias odio deleniti dolorem repudiandae iusto. Dolores.</p>
-              <a href="#">Ver más</a>
-            </div>
-            <div className='content-4-card-animation'>
-              <img src={cardImage} alt="Imagen" />
-              <h3>Titulo 2</h3>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus nesciunt neque, itaque quasi saepe voluptate doloribus quia qui omnis exercitationem incidunt magnam debitis molestias odio deleniti dolorem repudiandae iusto. Dolores.</p>
-              <a href="#">Ver más</a>
-            </div>
-            <div className='content-4-card-animation'>
-              <img src={cardImage} alt="Imagen" />
-              <h3>Titulo 3</h3>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus nesciunt neque, itaque quasi saepe voluptate doloribus quia qui omnis exercitationem incidunt magnam debitis molestias odio deleniti dolorem repudiandae iusto. Dolores.</p>
-              <a href="#">Ver más</a>
-            </div>
+            <TechCard image={reactIcon} title={"React"} page={"https://es.reactjs.org/"}/>
+            <TechCard image={mongoIcon} title={"MongoDB"} page={"https://www.mongodb.com/es"}/>
+            <TechCard image={nodeIcon} title={"NodeJS"} page={"https://nodejs.org/es/"}/>
           </div>
         </div>
 
