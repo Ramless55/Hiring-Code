@@ -19,19 +19,18 @@ a{
 .button__template{
     background-color: var(--color-button-2);
     color: #f9f9f9;
-    border-radius: 10px;
     border-radius: 8px;
-    border: 2px solid transparent;
     padding: 0.6em 1.2em;
+    border: 2px solid transparent;
     font-size: 1em;
     font-weight: bold;
     font-family: inherit;
     cursor: pointer;
     transition: all 0.25s ease;
+    
 }
 
 .button__template:hover{
-    border-color: var(--color-bg-light);
     background-color: rgb(130, 169, 53);
 }
 
@@ -47,6 +46,7 @@ a{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #f9f9f9;
 }
 
 /* -------- SECTION 1 -------- */
@@ -54,12 +54,13 @@ a{
 .landing__content-1{
     width: 100%;
     height: 100vh;
-    background-image: url(../../assets/img/landing_page.jpg);
+    background-image: url(../../assets/img/landing_section.jpg);
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
+    box-shadow: 0 10px 10px rgba(0,0,0);
 }
 
 .filter-content-1{
@@ -129,6 +130,7 @@ a:hover:after{
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    color: #f9f9f9;
 }
 
 .landing__content-login-register{
@@ -138,7 +140,6 @@ a:hover:after{
     position: absolute;
     bottom: 0;
     right: 0;
-    margin-bottom: -2.52vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -156,14 +157,24 @@ a:hover:after{
 .landing__content-2{
     color: rgb(60, 49, 49);
     width: 100%;
-    min-height: 90vh;
+    
     background-color: var(--color-bg-light);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
-    padding: 3rem ;
+    gap:2rem;
+    padding: 3rem 0 3rem 0;
+}
+
+.landing__content-2-title{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgb(114, 143, 56); */
+    
 }
 
 .container__cards{
@@ -174,36 +185,19 @@ a:hover:after{
     align-items: center;
 }
 
-.container__cards-card{
-    width: 23vw;
-    min-height: 55vh;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    border-radius: 7px;
-    box-shadow: 1.5px 1.5px 5px gray;
-}
-
-.container__cards-card
-img{
-    width: 21vw;
-}
-
-/* content 3 */
+/* content 3 ¿POR QUE NOSOTROS? */
 
 .landing__content-3{
     width: 100%;
-    height: 125vh;
     display: flex;
     flex-direction: column;
+    border-top: groove 3px var(--color-button-2);
 }
 
 .landing__content-3-first{
     width: 100%;
-    height: 75vh;
-    background-image: url(../../assets/img/cover.jpg);
+    height: 100vh;
+    background-image: url(../../assets/img/landing_page.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -227,9 +221,9 @@ div{
     width: 60%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .landing__content-3-second{
@@ -247,6 +241,7 @@ div{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 50%;
 }
 
 .content-3-second-box1
@@ -265,6 +260,7 @@ div{
     justify-content: center;
     background-color: rgb(33, 141, 242);
     color: #f9f9f9;
+    width: 50%;
 }
 
 .content-3-second-box2
@@ -281,13 +277,45 @@ div{
 .landing__content-4{
     background-color: #f9f9f9;
     width: 100%;
-    padding: 5rem 0 ;
+    padding: 0 0 5rem 0 ;
+    box-shadow: 0 0 20px rgba(0,0,0,.5);
     color: var(--font-dark);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 2rem;
+    
+}
+
+.landing__content-4-title{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0 3px 10px gray;
+    
+}
+
+.title-container-news{
+    font-size: 2rem;
+    background-color: rgba(0,0,0,.8);
+    width: 50%;
+    height: 100%;
+    padding: 1rem 2rem;
+    text-align: center;
+    color: rgb(155, 196, 93);
+    box-shadow: 0 3px 10px gray;
+}
+
+.title-image{
+    content: "";
+    background-image: url(../../assets/img/landing_news.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: 23.1vh;
+    
 }
 
 .landing__content-4-container{
