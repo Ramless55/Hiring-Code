@@ -80,7 +80,6 @@ const LoginPage = () => {
 
                     <Button onClick={handleClick} variant="ingresar" sx={{ border: '.5px solid black' }}>Ingresar</Button>
 
-
                 </div>
             </div>
         </Box>

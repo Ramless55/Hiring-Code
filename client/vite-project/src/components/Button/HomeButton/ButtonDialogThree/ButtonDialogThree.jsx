@@ -94,7 +94,7 @@ export default function CustomizedDialogs() {
                         en más de un 87%.
                     </Typography>
                     <Typography gutterBottom>
-                        Sé profesional... sé #YoungEnterprising !
+                        Sé profesional... sé #HiringCode !
                     </Typography>
                 </DialogContent>
                 <DialogActions>
