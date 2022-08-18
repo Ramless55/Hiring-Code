@@ -4,7 +4,6 @@ import Welcome from '../../components/Home/Welcome/Welcome'
 import AnimatedPage from '../../components/AnimatedPage/AnimatedPage'
 import './HomePage.css'
 
-
 const HomePage = () => {
     const [logged, setLogged] = useState(false)
     const [user, setUser] = useState({})
