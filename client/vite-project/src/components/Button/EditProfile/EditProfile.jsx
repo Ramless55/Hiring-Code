@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import SaveIcon from '@mui/icons-material/Save';
 
 import * as React from 'react';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -153,8 +154,12 @@ const EditProfile = () => {
                     borderColor: "white"
                 }
             }}>
-
-                Editar información personal</Button>
+                <EditOutlinedIcon sx={{
+                    position:'relative',
+                    bottom:'1px',
+                    left:'-1px'
+                }}/>
+                Editar Informacion personal</Button>
             <Dialog
                 open={open}
                 TransitionComponent={Transition}
@@ -165,7 +170,7 @@ const EditProfile = () => {
                 <DialogTitle sx={{
                     display: "flex",
                     justifyContent: "center"
-                }}>Edite su informacion de Usuario</DialogTitle>
+                }}>Edite su informacion Personal</DialogTitle>
                 <hr />
                 <DialogContent
                     sx={{
@@ -233,7 +238,7 @@ const EditProfile = () => {
                     <TextField
                         sx={{ marginTop: '1rem' }}
                         id="address"
-                        label="Direecion"
+                        label="Dirección"
                         value={user.address}
                         variant="outlined"
                         InputLabelProps={{
@@ -243,11 +248,9 @@ const EditProfile = () => {
                     />
 
                     <TextField
-                        // error={error.userName}
-                        // helperText={error.userName ? 'No se permiten simbolos' : ''}
                         sx={{ marginTop: '1rem' }}
                         id="userName"
-                        label="Iamgen URL"
+                        label="Imagen URL"
                         value={user.image}
                         InputLabelProps={{
                             shrink: true,

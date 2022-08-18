@@ -84,6 +84,7 @@ a{
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+    margin-top: 2rem;
 }
 
 .section-header
